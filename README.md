@@ -1,6 +1,6 @@
 # Chalk
 
-Chalk learning environment
+Chalk Academic environment
 
 Build Django:
 
