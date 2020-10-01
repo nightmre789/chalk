@@ -20,7 +20,7 @@ Run Django:
 cd backend
 **Windows:** source env/Scripts/activate
 **Mac:** source env/bin/activate
-py manage.py runserver
+python manage.py runserver
 ```
 
 Build/Run React:
