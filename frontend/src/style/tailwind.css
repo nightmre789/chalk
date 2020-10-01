@@ -1,0 +1,34 @@
+/* purgecss start ignore */
+
+.body {
+   @apply antialiased;
+}
+
+@tailwind base;
+
+@font-face {
+   font-family: "FFMark";
+   src: url("../assets/fonts/FontFont_FF.Mark.Pro.Bold.otf") format("opentype");
+   font-weight: bold;
+   font-style: normal;
+}
+
+@font-face {
+   font-family: "FFMark";
+   src: url("../assets/fonts/FontFont_FF.Mark.Pro.Medium.otf")
+      format("opentype");
+   font-weight: normal;
+   font-style: normal;
+}
+
+.font-ff {
+   font-family: FFMark;
+}
+
+/* App */
+
+@tailwind components;
+
+/* purgecss end ignore */
+
+@tailwind utilities;
