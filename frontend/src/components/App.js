@@ -14,11 +14,11 @@ export default _ => {
    ]);
 
    return (
-      <div className="h-screen overflow-y-hidden bg-indigo-800 -to-r md:p-5">
+      <div className="h-screen overflow-y-hidden bg-blue-800 -to-r md:p-5">
          <div className="flex h-screen overflow-y-hidden shadow-lg md:rounded-ui md:h-padded">
-            <nav className="flex flex-col flex-none w-1/6 bg-gray-200">
+            <nav className="flex flex-col w-1/6 bg-gray-200">
                <SVG
-                  className="w-full p-3 pt-4 text-pink-500 border-r-2 border-gray-300 cursor-pointer fill-current"
+                  className="w-full p-3 pt-4 text-gray-800 border-r-2 border-gray-300 cursor-pointer fill-current"
                   src={require("../assets/images/logo.svg")}
                />
                <ul className="pr-4 border-r-2 border-gray-300 gap-y-1 md:pt-2 lg:pt-4">
@@ -33,7 +33,7 @@ export default _ => {
                   ))}
                </ul>
                <div className="flex-1 border-r-2 border-gray-300"></div>
-               <div className="flex items-center py-4 pl-6 font-semibold text-center text-gray-200 bg-pink-600 border-r-2 border-pink-700 cursor-pointer group lg:text-left lg:gap-x-3 hover:bg-pink-700">
+               <div className="flex items-center py-4 pl-6 font-semibold text-center text-gray-200 border-r-2 border-teal-400 cursor-pointer bg-gradient-to-r from-blue-800 to-teal-300 group lg:text-left lg:gap-x-3 hover:bg-blue-800">
                   <SVG
                      src={require("../assets/icons/dashboard.svg")}
                      className="fill-current"
