@@ -23,7 +23,13 @@ cd backend
 python manage.py runserver
 ```
 
-Build/Run React:
+Build React:
+
+```
+cd frontend
+npm install
+```
+Run React:
 
 ```
 cd frontend
