@@ -53,9 +53,12 @@
 
 @layer components {
    .nav-button {
-      @apply flex items-center justify-center w-12 h-12 transition duration-500 ease-out transform bg-white rounded-full cursor-pointer;
+      @apply flex items-center justify-center w-12 h-12 transition duration-500 ease-out transform bg-white rounded-full shadow-lg cursor-pointer;
    }
    .nav-button:hover {
       @apply scale-125;
    }
+}
+body {
+   overscroll-behavior-y: none;
 }

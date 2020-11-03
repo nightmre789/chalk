@@ -1,12 +1,15 @@
 import React, { useState, useRef, useEffect } from "react";
 import { TweenMax, Power3 } from "gsap";
+import SVG from "react-inlinesvg";
+
+import useWindowSize from "../hooks/useWindowSize";
 
 import NavItem from "./NavItem";
 import Message from "./Message";
 
-import SVG from "react-inlinesvg";
-
 export default _ => {
+   const size = useWindowSize();
+
    const [activePage, setActivePage] = useState(0);
    const [navItems] = useState([
       { label: "Dashboard", icon: "dashboard" },
@@ -18,11 +21,24 @@ export default _ => {
 
    let appRef = useRef(null);
    let navSelect = useRef(null);
+   let skewScroll = useRef();
 
    useEffect(_ => {
       TweenMax.to(appRef, 0, { css: { visibility: "visible" } });
-      console.log(navSelect);
    }, []);
+
+   useEffect(_ => {
+      requestAnimationFrame(_ => skewScrolling());
+   }, []);
+
+   useEffect(
+      _ => {
+         document.body.style.height = `${
+            skewScroll.current.getBoundingClientRect().height
+         }px`;
+      },
+      [size.height]
+   );
 
    const navClick = (e, index) => {
       setActivePage(index);
@@ -37,9 +53,32 @@ export default _ => {
       });
    };
 
+   const skewConfigs = {
+      ease: 0.1,
+      current: 0,
+      previous: 0,
+      rounded: 0,
+   };
+
+   const skewScrolling = _ => {
+      skewConfigs.current = window.scrollY;
+      skewConfigs.previous +=
+         (skewConfigs.current - skewConfigs.previous) * skewConfigs.ease;
+      skewConfigs.rounded = Math.round(skewConfigs.previous * 100) / 100;
+
+      const difference = skewConfigs.current - skewConfigs.rounded;
+      const acceleration = difference / size.width;
+      const velocity = +acceleration;
+      const skew = velocity * 7.5;
+
+      skewScroll.current.style.transform = `translate3d(0, -${skewConfigs.rounded}px, 0) skewY(${skew}deg)`;
+
+      requestAnimationFrame(_ => skewScrolling());
+   };
+
    return (
       <div
-         className="h-screen overflow-y-hidden bg-gray-cool-200 md:p-4"
+         className="fixed w-full h-screen overflow-y-hidden bg-gray-cool-200 md:p-4"
          ref={e => (appRef = e)}
       >
          <div className="flex h-screen p-6 overflow-y-hidden shadow-lg bg-gray-cool-050 md:h-padded">
@@ -64,8 +103,8 @@ export default _ => {
                   ))}
                </ul>
             </nav>
-            <div className="flex flex-col flex-1 px-5 overflow-y-auto">
-               <div className="flex flex-row-reverse items-center h-24 gap-x-6">
+            <div className="flex flex-col flex-1 px-5">
+               <div className="z-20 flex flex-row-reverse items-center h-24 gap-x-6">
                   <div className="nav-button">
                      <img
                         className="rounded-full"
@@ -80,9 +119,12 @@ export default _ => {
                      />
                   </div>
                </div>
-               <div className="flex flex-col flex-1 overflow-y-auto border-t rounded border-gray-cool-200">
+               <div
+                  ref={skewScroll}
+                  className="flex flex-col flex-1 mt-5 border-t rounded border-gray-cool-200"
+               >
                   <div className="bg-white border-b">
-                     <div className="h-20 ">top bar</div>
+                     <div className="h-20">top bar</div>
                   </div>
                   {[...Array(50)].map((x, i) => (
                      <Message key={i} />
