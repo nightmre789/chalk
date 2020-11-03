@@ -16,13 +16,13 @@ export default props => {
                ".svg")}
             className={
                "fill-current z-10 " +
-               (props.active ? "" : " group-hover:text-indigo-500")
+               (props.active ? "" : " group-hover:text-indigo-vivid-500")
             }
          />
          <p
             className={
                "flex-1 font-ff z-10 " +
-               (props.active ? "" : " group-hover:text-indigo-500")
+               (props.active ? "" : " group-hover:text-indigo-vivid-500")
             }
          >
             {props.label}
