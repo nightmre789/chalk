@@ -50,3 +50,12 @@
 /* purgecss end ignore */
 
 @tailwind utilities;
+
+@layer components {
+   .nav-button {
+      @apply flex items-center justify-center w-12 h-12 transition duration-500 ease-out transform bg-white rounded-full cursor-pointer;
+   }
+   .nav-button:hover {
+      @apply scale-125;
+   }
+}

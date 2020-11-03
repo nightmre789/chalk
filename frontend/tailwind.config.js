@@ -492,6 +492,8 @@ module.exports = {
    },
    variants: {
       textColor: ["responsive", "hover", "focus", "group-hover"],
+      zIndex: ["responsive", "hover"],
+      borderWidth: ["responsive", "hover"],
    },
    plugins: [],
    future: {
