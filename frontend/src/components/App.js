@@ -1,4 +1,6 @@
-import React, { useState } from "react";
+import React, { useState, useRef, useEffect } from "react";
+import { TweenMax, Power3 } from "gsap";
+
 import NavItem from "./NavItem";
 
 import SVG from "react-inlinesvg";
@@ -13,35 +15,55 @@ export default _ => {
       { label: "Fees", icon: "fees" },
    ]);
 
+   let appRef = useRef(null);
+   let navSelect = useRef(null);
+
+   useEffect(_ => {
+      TweenMax.to(appRef, 0, { css: { visibility: "visible" } });
+      console.log(navSelect);
+   }, []);
+
+   const navClick = (e, index) => {
+      setActivePage(index);
+      const rect = e.currentTarget.getBoundingClientRect();
+      TweenMax.to(navSelect, 0.4, {
+         css: {
+            top: rect.top + 6,
+            height: rect.height - 12,
+            width: rect.width,
+         },
+         ease: Power3.easeOut,
+      });
+   };
+
    return (
-      <div className="h-screen overflow-y-hidden bg-blue-800 -to-r md:p-5">
-         <div className="flex h-screen overflow-y-hidden shadow-lg md:rounded-ui md:h-padded">
-            <nav className="flex flex-col w-1/6 bg-gray-200">
+      <div
+         className="h-screen overflow-y-hidden bg-gray-cool-200 md:p-4"
+         ref={e => (appRef = e)}
+      >
+         <div className="flex h-screen p-6 overflow-y-hidden shadow-lg bg-gray-cool-050 md:h-padded">
+            <nav className="flex flex-col w-1/6">
                <SVG
-                  className="w-full p-3 pt-4 text-gray-800 border-r-2 border-gray-300 cursor-pointer fill-current"
+                  className="w-full p-3 pt-4 cursor-pointer fill-current text-gray-cool-900"
                   src={require("../assets/images/logo.svg")}
                />
-               <ul className="pr-4 border-r-2 border-gray-300 gap-y-1 md:pt-2 lg:pt-4">
+               <ul className="flex-1 pr-4 gap-y-1 md:pt-2 lg:pt-4">
+                  <div
+                     className="absolute w-1/6 h-10 ml-2 bg-white rounded-md shadow-lg xl:h-12"
+                     ref={e => (navSelect = e)}
+                  ></div>
                   {navItems.map((item, index) => (
                      <NavItem
                         key={index}
                         label={item.label}
                         icon={item.icon}
                         active={index === activePage}
-                        click={_ => setActivePage(index)}
+                        click={e => navClick(e, index)}
                      />
                   ))}
                </ul>
-               <div className="flex-1 border-r-2 border-gray-300"></div>
-               <div className="flex items-center py-4 pl-6 font-semibold text-center text-gray-200 border-r-2 border-teal-400 cursor-pointer bg-gradient-to-r from-blue-800 to-teal-300 group lg:text-left lg:gap-x-3 hover:bg-blue-800">
-                  <SVG
-                     src={require("../assets/icons/dashboard.svg")}
-                     className="fill-current"
-                  />
-                  <p className="flex-1">Sign out</p>
-               </div>
             </nav>
-            <div className="flex flex-col flex-1 pl-5 overflow-y-auto bg-white">
+            <div className="flex flex-col flex-1 pl-5 overflow-y-auto">
                <div className="flex-none h-24"></div>
                <div className="flex-1 overflow-y-auto"></div>
             </div>

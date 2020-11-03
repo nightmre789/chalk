@@ -5,10 +5,8 @@ export default props => {
    return (
       <li
          className={
-            "group flex flex-col lg:flex-row items-center pr-4 pl-6 text-center py-4 rounded-r-xl font-semibold cursor-pointer lg:text-left lg:gap-x-3" +
-            (props.active
-               ? " text-white bg-gradient-to-r to-teal-300 from-blue-800 shadow-inner"
-               : " text-gray-500")
+            " duration-500 group flex flex-col lg:flex-row pr-4 pl-6 justify-center items-center text-center py-4 rounded-r-xl font-semibold cursor-pointer lg:text-left lg:gap-x-3" +
+            (props.active ? " text-gray-cool-900" : " text-gray-cool-500")
          }
          onClick={props.click}
       >
@@ -17,13 +15,14 @@ export default props => {
                (props.icon ? props.icon : "dashboard") +
                ".svg")}
             className={
-               "fill-current" +
-               (props.active ? "" : " group-hover:text-teal-500")
+               "fill-current z-10 " +
+               (props.active ? "" : " group-hover:text-indigo-500")
             }
          />
          <p
             className={
-               "flex-1" + (props.active ? "" : " group-hover:text-teal-500")
+               "flex-1 font-ff z-10 " +
+               (props.active ? "" : " group-hover:text-indigo-500")
             }
          >
             {props.label}
