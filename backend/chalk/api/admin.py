@@ -6,3 +6,6 @@ from .courses import Courses
 @admin.register(Student)
 class StudentAdmin(admin.ModelAdmin):
     pass
+@admin.register(Courses)
+class CourseAdmin(admin.ModelAdmin):
+    pass
