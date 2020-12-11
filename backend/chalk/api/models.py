@@ -1,7 +1,7 @@
 from django.db import models
 from django import forms
 from django.conf import settings
-from django_extensions.db.models import TimeStampedModel 
+from django_extensions.db.models import TimeStampedModel, AutoSlugField
 
 
 class Campus(TimeStampedModel):
@@ -15,18 +15,18 @@ class Student(TimeStampedModel):
     cnic = models.IntegerField(unique=True,) 
 
 class Department(TimeStampedModel):
-    dep_id = models.AutoField(unique=True)
+    dep_id = models.AutoField(primary_key=True)
     campus_id = models.ForeignKey(Campus,on_delete=models.CASCADE)
     students = models.ManyToManyField(Student, through='Degree_Program') 
 
 class Degree_Program(TimeStampedModel):
-    deg_id = models.CharField(max_length=10,primary_key=True)
+    deg_id = models.AutoField(primary_key=True)
     degree_name = models.CharField(max_length=100)
     dep_id = models.ForeignKey(Department,on_delete=models.CASCADE)
     student_id = models.ForeignKey(Student,on_delete=models.CASCADE)
 
 class Semester(TimeStampedModel):
-    semester_id = models.CharField(max_length=10,primary_key=True)
+    sem_id = models.AutoField(primary_key=True)
     campus_id = models.ForeignKey(Campus,on_delete=models.CASCADE)
     name = models.CharField(max_length=10)
 
