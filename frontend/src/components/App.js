@@ -1,71 +1,57 @@
 import React, { useState, useRef, useEffect } from "react";
-import { TweenMax, Power3 } from "gsap";
-
-import NavItem from "./NavItem";
-
+import { TweenMax } from "gsap";
 import SVG from "react-inlinesvg";
 
+import Nav from "./Nav";
+import Messages from "./Messages";
+
 export default _ => {
-   const [activePage, setActivePage] = useState(0);
-   const [navItems] = useState([
-      { label: "Dashboard", icon: "dashboard" },
-      { label: "My Courses", icon: "courses" },
-      { label: "Messages", icon: "messages" },
-      { label: "Registration", icon: "registration" },
-      { label: "Fees", icon: "fees" },
-   ]);
-
    let appRef = useRef(null);
-   let navSelect = useRef(null);
+   useEffect(_ => TweenMax.to(appRef, 0, { css: { visibility: "visible" } }));
 
-   useEffect(_ => {
-      TweenMax.to(appRef, 0, { css: { visibility: "visible" } });
-      console.log(navSelect);
-   }, []);
-
-   const navClick = (e, index) => {
-      setActivePage(index);
-      const rect = e.currentTarget.getBoundingClientRect();
-      TweenMax.to(navSelect, 0.4, {
-         css: {
-            top: rect.top + 6,
-            height: rect.height - 12,
-            width: rect.width,
-         },
-         ease: Power3.easeOut,
-      });
-   };
+   const [navOpen, setNavOpen] = useState(false);
 
    return (
       <div
-         className="h-screen overflow-y-hidden bg-gray-cool-200 md:p-4"
+         className="fixed w-full h-screen overflow-y-hidden bg-gray-cool-200 md:p-4"
          ref={e => (appRef = e)}
       >
-         <div className="flex h-screen p-6 overflow-y-hidden shadow-lg bg-gray-cool-050 md:h-padded">
-            <nav className="flex flex-col w-1/6">
-               <SVG
-                  className="w-full p-3 pt-4 cursor-pointer fill-current text-gray-cool-900"
-                  src={require("../assets/images/logo.svg")}
-               />
-               <ul className="flex-1 pr-4 gap-y-1 md:pt-2 lg:pt-4">
+         <div className="h-screen p-6 overflow-y-hidden shadow-lg md:flex bg-gray-cool-050 md:h-padded">
+            <Nav open={navOpen} setOpen={setNavOpen} />
+            <div className="flex flex-col flex-1 px-5">
+               <div className="z-20 flex items-center h-24 gap-x-6">
                   <div
-                     className="absolute w-1/6 h-10 ml-2 bg-white rounded-md shadow-lg xl:h-12"
-                     ref={e => (navSelect = e)}
-                  ></div>
-                  {navItems.map((item, index) => (
-                     <NavItem
-                        key={index}
-                        label={item.label}
-                        icon={item.icon}
-                        active={index === activePage}
-                        click={e => navClick(e, index)}
+                     className={
+                        "p-2 duration-75 nav-button text-gray-cool-400 hover:text-indigo-vivid-500 md:hidden " +
+                        (navOpen ? "opened" : "")
+                     }
+                     onClick={_ => {
+                        setNavOpen(!navOpen);
+                        console.log(navOpen);
+                     }}
+                  >
+                     <SVG
+                        className="fill-current"
+                        src={require("../assets/icons/menu.svg")}
                      />
-                  ))}
-               </ul>
-            </nav>
-            <div className="flex flex-col flex-1 pl-5 overflow-y-auto">
-               <div className="flex-none h-24"></div>
-               <div className="flex-1 overflow-y-auto"></div>
+                  </div>
+                  <div className="flex justify-end flex-1 gap-x-6">
+                     <div className="p-3 md:p-4 nav-button text-gray-cool-400 hover:text-indigo-vivid-500 md:w-16 md:h-16">
+                        <SVG
+                           className="h-full fill-current"
+                           src={require("../assets/icons/bell.svg")}
+                        />
+                     </div>
+                     <div className="nav-button md:w-16 md:h-16">
+                        <img
+                           className="rounded-full"
+                           src="https://images.unsplash.com/photo-1584999734482-0361aecad844?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=800&q=80"
+                           alt="profile"
+                        />
+                     </div>
+                  </div>
+               </div>
+               <Messages />
             </div>
          </div>
       </div>

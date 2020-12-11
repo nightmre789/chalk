@@ -11,7 +11,7 @@
       "react-dom": "^16.13.1",
       "react-inlinesvg": "^2.1.1",
       "react-scripts": "3.4.3",
-      "tailwindcss": "^1.8.10"
+      "tailwindcss": "^1.9.6"
    },
    "scripts": {
       "build:tailwind": "tailwind build src/style/tailwind.css -o src/style/tailwind.output.css",
