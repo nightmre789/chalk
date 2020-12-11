@@ -6,5 +6,5 @@ class Campus(TimeStampedModel):
     name = models.TextField(max_length=20)
 
 class Department(TimeStampedModel):
-    id = models.AutoField(unique=True)
+    dep_id = models.AutoField(unique=True)
     campus_id = models.ForeignKey(Campus,on_delete=models.CASCADE)
