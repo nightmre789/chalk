@@ -1,4 +1,5 @@
 from django.db import models
+from django import forms
 from django.conf import settings
 from django_extensions.db.models import TimeStampedModel 
 
@@ -52,4 +53,25 @@ class ClassTaken(TimeStampedModel):
     class_id = models.ForeignKey(Class,on_delete=models.CASCADE)
     marks = models.IntegerField()
     feedback = models.TextField(max_length=250)
+    
+class Attendance(TimeStampedModel):
+    class_id = models.ForeignKey(Class, on_delete=models.CASCADE)
+    teacher_id = models.ForeignKey(Teacher, on_delete=models.CASCADE)
+    student_id = models.ForeignKey(Student, on_delete=models.CASCADE)
+    date = models.DateField()
+    attendance = models.BooleanField()
+
+class Message(TimeStampedModel):
+    msg_id = models.AutoField(primary_key=True)
+    class_id = models.ForeignKey(Class,on_delete=models.CASCADE)
+    content = models.TextField(max_length=1000)
+
+class Resource(TimeStampedModel):
+    res_id = models.AutoField(primary_key=True)
+    class_id = models.ForeignKey(Class, on_delete=models.CASCADE)
+    content = forms.FileField()
+    title = forms.CharField(max_length=50)
+
+
+
 
