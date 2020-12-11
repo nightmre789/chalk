@@ -482,7 +482,11 @@ module.exports = {
       },
       extend: {
          height: {
-            padded: "95vh",
+            padded: "97vh",
+            logo: "15vh",
+         },
+         width: {
+            36: "9rem",
          },
          borderRadius: {
             xl: "1rem",
