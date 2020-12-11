@@ -40,7 +40,7 @@ class Courses(TimeStampedModel):
     code = models.CharField(max_length=10, primary_key=True)
     credit_hours = models.IntegerField()
     decription = models.CharField(max_length=100)
-    semester_id = models.ForeignKey(Semester,on_delete=models.CASCADE)
+    semester_id = models.ForeignKey(Semester,on_delete=models.CASCADE,null=True,blank=True)
 
 class Class(TimeStampedModel):
     class_id = models.TextField(primary_key=True)
