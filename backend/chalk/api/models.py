@@ -9,7 +9,7 @@ class Campus(TimeStampedModel):
     name = models.TextField(max_length=20)
 
 class Student(TimeStampedModel):
-    student_id = models.TextField(max_length = 10,unique=True,null=True,blank=True)
+    student_id = models.CharField(max_length = 10,unique=True,null=True,blank=True)
     name = models.CharField(max_length=20)
     date_of_birth = models.DateField()
     cnic = models.IntegerField(unique=True,) 
