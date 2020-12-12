@@ -1,28 +1,43 @@
 import React, { useState, useRef, useEffect } from "react";
 import { TweenMax } from "gsap";
-import SVG from "react-inlinesvg";
 
 import Nav from "./Nav";
-import Messages from "./Messages";
+import Page from "./Page";
 
 export default _ => {
    let appRef = useRef(null);
-   useEffect(_ => TweenMax.to(appRef, 0, { css: { visibility: "visible" } }));
+   useEffect(_ => {
+      TweenMax.to(appRef, 0, { css: { visibility: "visible" } });
+   });
 
    const [navOpen, setNavOpen] = useState(false);
+   const [activePage, setActivePage] = useState(0);
+   const [navItems] = useState([
+      { label: "Dashboard", icon: "dashboard" },
+      { label: "My Courses", icon: "courses" },
+      { label: "Messages", icon: "messages" },
+      { label: "Registration", icon: "registration" },
+      { label: "Fees", icon: "fees" },
+   ]);
 
    return (
       <div
          className="fixed w-full h-screen overflow-y-hidden bg-gray-cool-200 md:p-4"
          ref={e => (appRef = e)}
       >
-         <div className="h-screen p-6 overflow-y-hidden shadow-lg md:flex bg-gray-cool-050 md:h-padded">
-            <Nav open={navOpen} setOpen={setNavOpen} />
-            <div className="flex flex-col flex-1 px-5">
-               <div className="z-20 flex items-center h-24 gap-x-6">
+         <div className="h-screen overflow-y-hidden shadow-lg md:p-6 md:flex bg-gray-cool-050 md:h-padded">
+            <Nav
+               open={navOpen}
+               setOpen={setNavOpen}
+               items={navItems}
+               activePage={activePage}
+               setActivePage={setActivePage}
+            />
+            <div className="relative flex-1 sm:pl-5 sm:pr-5 md:pl-16">
+               {/* <div className="absolute z-20 flex items-center w-full pr-5 gap-x-6">
                   <div
                      className={
-                        "p-2 duration-75 nav-button text-gray-cool-400 hover:text-indigo-vivid-500 md:hidden " +
+                        "p-2 duration-75 nav-button text-gray-cool-400 hover:text-indigo-vivid-500  " +
                         (navOpen ? "opened" : "")
                      }
                      onClick={_ => {
@@ -35,7 +50,8 @@ export default _ => {
                         src={require("../assets/icons/menu.svg")}
                      />
                   </div>
-                  <div className="flex justify-end flex-1 gap-x-6">
+
+                  <div className="flex self-end justify-self-end gap-x-6">
                      <div className="p-3 md:p-4 nav-button text-gray-cool-400 hover:text-indigo-vivid-500 md:w-16 md:h-16">
                         <SVG
                            className="h-full fill-current"
@@ -50,8 +66,8 @@ export default _ => {
                         />
                      </div>
                   </div>
-               </div>
-               <Messages />
+               </div> */}
+               <Page />
             </div>
          </div>
       </div>
