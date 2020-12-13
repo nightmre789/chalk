@@ -37,8 +37,7 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
-    "django.contrib.staticfiles", # Required for GraphiQL
-    "graphene_django"
+    'graphene_django',
     'chalk.api',
 ]
 
