@@ -482,16 +482,26 @@ module.exports = {
       },
       extend: {
          height: {
-            padded: "95vh",
+            padded: "97vh",
+            logo: "15vh",
+            14: "3.5rem",
+         },
+         width: {
+            36: "9rem",
          },
          borderRadius: {
             xl: "1rem",
             ui: "1.5rem",
          },
+         minHeight: {
+            1: ".25rem",
+         },
       },
    },
    variants: {
       textColor: ["responsive", "hover", "focus", "group-hover"],
+      zIndex: ["responsive", "hover"],
+      borderWidth: ["responsive", "hover"],
    },
    plugins: [],
    future: {
