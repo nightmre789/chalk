@@ -122,5 +122,5 @@ USE_TZ = True
 STATIC_URL = '/static/'
 
 GRAPHENE = {
-    "SCHEMA": "django_root.api.schema.schema"
+    "SCHEMA": "api.schema.schema"
 }
