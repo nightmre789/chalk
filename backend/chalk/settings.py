@@ -122,5 +122,5 @@ USE_TZ = True
 STATIC_URL = '/static/'
 
 GRAPHENE = {
-    "SCHEMA": "chalk.backend.chalk.api.schema"
+    "SCHEMA": "django_root.api.schema.schema"
 }
