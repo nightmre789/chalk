@@ -6,11 +6,11 @@ import useWindowSize from "../hooks/useWindowSize";
 
 export default _ => {
    const [courseNavItems] = useState([
-      { label: "Overview", icon: "dashboard" },
-      { label: "Marks", icon: "courses" },
-      { label: "Resources", icon: "messages" },
-      { label: "Assignments", icon: "registration" },
-      { label: "Attendance", icon: "fees" },
+      { label: "Overview", icon: "overview" },
+      { label: "Marks", icon: "marks" },
+      { label: "Resources", icon: "resources" },
+      { label: "Assignments", icon: "assignments" },
+      { label: "Attendance", icon: "attendance" },
    ]);
    const size = useWindowSize();
 
@@ -21,34 +21,40 @@ export default _ => {
    useEffect(
       _ => {
          const rect = refs[activePage].current.getBoundingClientRect();
-         TweenMax.to(courseNavSlider, 0.5, {
+         TweenMax.to(courseNavSlider, 0.75, {
             css: {
-               left: rect.left - refs[0].current.getBoundingClientRect().left,
+               left:
+                  rect.left -
+                  (size.width > 768
+                     ? refs[0].current.getBoundingClientRect().left
+                     : 12),
                width: rect.width,
             },
             ease: Power3.easeOut,
          });
-         console.log(rect.left, " ", courseNavSlider.style.left);
+         console.log(rect.left, size.width, courseNavSlider.style.left);
       },
-      [activePage, refs, size.width]
+      [refs, activePage, size.width]
    );
 
    return (
-      <div className="relative flex justify-start overflow-x-auto font-semibold bg-white rounded-lg shadow-md sm:justify-center md:justify-start h-14">
+      <div className="relative mt-6 -mx-2">
          <div
             ref={e => (courseNavSlider = e)}
-            className="absolute bottom-0 bg-indigo-500 rounded-b-lg min-h-1"
-         ></div>
-         {courseNavItems.map((item, index) => (
-            <CourseNavItem
-               key={index}
-               label={item.label}
-               icon={item.icon}
-               active={index === activePage}
-               click={_ => setActivePage(index)}
-               ref={refs[index]}
-            />
-         ))}
+            className="absolute h-12 mt-1 bg-white rounded-full shadow-md"
+         />
+         <div className="relative flex justify-center overflow-hidden font-semibold sm:overflow-x-auto md:justify-start h-14">
+            {courseNavItems.map((item, index) => (
+               <CourseNavItem
+                  key={index}
+                  label={item.label}
+                  icon={item.icon}
+                  active={index === activePage}
+                  click={_ => setActivePage(index)}
+                  ref={refs[index]}
+               />
+            ))}
+         </div>
       </div>
    );
 };

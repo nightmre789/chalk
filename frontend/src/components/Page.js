@@ -2,8 +2,9 @@ import React, { useRef, useEffect } from "react";
 import useWindowSize from "../hooks/useWindowSize";
 
 import Course from "./Course";
+import Messages from "./Messages";
 
-export default props => {
+export default _ => {
    const size = useWindowSize();
 
    useEffect(_ => {
@@ -45,12 +46,13 @@ export default props => {
    };
 
    return (
-      <div ref={skewScroll} className="relative h-full">
+      <div className="h-full ">
          <Course
             code="CS309"
             title="Database Systems"
             teacher="Dr. Zulfiqar Memon"
             section="A"
+            ref={skewScroll}
          />
       </div>
    );

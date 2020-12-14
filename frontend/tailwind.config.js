@@ -489,6 +489,7 @@ module.exports = {
          width: {
             36: "9rem",
          },
+
          borderRadius: {
             xl: "1rem",
             ui: "1.5rem",

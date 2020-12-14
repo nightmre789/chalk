@@ -1,10 +1,12 @@
-import React from "react";
+import React, { forwardRef } from "react";
 
 import CourseNav from "./CourseNav.js";
+import Overview from "./Overview";
+import Marks from "./Marks";
 
-export default props => {
+export default forwardRef((props, ref) => {
    return (
-      <div className="mt-8">
+      <div ref={ref} className="pt-0 pb-20 lg:pt-8 md:pt-6 md:pb-16">
          <h1 className="-mb-4 text-6xl font-bold tracking-tight text-center text-indigo-500 font-ff md:text-left">
             {props.code.substring(0, 2) + "\xa0"}
             <span className="text-gray-800">
@@ -17,12 +19,8 @@ export default props => {
                {" - " + props.teacher + " | Section " + props.section}
             </span>
          </h3>
-         <div className="mt-4 lg:flex gap-x-6">
-            <div className="lg:w-4/5">
-               <CourseNav />
-            </div>
-            <div className="bg-white rounded-lg lg:w-1/5">test</div>
-         </div>
+         <CourseNav />
+         <Marks />
       </div>
    );
-};
+});
