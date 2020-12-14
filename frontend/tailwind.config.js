@@ -484,6 +484,7 @@ module.exports = {
          height: {
             padded: "97vh",
             logo: "15vh",
+            14: "3.5rem",
          },
          width: {
             36: "9rem",
@@ -491,6 +492,9 @@ module.exports = {
          borderRadius: {
             xl: "1rem",
             ui: "1.5rem",
+         },
+         minHeight: {
+            1: ".25rem",
          },
       },
    },

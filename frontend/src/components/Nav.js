@@ -1,25 +1,18 @@
-import React, { useState, useRef, useEffect } from "react";
+import React, { useRef, useEffect } from "react";
 import { TweenMax, Power3 } from "gsap";
 import SVG from "react-inlinesvg";
+import useWindowSize from "../hooks/useWindowSize";
 
 import NavItem from "./NavItem";
 
 export default props => {
-   const [activePage, setActivePage] = useState(0);
-   const [navItems] = useState([
-      { label: "Dashboard", icon: "dashboard" },
-      { label: "My Courses", icon: "courses" },
-      { label: "Messages", icon: "messages" },
-      { label: "Registration", icon: "registration" },
-      { label: "Fees", icon: "fees" },
-   ]);
-
    let navSlider = useRef(null);
-   const refs = navItems.map(_ => useRef(null));
+   const refs = props.items.map(_ => useRef(null));
+   const size = useWindowSize();
 
    useEffect(
       _ => {
-         const rect = refs[activePage].current.getBoundingClientRect();
+         const rect = refs[props.activePage].current.getBoundingClientRect();
          TweenMax.to(navSlider, 0.5, {
             css: {
                top: rect.top + 6,
@@ -28,9 +21,9 @@ export default props => {
             },
             ease: Power3.easeOut,
          });
-         console.log(refs[activePage]);
+         console.log(refs[props.activePage]);
       },
-      [activePage, refs]
+      [props.activePage, refs, size.width]
    );
 
    return (
@@ -46,14 +39,13 @@ export default props => {
                className="absolute w-1/6 h-10 ml-2 bg-white rounded-md shadow-lg xl:h-12"
                ref={e => (navSlider = e)}
             ></div>
-            {navItems.map((item, index) => (
+            {props.items.map((item, index) => (
                <NavItem
-                  id={"item" + index}
                   key={index}
                   label={item.label}
                   icon={item.icon}
-                  active={index === activePage}
-                  click={_ => setActivePage(index)}
+                  active={index === props.activePage}
+                  click={_ => props.setActivePage(index)}
                   ref={refs[index]}
                />
             ))}
