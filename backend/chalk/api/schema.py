@@ -1,8 +1,6 @@
 import graphene
 from graphene_django import DjangoObjectType
 from graphene_django.debug import DjangoDebug
-from graphene_django.filter.fields import DjangoFilterConnectionField
-
 from . import models
 
 
@@ -61,18 +59,18 @@ class Mutations(graphene.ObjectType):
 
 class Query(graphene.ObjectType):
     
-    all_students = DjangoFilterConnectionField(StudentType)
-    all_courses = DjangoFilterConnectionField(CoursesType)
-    all_campus = DjangoFilterConnectionField(CampusType)
-    all_departments = DjangoFilterConnectionField(DepartmentType)
-    all_degree_programs = DjangoFilterConnectionField(DegreeProgramType)
-    all_semesters = DjangoFilterConnectionField(SemesterType)
-    all_teachers = DjangoFilterConnectionField(TeacherType)
-    all_classes = DjangoFilterConnectionField(ClassType) 
-    all_classes_taken = DjangoFilterConnectionField(ClassTakenType)
-    all_attendance = DjangoFilterConnectionField(AttendanceType)
-    all_messages = DjangoFilterConnectionField(MessageType)
-    all_resources = DjangoFilterConnectionField(ResourceType)
+    all_students = graphene.List(StudentType)
+    all_courses = graphene.List(CoursesType)
+    all_campus = graphene.List(CampusType)
+    all_departments = graphene.List(DepartmentType)
+    all_degree_programs = graphene.List(DegreeProgramType)
+    all_semesters = graphene.List(SemesterType)
+    all_teachers = graphene.List(TeacherType)
+    all_classes = graphene.List(ClassType) 
+    all_classes_taken = graphene.List(ClassTakenType)
+    all_attendance = graphene.List(AttendanceType)
+    all_messages = graphene.List(MessageType)
+    all_resources = graphene.List(ResourceType)
 
     def resolve_all_students(self,*args):
         return models.Student.objects.all()
@@ -113,5 +111,5 @@ class Query(graphene.ObjectType):
     
     debug = graphene.Field(DjangoDebug, name='_debug')
 
-schema = graphene.Schema(query=Query,mutation=Mutations)
+schema = graphene.Schema(query=Query)
 
