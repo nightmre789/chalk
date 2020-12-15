@@ -115,4 +115,8 @@ USE_TZ = True
 
 STATIC_URL = "/static/"
 
-GRAPHENE = {"SCHEMA": "chalk.api.schema.schema"}
+GRAPHENE = {'MIDDLEWARE': [
+        'graphene_django.debug.DjangoDebugMiddleware',
+    ],
+    "SCHEMA": "chalk.api.schema.schema",
+    }
