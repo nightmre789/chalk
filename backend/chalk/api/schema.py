@@ -1,5 +1,8 @@
 import graphene
 from graphene_django import DjangoObjectType
+from graphene_django.debug import DjangoDebug
+
+
 from . import models
 
 
@@ -76,7 +79,6 @@ class ResourceType(DjangoObjectType):
 
 
 class Query(graphene.ObjectType):
-    pass
-
+     debug = graphene.Field(DjangoDebug, name='_debug')
 
 schema = graphene.Schema(query=Query)
