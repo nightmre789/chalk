@@ -25,7 +25,23 @@ export default forwardRef((props, ref) => (
             (props.active ? "" : " group-hover:text-indigo-500")
          }
       >
-         {props.label}
-      </p>
-   </li>
-));
+         <SVG
+            src={require("../assets/icons/" +
+               (props.icon ? props.icon : "dashboard") +
+               ".svg")}
+            className={
+               "fill-current z-10 " +
+               (props.active ? "" : " group-hover:text-indigo-vivid-500")
+            }
+         />
+         <p
+            className={
+               "flex-1 font-ff z-10 " +
+               (props.active ? "" : " group-hover:text-indigo-vivid-500")
+            }
+         >
+            {props.label}
+         </p>
+      </li>
+   );
+};

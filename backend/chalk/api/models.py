@@ -16,7 +16,7 @@ class Student(TimeStampedModel):
     cnic = models.IntegerField(unique=True)
 
     def __str__(self):
-        return self.student_id, self.name
+        return self.name
 
 
 class Department(TimeStampedModel):
