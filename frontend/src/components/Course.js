@@ -1,12 +1,13 @@
-import React, { forwardRef } from "react";
+import React from "react";
 
 import CourseNav from "./CourseNav.js";
 import Overview from "./Overview";
 import Marks from "./Marks";
+import Resources from "./Resources";
 
-export default forwardRef((props, ref) => {
+export default props => {
    return (
-      <div ref={ref} className="pt-0 pb-20 lg:pt-8 md:pt-6 md:pb-16">
+      <div className="pt-0 lg:pt-8 md:pt-6">
          <h1 className="-mb-4 text-6xl font-bold tracking-tight text-center text-indigo-500 font-ff md:text-left">
             {props.code.substring(0, 2) + "\xa0"}
             <span className="text-gray-800">
@@ -20,7 +21,7 @@ export default forwardRef((props, ref) => {
             </span>
          </h3>
          <CourseNav />
-         <Marks />
+         <Resources />
       </div>
    );
-});
+};

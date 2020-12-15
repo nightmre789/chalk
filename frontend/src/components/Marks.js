@@ -1,53 +1,81 @@
 import React from "react";
-import Announcement from "./Announcement";
+
+import Accordion from "./Accordion";
+import Mark from "./Mark";
 
 export default _ => {
    return (
-      <div className="flex-row-reverse mt-2 lg:flex gap-x-6">
-         <div className="flex flex-col flex-1 rounded-sm gap-y-3 lg:mt-0">
-            <Announcement
-               senderImage="https://images.unsplash.com/photo-1584999734482-0361aecad844?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=800&q=80"
-               senderName="Dr. Zulfiqar Memon"
-               time="4 hours"
-               title="Welcome to CS309!"
-               content="This course is a study of database models including the
-                  hierarhical, networ, relational and object oriented models and
-                  the examination of such practical issues as database design,
-                  setup, and manipulation. Other selected topics include data
-                  integrity, data seurity, backup and recovery procedures,
-                  database administration, etc. Several programming projects are
-                  assigned involving the use of a database management system.
-                  Prerequisite: CS 209."
+      <div className="grid grid-cols-1 gap-2 mt-4 md:gap-4 md:grid-cols-2 xl:grid-cols-3">
+         <Accordion title="Sessional">
+            <Mark
+               mark={10.65}
+               total={15}
+               average={9.75}
+               min={1.25}
+               max={14.5}
             />
-            <Announcement
-               senderImage="https://images.unsplash.com/photo-1584999734482-0361aecad844?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=800&q=80"
-               senderName="Dr. Zulfiqar Memon"
-               time="4 hours"
-               title="Welcome to CS309!"
-               content="This course is a study of database models including the
-                  hierarhical, networ, relational and object oriented models and
-                  the examination of such practical issues as database design,
-                  setup, and manipulation. Other selected topics include data
-                  integrity, data seurity, backup and recovery procedures,
-                  database administration, etc. Several programming projects are
-                  assigned involving the use of a database management system.
-                  Prerequisite: CS 209."
+            <Mark
+               mark={10.65}
+               total={15}
+               average={9.75}
+               min={1.25}
+               max={14.5}
             />
-            <Announcement
-               senderImage="https://images.unsplash.com/photo-1584999734482-0361aecad844?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=800&q=80"
-               senderName="Dr. Zulfiqar Memon"
-               time="4 hours"
-               title="Welcome to CS309!"
-               content="This course is a study of database models including the
-                  hierarhical, networ, relational and object oriented models and
-                  the examination of such practical issues as database design,
-                  setup, and manipulation. Other selected topics include data
-                  integrity, data seurity, backup and recovery procedures,
-                  database administration, etc. Several programming projects are
-                  assigned involving the use of a database management system.
-                  Prerequisite: CS 209."
+         </Accordion>
+         <Accordion title="Class Participation">
+            <Mark
+               mark={10.65}
+               total={15}
+               average={9.75}
+               min={1.25}
+               max={14.5}
             />
-         </div>
+         </Accordion>
+         <Accordion title="Quizzes">
+            <Mark
+               mark={10.65}
+               total={15}
+               average={9.75}
+               min={1.25}
+               max={14.5}
+            />
+         </Accordion>
+         <Accordion title="Assignments">
+            <Mark
+               mark={10.65}
+               total={15}
+               average={9.75}
+               min={1.25}
+               max={14.5}
+            />
+         </Accordion>
+         <Accordion title="Sessional 2">
+            <Mark
+               mark={10.65}
+               total={15}
+               average={9.75}
+               min={1.25}
+               max={14.5}
+            />
+         </Accordion>
+         <Accordion title="Lab Work">
+            <Mark
+               mark={10.65}
+               total={15}
+               average={9.75}
+               min={1.25}
+               max={14.5}
+            />
+         </Accordion>
+         <Accordion title="Final">
+            <Mark
+               mark={10.65}
+               total={15}
+               average={9.75}
+               min={1.25}
+               max={14.5}
+            />
+         </Accordion>
       </div>
    );
 };

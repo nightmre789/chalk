@@ -485,6 +485,7 @@ module.exports = {
             padded: "97vh",
             logo: "15vh",
             14: "3.5rem",
+            card: "24rem",
          },
          width: {
             36: "9rem",
