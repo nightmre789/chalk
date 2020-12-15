@@ -9,76 +9,104 @@ from . import models
 class StudentType(DjangoObjectType):
     class Meta:
         model = models.Student
-        fields = ("student_id", "name", "date_of_birth", "cnic")
-
 
 class CoursesType(DjangoObjectType):
     class Meta:
         model = models.Courses
-        fields = ("id", "name", "code", "credit_hours", "description", "semester_id")
-
 
 class CampusType(DjangoObjectType):
     class Meta:
         model = models.Campus
-        fields = ("campus_id", "name", "department", "semester")
-
 
 class DepartmentType(DjangoObjectType):
     class Meta:
         model = models.Department
-        fields = ("dep_id", "campus", "students", "degree_program", "teacher")
-
 
 class DegreeProgramType(DjangoObjectType):
     class Meta:
         model = models.Department
-        fields = ("deg_id", "degree_name", "dep_id", "student_id")
-
 
 class SemesterType(DjangoObjectType):
     class Meta:
         model = models.Semester
-        fields = ("sem_id", "campus_id", "name")
-
 
 class TeacherType(DjangoObjectType):
     class Meta:
         model = models.Teacher
-        fields = ("teacher_id", "dep_id", "name")
-
 
 class ClassType(DjangoObjectType):
     class Meta:
         model = models.Class
-        fields = ("class_id", "teacher_id", "course_code", "students")
-
 
 class ClassTakenType(DjangoObjectType):
     class Meta:
         model = models.ClassTaken
-        fields = ("student_id", "class_id", "marks", "feedback")
-
 
 class AttendanceType(DjangoObjectType):
     class Meta:
         model = models.Attendance
-        fields = ("class_id", "teacher_id", "student_id", "date", "attendance")
-
 
 class MessageType(DjangoObjectType):
     class Meta:
         model = models.Message
-        fields = ("msg_id", "class_id", "content")
-
 
 class ResourceType(DjangoObjectType):
     class Meta:
         model = models.Resource
-        fields = ("res_id", "class_id", "content", "title")
-
 
 class Query(graphene.ObjectType):
-     debug = graphene.Field(DjangoDebug, name='_debug')
+    
+    all_students = graphene.List(StudentType)
+    all_courses = graphene.List(CoursesType)
+    all_campus = graphene.List(CampusType)
+    all_departments = graphene.List(DepartmentType)
+    all_degree_programs = graphene.List(DegreeProgramType)
+    all_semesters = graphene.List(SemesterType)
+    all_teachers = graphene.List(TeacherType)
+    all_classes = graphene.List(ClassType) 
+    all_classes_taken = graphene.List(ClassTakenType)
+    all_attendance = graphene.List(AttendanceType)
+    all_messages = graphene.List(MessageType)
+    all_resources = graphene.List(ResourceType)
+
+    def resolve_all_students(self,*args):
+        return models.Student.objects.all()
+
+    def resolve_all_courses(self,*args):
+        return models.Courses.objects.all()
+
+    def resolve_all_campus(self,*args):
+        return models.Campus.objects.all()
+    
+    def resolve_all_departments(self,*args):
+        return models.Department.objects.all()
+    
+    def resolve_all_degree_programs(self,*args):
+        return models.Degree_Program.objects.all()
+    
+    def resolve_all_semesters(self,*args):
+        return models.Semester.objects.all()
+    
+    def resolve_all_teachers(self,*args):
+        return models.Teacher.objects.all()
+    
+    def resolve_all_classes(self,*args):
+        return models.Class.objects.all()
+    
+    def resolve_all_classes_taken(self,*args):
+        return models.ClassTaken.objects.all()
+    
+    def resolve_all_attendance(self,*args):
+        return models.Attendance.objects.all()
+    
+    def resolve_all_messages(self,*args):
+        return models.Message.objects.all()
+    
+    def resolve_all_resources(self,*args):
+        return models.Resource.objects.all()
+    
+    
+    debug = graphene.Field(DjangoDebug, name='_debug')
 
 schema = graphene.Schema(query=Query)
+
