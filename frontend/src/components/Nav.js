@@ -15,7 +15,7 @@ export default props => {
          const rect = refs[props.activePage].current.getBoundingClientRect();
          TweenMax.to(navSlider, 0.5, {
             css: {
-               top: rect.top + 6,
+               top: rect.top - 35,
                height: rect.height - 12,
                width: rect.width,
             },
@@ -27,7 +27,7 @@ export default props => {
    );
 
    return (
-      <nav className="flex-col hidden w-1/6 md:flex">
+      <nav className="fixed flex-col hidden w-1/6 md:flex">
          <div className="flex items-center justify-center w-full h-logo">
             <SVG
                className="w-full p-3 cursor-pointer fill-current text-gray-cool-900"

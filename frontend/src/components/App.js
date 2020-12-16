@@ -2,7 +2,7 @@ import React, { useState, useRef, useEffect } from "react";
 import { TweenMax } from "gsap";
 
 import Nav from "./Nav";
-import Page from "./Page";
+import Course from "./Course";
 
 export default _ => {
    let appRef = useRef(null);
@@ -22,10 +22,10 @@ export default _ => {
 
    return (
       <div
-         className="fixed w-full h-screen overflow-y-hidden bg-gray-cool-200 md:p-4"
+         className="fixed w-full h-screen overflow-y-hidden bg-gray-cool-100 md:p-4"
          ref={e => (appRef = e)}
       >
-         <div className="h-screen overflow-y-hidden shadow-lg md:p-6 md:flex bg-gray-cool-050 md:h-padded">
+         <div className="h-screen overflow-y-auto shadow-lg md:p-6 md:flex bg-gray-cool-040 md:h-padded">
             <Nav
                open={navOpen}
                setOpen={setNavOpen}
@@ -33,7 +33,7 @@ export default _ => {
                activePage={activePage}
                setActivePage={setActivePage}
             />
-            <div className="relative flex-1 sm:pl-5 sm:pr-5 md:pl-16">
+            <div className="relative px-5 ml-auto md:w-5/6 md:pl-16">
                {/* <div className="absolute z-20 flex items-center w-full pr-5 gap-x-6">
                   <div
                      className={
@@ -67,7 +67,12 @@ export default _ => {
                      </div>
                   </div>
                </div> */}
-               <Page />
+               <Course
+                  code="CS309"
+                  title="Database Systems"
+                  teacher="Dr. Zulfiqar Memon"
+                  section="A"
+               />
             </div>
          </div>
       </div>

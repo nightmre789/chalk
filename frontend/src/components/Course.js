@@ -1,10 +1,13 @@
 import React from "react";
 
 import CourseNav from "./CourseNav.js";
+import Overview from "./Overview";
+import Marks from "./Marks";
+import Resources from "./Resources";
 
 export default props => {
    return (
-      <div className="mt-8">
+      <div className="pt-0 lg:pt-8 md:pt-6">
          <h1 className="-mb-4 text-6xl font-bold tracking-tight text-center text-indigo-500 font-ff md:text-left">
             {props.code.substring(0, 2) + "\xa0"}
             <span className="text-gray-800">
@@ -17,12 +20,8 @@ export default props => {
                {" - " + props.teacher + " | Section " + props.section}
             </span>
          </h3>
-         <div className="mt-4 lg:flex gap-x-6">
-            <div className="lg:w-4/5">
-               <CourseNav />
-            </div>
-            <div className="bg-white rounded-lg lg:w-1/5">test</div>
-         </div>
+         <CourseNav />
+         <Resources />
       </div>
    );
 };
