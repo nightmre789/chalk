@@ -21,7 +21,6 @@ export default props => {
             },
             ease: Power3.easeOut,
          });
-         console.log(refs[props.activePage]);
       },
       [props.activePage, refs, size.width]
    );

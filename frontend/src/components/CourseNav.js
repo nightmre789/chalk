@@ -32,7 +32,6 @@ export default _ => {
             },
             ease: Power3.easeOut,
          });
-         console.log(rect.left, size.width, courseNavSlider.style.left);
       },
       [refs, activePage, size.width]
    );

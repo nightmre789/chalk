@@ -1,90 +1,155 @@
 from django.db import models
 from django import forms
 from django.conf import settings
-from django_extensions.db.models import TimeStampedModel, AutoSlugField
 
 
-class Campus(TimeStampedModel):
-    campus_id = models.AutoField(primary_key=True)
-    name = models.TextField(max_length=20)
-
-
-class Student(TimeStampedModel):
-    student_id = models.CharField(max_length=10, unique=True, null=True, blank=True)
-    name = models.CharField(max_length=20)
-    date_of_birth = models.DateField()
-    cnic = models.IntegerField(unique=True)
+class Campus(models.Model):
+    name = models.TextField(max_length=20, primary_key=True)
 
     def __str__(self):
-        return self.name
+        return f"{self.name} Campus"
 
 
-class Department(TimeStampedModel):
-    dep_id = models.AutoField(primary_key=True)
+class Course(models.Model):
+    code = models.CharField(max_length=5)
+    name = models.CharField(max_length=50)
+    credit_hours = models.PositiveSmallIntegerField()
+    description = models.CharField(max_length=500)
+    teachers = models.ManyToManyField("Teacher", through="Class")
+
+    def __str__(self):
+        return f"{self.code} {self.name}"
+
+
+class Department(models.Model):
     campus_id = models.ForeignKey(Campus, on_delete=models.CASCADE)
-    students = models.ManyToManyField(Student, through="Degree_Program")
+    name = models.CharField(max_length=50)
+
+    class Meta:
+        models.UniqueConstraint(
+            fields=["campus_id", "name"], name="unique department name"
+        )
+
+    def __str__(self):
+        return f"Department of {self.name}, {self.campus_id.name}"
 
 
-class Degree_Program(TimeStampedModel):
-    deg_id = models.AutoField(primary_key=True)
-    degree_name = models.CharField(max_length=100)
-    dep_id = models.ForeignKey(Department, on_delete=models.CASCADE)
-    student_id = models.ForeignKey(Student, on_delete=models.CASCADE)
-
-
-class Semester(TimeStampedModel):
-    sem_id = models.AutoField(primary_key=True)
+class Semester(models.Model):
     campus_id = models.ForeignKey(Campus, on_delete=models.CASCADE)
-    name = models.CharField(max_length=10)
+    name = models.CharField(max_length=6)
+
+    class Meta:
+        models.UniqueConstraint(
+            fields=["campus_id", "name"], name="unique semester name"
+        )
+
+    def __str__(self):
+        name = self.name[:2]
+        return f"{'Fall/Winter' if name == 'FW' else 'Spring' if name == 'SP' else 'Summer'} {self.name[2:]} {self.campus_id.name}"
 
 
-class Teacher(TimeStampedModel):
-    teacher_id = models.CharField(max_length=50, primary_key=True)
-    dep_id = models.ForeignKey(Department, on_delete=models.CASCADE)
+class Admin(models.Model):
+    campus_id = models.ForeignKey(Campus, on_delete=models.CASCADE)
+    name = models.CharField(max_length=50)
+
+
+class Program(models.Model):
+    department_id = models.ForeignKey(Department, on_delete=models.CASCADE)
     name = models.CharField(max_length=100)
+    abbr = models.CharField(max_length=20)
+
+    class Meta:
+        models.UniqueConstraint(fields=["dept_id", "name"], name="unique program name")
+
+    def __str__(self):
+        return f"{self.abbr} {self.department_id.campus_id.name}"
 
 
-class Courses(TimeStampedModel):
-    name = models.CharField(max_length=20)
-    code = models.CharField(max_length=10, primary_key=True)
-    credit_hours = models.IntegerField()
-    decription = models.CharField(max_length=100)
-    semester_id = models.ForeignKey(
-        Semester, on_delete=models.CASCADE, null=True, blank=True
-    )
+class Teacher(models.Model):
+    department_id = models.ForeignKey(Department, on_delete=models.CASCADE)
+    first_name = models.CharField(max_length=100)
+    last_name = models.CharField(max_length=100)
+
+    def __str__(self):
+        return f"{self.first_name} {self.last_name}"
+
+class Student(models.Model):
+    program_id = models.ForeignKey(Program, on_delete=models.CASCADE)
+    roll_number = models.PositiveSmallIntegerField()
+    first_name = models.CharField(max_length=100)
+    last_name = models.CharField(max_length=100)
+    section = models.CharField(max_length=1)
+    batch = models.PositiveSmallIntegerField()
+
+    class Meta:
+        models.UniqueConstraint(
+            fields=["batch", "roll_number", "program_id__department_id__campus_id"],
+            name="roll number",
+        )
+
+    def __str__(self):
+        return f"{self.first_name} {self.last_name}"
 
 
-class Class(TimeStampedModel):
-    class_id = models.TextField(primary_key=True)
+class Class(models.Model):
     teacher_id = models.ForeignKey(Teacher, on_delete=models.CASCADE)
-    course_code = models.ForeignKey(Courses, on_delete=models.CASCADE)
-    students = models.ManyToManyField(Student, through="ClassTaken")
+    course_id = models.ForeignKey(Course, on_delete=models.CASCADE)
+    semester_id = models.ForeignKey(Semester, on_delete=models.CASCADE)
+    section_name = models.CharField(max_length=10)
+    sessions = models.PositiveSmallIntegerField(default=0)
+    students = models.ManyToManyField(Student, through="Registration")
+
+    class Meta:
+        models.UniqueConstraint(
+            fields=["teacher_id", "course_id", "semester_id"],
+            name="unique class per teacher per semester",
+        )
+
+    def __str__(self):
+        return f"{self.course_id.name} {self.section_name}"
 
 
-class ClassTaken(TimeStampedModel):
+class Section(models.Model):
+    class_id = models.ForeignKey(Class, on_delete=models.CASCADE)
+    section = models.CharField(max_length=2)
+
+    class Meta:
+        models.UniqueConstraint(fields=["class_id", "section"], name="class section")
+    def __str__(self):
+        return f"{self.class_id.course_id.name} {self.section}"
+
+
+class Registration(models.Model):
     student_id = models.ForeignKey(Student, on_delete=models.CASCADE)
     class_id = models.ForeignKey(Class, on_delete=models.CASCADE)
-    marks = models.IntegerField()
+    marks = models.PositiveSmallIntegerField()
     feedback = models.TextField(max_length=250)
 
-
-class Attendance(TimeStampedModel):
-    class_id = models.ForeignKey(Class, on_delete=models.CASCADE)
-    teacher_id = models.ForeignKey(Teacher, on_delete=models.CASCADE)
-    student_id = models.ForeignKey(Student, on_delete=models.CASCADE)
-    date = models.DateField()
-    attendance = models.BooleanField()
+    class Meta:
+        models.UniqueConstraint(
+            fields=["student_id", "class_id"], name="unique student per class"
+        )
 
 
-class Message(TimeStampedModel):
-    msg_id = models.AutoField(primary_key=True)
+class Message(models.Model):
     class_id = models.ForeignKey(Class, on_delete=models.CASCADE)
     content = models.TextField(max_length=1000)
+    sent = models.DateTimeField(auto_now_add=True)
 
 
-class Resource(TimeStampedModel):
-    res_id = models.AutoField(primary_key=True)
+class Resource(models.Model):
     class_id = models.ForeignKey(Class, on_delete=models.CASCADE)
-    content = forms.FileField()
-    title = forms.CharField(max_length=50)
+    content = models.FileField()
+    title = models.CharField(max_length=50)
+    uploaded = models.DateTimeField(auto_now_add=True)
 
+
+class Attendance(models.Model):
+    registration_id = models.ForeignKey(Registration, on_delete=models.CASCADE)
+    date = models.DateField()
+    attended = models.BooleanField()
+
+    class Meta:
+        models.UniqueConstraint(
+            fields=["registration_id", "date"], name="unique attendance per date"
+        )

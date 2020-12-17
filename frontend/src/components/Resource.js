@@ -16,7 +16,7 @@ export default props => {
                   "rounded-lg font-bold font-ff grou-hover:text-white " +
                   (props.type === "PDF"
                      ? "bg-red-200 text-red-400 group-hover:bg-red-vivid-600"
-                     : props.type == "Word Document"
+                     : props.type === "Word Document"
                      ? "bg-blue-200 text-blue-400 group-hover:bg-blue-vivid-600"
                      : "bg-gray-200 text-gray-400 group-hover:bg-gray-800")
                }

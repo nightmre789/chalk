@@ -4,6 +4,7 @@ import CourseNav from "./CourseNav.js";
 import Overview from "./Overview";
 import Marks from "./Marks";
 import Resources from "./Resources";
+import Attendance from "./Attendance";
 
 export default props => {
    return (
@@ -21,7 +22,7 @@ export default props => {
             </span>
          </h3>
          <CourseNav />
-         <Resources />
+         <Attendance />
       </div>
    );
 };
