@@ -1,5 +1,6 @@
 .vscode/
 *.csv
+get-pip.py
 
 ### Tailwind ###
 
