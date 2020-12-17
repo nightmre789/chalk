@@ -14,13 +14,10 @@ pip install -r ./requirements.txt
 python manage.py migrate
 ```
 
-Run Django:
+Import sample data:
 
 ```
-cd backend
-**Windows:** source env/Scripts/activate
-**Mac:** source env/bin/activate
-python manage.py runserver
+python manage.py import
 ```
 
 Build React:
@@ -28,10 +25,5 @@ Build React:
 ```
 cd frontend
 npm install
-```
-Run React:
-
-```
-cd frontend
 npm start
 ```
