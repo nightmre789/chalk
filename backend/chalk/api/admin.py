@@ -45,4 +45,8 @@ class ClassAdmin(admin.ModelAdmin):
 class SectionAdmin(admin.ModelAdmin):
     pass
 
+@admin.register(models.Registration)
+class RegistrationAdmin(admin.ModelAdmin):
+    pass
+
 

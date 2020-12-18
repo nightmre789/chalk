@@ -73,6 +73,7 @@ class Teacher(models.Model):
     def __str__(self):
         return f"{self.first_name} {self.last_name}"
 
+
 class Student(models.Model):
     program_id = models.ForeignKey(Program, on_delete=models.CASCADE)
     roll_number = models.PositiveSmallIntegerField()
@@ -115,6 +116,7 @@ class Section(models.Model):
 
     class Meta:
         models.UniqueConstraint(fields=["class_id", "section"], name="class section")
+
     def __str__(self):
         return f"{self.class_id.course_id.name} {self.section}"
 
@@ -122,13 +124,16 @@ class Section(models.Model):
 class Registration(models.Model):
     student_id = models.ForeignKey(Student, on_delete=models.CASCADE)
     class_id = models.ForeignKey(Class, on_delete=models.CASCADE)
-    marks = models.PositiveSmallIntegerField()
-    feedback = models.TextField(max_length=250)
+    marks = models.PositiveSmallIntegerField(default=0)
+    feedback = models.TextField(max_length=250, blank=True)
 
     class Meta:
         models.UniqueConstraint(
             fields=["student_id", "class_id"], name="unique student per class"
         )
+
+    def __str__(self):
+        return f"{self.student_id.roll_number} {self.student_id.first_name} {self.class_id.course_id.code} {self.class_id.section_name}"
 
 
 class Message(models.Model):
@@ -146,7 +151,7 @@ class Resource(models.Model):
 
 class Attendance(models.Model):
     registration_id = models.ForeignKey(Registration, on_delete=models.CASCADE)
-    date = models.DateField()
+    date = models.DateField(auto_now_add=True)
     attended = models.BooleanField()
 
     class Meta:

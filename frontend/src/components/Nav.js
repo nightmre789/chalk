@@ -43,6 +43,7 @@ export default props => {
                   key={index}
                   label={item.label}
                   icon={item.icon}
+                  path={item.path}
                   active={index === props.activePage}
                   click={_ => props.setActivePage(index)}
                   ref={refs[index]}

@@ -4,13 +4,13 @@ import { TweenMax, Power3 } from "gsap";
 import CourseNavItem from "./CourseNavItem";
 import useWindowSize from "../hooks/useWindowSize";
 
-export default _ => {
+export default props => {
    const [courseNavItems] = useState([
-      { label: "Overview", icon: "overview" },
-      { label: "Marks", icon: "marks" },
-      { label: "Resources", icon: "resources" },
+      { label: "Overview", icon: "overview", path: "/" },
+      { label: "Marks", icon: "marks", path: "/marks" },
+      { label: "Resources", icon: "resources", path: "/resources" },
       { label: "Assignments", icon: "assignments" },
-      { label: "Attendance", icon: "attendance" },
+      { label: "Attendance", icon: "attendance", path: "/attendance" },
    ]);
    const size = useWindowSize();
 
@@ -37,7 +37,7 @@ export default _ => {
    );
 
    return (
-      <div className="relative mt-6 -mx-2">
+      <div className="relative mt-6">
          <div
             ref={e => (courseNavSlider = e)}
             className="absolute h-12 mt-1 bg-white rounded-full shadow-md"
@@ -51,6 +51,8 @@ export default _ => {
                   active={index === activePage}
                   click={_ => setActivePage(index)}
                   ref={refs[index]}
+                  code={props.code}
+                  path={`${props.id}/${item.path}`}
                />
             ))}
          </div>
