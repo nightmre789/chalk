@@ -63,5 +63,10 @@ class MessageAdmin(admin.ModelAdmin):
 
 
 @admin.register(models.Mark)
-class MessageAdmin(admin.ModelAdmin):
+class MarkAdmin(admin.ModelAdmin):
+    pass
+
+
+@admin.register(models.Attendance)
+class AttendanceAdmin(admin.ModelAdmin):
     pass

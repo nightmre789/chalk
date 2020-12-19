@@ -158,7 +158,7 @@ class Resource(models.Model):
 
 class Attendance(models.Model):
     registration_id = models.ForeignKey(Registration, on_delete=models.CASCADE)
-    date = models.DateField(auto_now_add=True)
+    date = models.DateField()
     attended = models.BooleanField(default=False)
 
     class Meta:
@@ -167,7 +167,7 @@ class Attendance(models.Model):
         )
 
     def __str__(self):
-        return f"{self.registration_id.student_id.name} {self.registration_id.class_id.course_id.code} {self.date} {'Present' if self.attended else 'Absent'}"
+        return f"{self.registration_id.student_id.first_name} {self.registration_id.student_id.last_name} {self.registration_id.class_id.course_id.code} {self.date} {'Present' if self.attended else 'Absent'}"
 
 
 class MarkedItem(models.Model):

@@ -9,7 +9,7 @@ import Resources from "./Resources";
 import Attendance from "./Attendance";
 
 const classQuery = gql`
-   query Class($id: Int!) {
+   query Class($id: Int!, $studentId: Int!) {
       classQ(id: $id) {
          id
          teacherId {
@@ -32,8 +32,18 @@ const classQuery = gql`
             min
             max
             total
-            mark
+            mark(studentId: $studentId) {
+               mark
+            }
             weightage
+         }
+         attendance(studentId: $studentId) {
+            date
+            attended
+         }
+         attendanceStats(studentId: $studentId) {
+            total
+            attended
          }
       }
    }
@@ -41,7 +51,10 @@ const classQuery = gql`
 
 export default props => {
    const { id } = useParams();
-   const { loading, error, data } = useQuery(classQuery, { variables: { id } });
+   const studentId = 2197;
+   const { loading, error, data } = useQuery(classQuery, {
+      variables: { id, studentId },
+   });
 
    const [activePage, setActivePage] = useState(0);
 
@@ -76,6 +89,8 @@ export default props => {
                   <Overview
                      classQ={c}
                      name={`${c.teacherId.firstName} ${c.teacherId.lastName}`}
+                     items={c.markeditemSet}
+                     attendance={c.attendanceStats}
                   />
                }
             />
@@ -91,7 +106,12 @@ export default props => {
             <Route path="resources" element={<Resources />} />
             <Route
                path="attendance"
-               element={<Attendance setActivePage={setActivePage} />}
+               element={
+                  <Attendance
+                     setActivePage={setActivePage}
+                     attendance={c.attendance}
+                  />
+               }
             />
          </Routes>
       </div>

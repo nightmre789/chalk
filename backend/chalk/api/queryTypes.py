@@ -31,11 +31,6 @@ class StudentType(DjangoObjectType):
         model = models.Student
 
 
-class ClassType(DjangoObjectType):
-    class Meta:
-        model = models.Class
-
-
 class RegistrationType(DjangoObjectType):
     class Meta:
         model = models.Registration
@@ -46,11 +41,49 @@ class MessageType(DjangoObjectType):
         model = models.Message
 
 
+class MarkType(DjangoObjectType):
+    class Meta:
+        model = models.Mark
+
+
+class AttendanceType(DjangoObjectType):
+    class Meta:
+        model = models.Attendance
+
+
+class AttendanceStats(graphene.ObjectType):
+    attended = graphene.Int()
+    total = graphene.Int()
+
+
+class ClassType(DjangoObjectType):
+    class Meta:
+        model = models.Class
+
+    attendance = graphene.List(AttendanceType, student_id=graphene.Int())
+    attendance_stats = graphene.Field(AttendanceStats, student_id=graphene.Int())
+
+    def resolve_attendance(self, info, student_id):
+        return self.registration_set.get(student_id=student_id).attendance_set.all()
+
+    def resolve_attendance_stats(self, info, student_id):
+        total = 0
+        attended = 0
+        attendance_set = self.registration_set.get(
+            student_id=student_id
+        ).attendance_set.all()
+        for attendance in attendance_set:
+            total = total + 1
+            attended = attended + (1 if attendance.attended else 0)
+        return AttendanceStats(attended, total)
+
+
 class MarkedItemType(DjangoObjectType):
+
     avg = graphene.Float()
     min = graphene.Float()
     max = graphene.Float()
-    mark = graphene.Float()
+    mark = graphene.Field(MarkType, student_id=graphene.Int())
 
     class Meta:
         model = models.MarkedItem
@@ -67,14 +100,10 @@ class MarkedItemType(DjangoObjectType):
         max = self.mark_set.all().aggregate(Max("mark"))
         return list(max.values())[0]
 
-    def resolve_mark(self, info):
-        mark = self.mark_set.filter(student_id=2197).first()
-        return mark.mark if mark else -1
+    def resolve_mark(self, info, student_id):
 
-
-class MarkType(DjangoObjectType):
-    class Meta:
-        model = models.Mark
+        mark = self.mark_set.filter(student_id=student_id).first()
+        return mark
 
 
 class Query(object):

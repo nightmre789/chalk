@@ -6,17 +6,39 @@ import PieLabel from "./PieLabel";
 import Announcement from "./Announcement";
 
 export default props => {
-   const progressData = [
-      { name: "Class Participation", value: 5 },
-      { name: "Quizzes", value: 15 },
-      { name: "Assignments", value: 10 },
-      { name: "Sessionals", value: 15 },
-      { name: "Unfinished", value: 60 },
-   ];
+   let total = 0;
+   const progressData = props.items.map(item => {
+      total += item.weightage;
+      return {
+         name: item.name,
+         value: item.weightage,
+         color: item.name.includes("Sessional")
+            ? "#0088FE"
+            : item.name.includes("Assignment")
+            ? "#00C49F"
+            : "#FFBB28",
+      };
+   });
+
+   progressData.push({
+      name: "Unfinished",
+      value: 100 - total,
+      color: "#fff",
+   });
+
    const attendanceData = [
-      { name: "Attended", value: 12, color: "#00C49F" },
-      { name: "Missed", value: 1, color: "#e9695f" },
+      {
+         name: "Attended",
+         value: props.attendance.attended,
+         color: "#00C49F",
+      },
+      {
+         name: "Missed",
+         value: props.attendance.total - props.attendance.attended,
+         color: "#e9695f",
+      },
    ];
+
    const colors = ["#0088FE", "#00C49F", "#FFBB28", "#FF8042", "#fff"];
 
    const messages = props.classQ.messageSet;
@@ -38,11 +60,11 @@ export default props => {
                         fill="#8884d8"
                         paddingAngle={5}
                      >
-                        {progressData.map((_, index) => (
-                           <Cell fill={colors[index % colors.length]} />
+                        {progressData.map(item => (
+                           <Cell fill={item.color} />
                         ))}
                         <Label
-                           content={<PieLabel label="40%" />}
+                           content={<PieLabel label={`${total}%`} />}
                            offset={0}
                            position="center"
                         />

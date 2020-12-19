@@ -8,9 +8,9 @@ export default props => {
    const [courseNavItems] = useState([
       { label: "Overview", icon: "overview", path: "/" },
       { label: "Marks", icon: "marks", path: "/marks" },
+      { label: "Attendance", icon: "attendance", path: "/attendance" },
       { label: "Resources", icon: "resources", path: "/resources" },
       { label: "Assignments", icon: "assignments" },
-      { label: "Attendance", icon: "attendance", path: "/attendance" },
    ]);
    const size = useWindowSize();
 
@@ -20,7 +20,7 @@ export default props => {
    useEffect(
       _ => {
          const rect = refs[props.activePage].current.getBoundingClientRect();
-         TweenMax.to(courseNavSlider, 0.75, {
+         TweenMax.to(courseNavSlider, 1, {
             css: {
                left:
                   rect.left -
