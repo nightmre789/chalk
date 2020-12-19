@@ -1,10 +1,11 @@
 import React from "react";
 import { PieChart, Pie, Cell, Tooltip, Label } from "recharts";
+import moment from "moment";
 
 import PieLabel from "./PieLabel";
 import Announcement from "./Announcement";
 
-export default _ => {
+export default props => {
    const progressData = [
       { name: "Class Participation", value: 5 },
       { name: "Quizzes", value: 15 },
@@ -17,6 +18,8 @@ export default _ => {
       { name: "Missed", value: 1, color: "#e9695f" },
    ];
    const colors = ["#0088FE", "#00C49F", "#FFBB28", "#FF8042", "#fff"];
+
+   const messages = props.classQ.messageSet;
 
    return (
       <div className="flex-row-reverse mt-2 lg:flex gap-x-6">
@@ -88,49 +91,16 @@ export default _ => {
             </div>
          </div>
 
-         <div className="flex flex-col flex-1 rounded-sm gap-y-3 lg:mt-0">
-            <Announcement
-               senderImage="https://images.unsplash.com/photo-1584999734482-0361aecad844?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=800&q=80"
-               senderName="Dr. Zulfiqar Memon"
-               time="4 hours"
-               title="Welcome to CS309!"
-               content="This course is a study of database models including the
-                  hierarhical, networ, relational and object oriented models and
-                  the examination of such practical issues as database design,
-                  setup, and manipulation. Other selected topics include data
-                  integrity, data seurity, backup and recovery procedures,
-                  database administration, etc. Several programming projects are
-                  assigned involving the use of a database management system.
-                  Prerequisite: CS 209."
-            />
-            <Announcement
-               senderImage="https://images.unsplash.com/photo-1584999734482-0361aecad844?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=800&q=80"
-               senderName="Dr. Zulfiqar Memon"
-               time="4 hours"
-               title="Welcome to CS309!"
-               content="This course is a study of database models including the
-                  hierarhical, networ, relational and object oriented models and
-                  the examination of such practical issues as database design,
-                  setup, and manipulation. Other selected topics include data
-                  integrity, data seurity, backup and recovery procedures,
-                  database administration, etc. Several programming projects are
-                  assigned involving the use of a database management system.
-                  Prerequisite: CS 209."
-            />
-            <Announcement
-               senderImage="https://images.unsplash.com/photo-1584999734482-0361aecad844?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=800&q=80"
-               senderName="Dr. Zulfiqar Memon"
-               time="4 hours"
-               title="Welcome to CS309!"
-               content="This course is a study of database models including the
-                  hierarhical, networ, relational and object oriented models and
-                  the examination of such practical issues as database design,
-                  setup, and manipulation. Other selected topics include data
-                  integrity, data seurity, backup and recovery procedures,
-                  database administration, etc. Several programming projects are
-                  assigned involving the use of a database management system.
-                  Prerequisite: CS 209."
-            />
+         <div className="flex flex-col-reverse flex-1 rounded-sm gap-y-3 lg:mt-0">
+            {messages.map(m => (
+               <Announcement
+                  senderImage="https://images.unsplash.com/photo-1584999734482-0361aecad844?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=800&q=80"
+                  senderName={props.name}
+                  time={moment(m.sent).fromNow()}
+                  title={m.title}
+                  content={m.content}
+               />
+            ))}
          </div>
       </div>
    );

@@ -14,13 +14,12 @@ export default props => {
    ]);
    const size = useWindowSize();
 
-   const [activePage, setActivePage] = useState(0);
    const refs = courseNavItems.map(_ => useRef(null));
    let courseNavSlider = useRef(null);
 
    useEffect(
       _ => {
-         const rect = refs[activePage].current.getBoundingClientRect();
+         const rect = refs[props.activePage].current.getBoundingClientRect();
          TweenMax.to(courseNavSlider, 0.75, {
             css: {
                left:
@@ -33,7 +32,7 @@ export default props => {
             ease: Power3.easeOut,
          });
       },
-      [refs, activePage, size.width]
+      [refs, props.activePage, size.width]
    );
 
    return (
@@ -48,8 +47,8 @@ export default props => {
                   key={index}
                   label={item.label}
                   icon={item.icon}
-                  active={index === activePage}
-                  click={_ => setActivePage(index)}
+                  active={index === props.activePage}
+                  click={_ => props.setActivePage(index)}
                   ref={refs[index]}
                   code={props.code}
                   path={`${props.id}/${item.path}`}

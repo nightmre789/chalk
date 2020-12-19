@@ -138,8 +138,12 @@ class Registration(models.Model):
 
 class Message(models.Model):
     class_id = models.ForeignKey(Class, on_delete=models.CASCADE)
-    content = models.TextField(max_length=1000)
+    title = models.CharField(max_length=255)
+    content = models.TextField(max_length=2000)
     sent = models.DateTimeField(auto_now_add=True)
+
+    def __str__(self):
+        return f"{self.title}"
 
 
 class Resource(models.Model):
@@ -148,13 +152,37 @@ class Resource(models.Model):
     title = models.CharField(max_length=50)
     uploaded = models.DateTimeField(auto_now_add=True)
 
+    def __str__(self):
+        return f"{self.title}"
+
 
 class Attendance(models.Model):
     registration_id = models.ForeignKey(Registration, on_delete=models.CASCADE)
     date = models.DateField(auto_now_add=True)
-    attended = models.BooleanField()
+    attended = models.BooleanField(default=False)
 
     class Meta:
         models.UniqueConstraint(
             fields=["registration_id", "date"], name="unique attendance per date"
         )
+
+    def __str__(self):
+        return f"{self.registration_id.student_id.name} {self.registration_id.class_id.course_id.code} {self.date} {'Present' if self.attended else 'Absent'}"
+
+
+class MarkedItem(models.Model):
+    class_id = models.ForeignKey(Class, on_delete=models.CASCADE)
+    name = models.CharField(max_length=255)
+    total = models.FloatField()
+    weightage = models.FloatField()
+
+    def __str__(self):
+        return (
+            f"{self.class_id.course_id.code} {self.class_id.section_name} {self.name}"
+        )
+
+
+class Mark(models.Model):
+    student_id = models.ForeignKey(Student, on_delete=models.CASCADE)
+    item_id = models.ForeignKey(MarkedItem, on_delete=models.CASCADE)
+    mark = models.FloatField()

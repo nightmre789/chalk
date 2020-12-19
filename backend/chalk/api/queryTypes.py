@@ -1,6 +1,7 @@
-from datetime import datetime
 import graphene
+from datetime import datetime
 from graphene_django import DjangoObjectType, DjangoListField
+from django.db.models import Avg, Max, Min
 
 from . import models
 
@@ -38,6 +39,42 @@ class ClassType(DjangoObjectType):
 class RegistrationType(DjangoObjectType):
     class Meta:
         model = models.Registration
+
+
+class MessageType(DjangoObjectType):
+    class Meta:
+        model = models.Message
+
+
+class MarkedItemType(DjangoObjectType):
+    avg = graphene.Float()
+    min = graphene.Float()
+    max = graphene.Float()
+    mark = graphene.Float()
+
+    class Meta:
+        model = models.MarkedItem
+
+    def resolve_avg(self, info):
+        avg = self.mark_set.all().aggregate(Avg("mark"))
+        return list(avg.values())[0]
+
+    def resolve_min(self, info):
+        min = self.mark_set.all().aggregate(Min("mark"))
+        return list(min.values())[0]
+
+    def resolve_max(self, info):
+        max = self.mark_set.all().aggregate(Max("mark"))
+        return list(max.values())[0]
+
+    def resolve_mark(self, info):
+        mark = self.mark_set.filter(student_id=2197).first()
+        return mark.mark if mark else -1
+
+
+class MarkType(DjangoObjectType):
+    class Meta:
+        model = models.Mark
 
 
 class Query(object):

@@ -15,6 +15,7 @@ export default props => {
             <div>{"Avg: " + props.average}</div>
             <div>{"Min: " + props.min}</div>
             <div>{"Max: " + props.max}</div>
+            <div>{"Wtg: " + props.weightage}</div>
          </div>
       </div>
    );

@@ -13,7 +13,7 @@ export default props => {
                <h2 className="text-lg font-semibold text-gray-700">
                   {props.senderName}
                </h2>
-               <p className="text-gray-400">{props.time + " ago"}</p>
+               <p className="text-gray-400">{props.time}</p>
             </div>
          </div>
          <h1 className="mt-5 text-3xl font-bold text-gray-700 font-ff">

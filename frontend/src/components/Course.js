@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, { useState } from "react";
 import { Route, Routes, useParams } from "react-router-dom";
 import { gql, useQuery } from "@apollo/client";
 
@@ -21,6 +21,20 @@ const classQuery = gql`
             code
             name
          }
+         messageSet {
+            title
+            content
+            sent
+         }
+         markeditemSet {
+            name
+            avg
+            min
+            max
+            total
+            mark
+            weightage
+         }
       }
    }
 `;
@@ -28,6 +42,8 @@ const classQuery = gql`
 export default props => {
    const { id } = useParams();
    const { loading, error, data } = useQuery(classQuery, { variables: { id } });
+
+   const [activePage, setActivePage] = useState(0);
 
    if (loading) return "Loading...";
    if (error) return `Error! ${error.message}`;
@@ -48,12 +64,35 @@ export default props => {
                {`- ${c.teacherId.firstName} ${c.teacherId.lastName}| Section ${c.sectionName}`}
             </span>
          </h3>
-         <CourseNav id={c.id} />
+         <CourseNav
+            id={c.id}
+            activePage={activePage}
+            setActivePage={setActivePage}
+         />
          <Routes>
-            <Route path="/" element={<Overview />} />
-            <Route path="marks" element={<Marks />} />
+            <Route
+               path="/"
+               element={
+                  <Overview
+                     classQ={c}
+                     name={`${c.teacherId.firstName} ${c.teacherId.lastName}`}
+                  />
+               }
+            />
+            <Route
+               path="marks"
+               element={
+                  <Marks
+                     items={c.markeditemSet}
+                     setActivePage={setActivePage}
+                  />
+               }
+            />
             <Route path="resources" element={<Resources />} />
-            <Route path="attendance" element={<Attendance />} />
+            <Route
+               path="attendance"
+               element={<Attendance setActivePage={setActivePage} />}
+            />
          </Routes>
       </div>
    );

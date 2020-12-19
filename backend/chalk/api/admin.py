@@ -41,12 +41,27 @@ class StudentAdmin(admin.ModelAdmin):
 class ClassAdmin(admin.ModelAdmin):
     pass
 
+
 @admin.register(models.Section)
 class SectionAdmin(admin.ModelAdmin):
     pass
+
 
 @admin.register(models.Registration)
 class RegistrationAdmin(admin.ModelAdmin):
     pass
 
 
+@admin.register(models.Message)
+class MessageAdmin(admin.ModelAdmin):
+    pass
+
+
+@admin.register(models.MarkedItem)
+class MessageAdmin(admin.ModelAdmin):
+    pass
+
+
+@admin.register(models.Mark)
+class MessageAdmin(admin.ModelAdmin):
+    pass
