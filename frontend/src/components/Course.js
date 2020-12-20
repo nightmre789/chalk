@@ -1,6 +1,7 @@
-import React, { useState } from "react";
+import React, { useState, useContext } from "react";
 import { Route, Routes, useParams } from "react-router-dom";
 import { gql, useQuery } from "@apollo/client";
+import { store } from "./Store";
 
 import CourseNav from "./CourseNav.js";
 import Overview from "./Overview";
@@ -50,8 +51,9 @@ const classQuery = gql`
 `;
 
 export default props => {
+   const { state } = useContext(store);
    const { id } = useParams();
-   const studentId = 2197;
+   const studentId = state.id;
    const { loading, error, data } = useQuery(classQuery, {
       variables: { id, studentId },
    });
@@ -64,7 +66,7 @@ export default props => {
    const c = data.classQ;
 
    return (
-      <div>
+      <div className="mt-8">
          <h1 className="-mb-4 text-6xl font-bold tracking-tight text-center text-indigo-500 font-ff md:text-left">
             {`${c.courseId.code.substring(0, 2)} `}
             <span className="text-gray-800">

@@ -41,6 +41,7 @@ INSTALLED_APPS = [
     "django_filters",
     "chalk.api",
     "corsheaders",
+    "django_extensions",
 ]
 
 MIDDLEWARE = [

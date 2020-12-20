@@ -39,8 +39,6 @@ export default props => {
       },
    ];
 
-   const colors = ["#0088FE", "#00C49F", "#FFBB28", "#FF8042", "#fff"];
-
    const messages = props.classQ.messageSet;
 
    return (

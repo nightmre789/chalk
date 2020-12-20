@@ -92,6 +92,47 @@
       stroke-dashoffset: -134;
       stroke-width: 6;
    }
+
+   .formbtn {
+      @apply bg-indigo-600;
+      @apply border-indigo-700;
+   }
+
+   .formbtn:focus {
+      @apply bg-indigo-500;
+   }
+
+   .formbtn:hover {
+      @apply bg-indigo-500;
+   }
+
+   .formbtn:active {
+      @apply bg-indigo-600;
+   }
+
+   .formbtn-inactive {
+      @apply border-2;
+      @apply border-gray-300;
+      @apply shadow-sm;
+      @apply cursor-default;
+   }
+
+   /* FormField */
+   input:focus-within ~ label,
+   input:not(:placeholder-shown) ~ label {
+      @apply transform scale-0 opacity-0;
+   }
+
+   input:focus-within ~ div,
+   input:not(:placeholder-shown) ~ div {
+      @apply transform scale-100 opacity-100;
+   }
+
+   input:focus-within {
+      @apply bg-white;
+      @apply border-2;
+      @apply border-gray-800;
+   }
 }
 body {
    overscroll-behavior-y: none;

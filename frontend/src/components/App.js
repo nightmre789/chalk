@@ -1,12 +1,20 @@
-import React, { useState, useRef, useEffect } from "react";
+import React, { useState, useRef, useEffect, useContext } from "react";
 import { TweenMax } from "gsap";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import { ApolloClient, ApolloProvider, InMemoryCache } from "@apollo/client";
+import { store } from "./Store";
 
 import Nav from "./Nav";
 import Dashboard from "./Dashboard";
 import Courses from "./Courses";
 import Messages from "./Messages";
+import Registration from "./Registration";
+import Login from "./Login";
+
+import TeacherNavItem from "./teacher/TeacherNavItem";
+import TeacherCourses from "./teacher/TeacherCourses";
+
+import bg from "../assets/images/bg.jpg";
 
 const client = new ApolloClient({
    uri: "http://localhost:8000/graphql",
@@ -14,11 +22,6 @@ const client = new ApolloClient({
 });
 
 export default _ => {
-   let appRef = useRef(null);
-   useEffect(_ => {
-      TweenMax.to(appRef, 0, { css: { visibility: "visible" } });
-   });
-
    const [navOpen, setNavOpen] = useState(false);
    const [activePage, setActivePage] = useState(0);
    const [navItems] = useState([
@@ -29,22 +32,50 @@ export default _ => {
       { label: "Fees", icon: "fees", path: "/fees" },
    ]);
 
+   const { state, dispatch } = useContext(store);
+
+   if (state.id === -1)
+      return (
+         <ApolloProvider client={client}>
+            <div className="h-screen pt-10 bg-gray-800">
+               <img
+                  src={bg}
+                  alt="bg"
+                  className="fixed top-0 h-screen md:h-auto"
+               />
+               <div className="fixed bottom-0 right-0 mb-2 mr-2 text-xl text-white font-ff">
+                  Copyright Team Mirzey 2020
+               </div>
+               <Login />
+            </div>
+         </ApolloProvider>
+      );
+
    return (
       <ApolloProvider client={client}>
          <Router>
-            <div
-               className="fixed w-full h-screen overflow-y-hidden bg-gray-cool-100 md:p-4"
-               ref={e => (appRef = e)}
-            >
-               <div className="h-screen overflow-y-auto shadow-lg md:p-6 md:flex bg-gray-cool-040 md:h-padded">
-                  <Nav
-                     open={navOpen}
-                     setOpen={setNavOpen}
-                     items={navItems}
-                     activePage={activePage}
-                     setActivePage={setActivePage}
-                  />
-                  <div className="relative px-5 ml-auto md:w-5/6 md:pl-16">
+            <div className="fixed w-full h-screen overflow-y-hidden bg-gray-cool-100 md:p-4">
+               <div
+                  className={`h-screen overflow-y-auto shadow-lg md:p-6 bg-gray-cool-040 md:h-padded ${
+                     state.accountType ? "" : "md:flex"
+                  }`}
+               >
+                  {state.accountType ? (
+                     ""
+                  ) : (
+                     <Nav
+                        open={navOpen}
+                        setOpen={setNavOpen}
+                        items={navItems}
+                        activePage={activePage}
+                        setActivePage={setActivePage}
+                     />
+                  )}
+                  <div
+                     className={`relative px-5 ml-auto md:pl-16 ${
+                        state.accountType ? "" : "md:w-5/6"
+                     }`}
+                  >
                      {/* <div className="absolute z-20 flex items-center w-full pr-5 gap-x-6">
                         <div
                            className={
@@ -78,14 +109,25 @@ export default _ => {
                            </div>
                         </div>
                      </div> */}
-                     <Routes>
-                        <Route path="/" element={<Dashboard />} />
-                        <Route
-                           path="courses/*"
-                           element={<Courses setActivePage={setActivePage} />}
-                        />
-                        <Route path="/messages" element={<Messages />} />
-                     </Routes>
+                     {state.accountType ? (
+                        <TeacherCourses />
+                     ) : (
+                        <Routes>
+                           <Route path="/" element={<Dashboard />} />
+
+                           <Route
+                              path="courses/*"
+                              element={
+                                 <Courses setActivePage={setActivePage} />
+                              }
+                           />
+                           <Route path="/messages" element={<Messages />} />
+                           <Route
+                              path="/registration"
+                              element={<Registration />}
+                           />
+                        </Routes>
+                     )}
                   </div>
                </div>
             </div>

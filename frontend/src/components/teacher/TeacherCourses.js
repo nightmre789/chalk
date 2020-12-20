@@ -1,22 +1,19 @@
 import React, { useEffect, useContext } from "react";
 import { Routes, Route } from "react-router-dom";
 import { gql, useQuery } from "@apollo/client";
-import { store } from "./Store";
+import { store } from "../Store";
 
-import CoursesList from "./CoursesList";
-import Course from "./Course";
+import TeacherCoursesList from "./TeacherCoursesList";
+import TeacherCourse from "./TeacherCourse";
 
 const classesQuery = gql`
-   query Messages($studentId: Int!) {
-      student(id: $studentId, rollNumber: "") {
+   query Messages($teacherId: Int!) {
+      teacher(id: $teacherId, username: "") {
          id
+         firstName
+         lastName
          classSet {
             id
-            teacherId {
-               id
-               firstName
-               lastName
-            }
             courseId {
                id
                code
@@ -30,23 +27,19 @@ const classesQuery = gql`
 
 export default props => {
    const { state } = useContext(store);
-   useEffect(_ => {
-      props.setActivePage(1);
-   }, []);
 
-   const studentId = state.id;
+   const teacherId = state.id;
 
    const { loading, error, data } = useQuery(classesQuery, {
-      variables: { studentId },
+      variables: { teacherId },
    });
 
    if (loading) return "Loading...";
    if (error) return `Error! ${error.message}`;
-
    return (
       <Routes>
-         <Route path="/" element={<CoursesList data={data} />} />
-         <Route path=":id/*" element={<Course />} />
+         <Route path="/" element={<TeacherCoursesList data={data} />} />
+         <Route path=":id/*" element={<TeacherCourse />} />
       </Routes>
    );
 };

@@ -100,25 +100,4 @@ class Command(BaseCommand):
         #                     section=section,
         #                     batch=batch,
         #                 )
-        query = models.MarkedItem.objects.filter(class_id=1).prefetch_related(
-            "mark_set"
-        )
-        markeditems = []
-        for item in query:
-            marks = item.mark_set.all()
-            mark = marks.filter(student_id=2197).first()
-            avg = marks.aggregate(Avg("mark"))
-            min = marks.aggregate(Min("mark"))
-            max = marks.aggregate(Max("mark"))
-            markeditems.append(
-                {
-                    "name": item.name,
-                    "total": item.total,
-                    "mark": mark.mark if mark else "-",
-                    "average": avg if avg else "-",
-                    "max": max if max else "-",
-                    "min": min if min else "-",
-                }
-            )
-
-        print(markeditems)
+    

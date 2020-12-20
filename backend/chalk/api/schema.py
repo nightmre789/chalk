@@ -4,15 +4,17 @@ from graphene import ObjectType
 from graphene_django import DjangoObjectType
 from graphene_django.debug import DjangoDebug
 from . import models
-from . import queryTypes
+from . import queries
+from . import mutations
 
 
-class Query(queryTypes.Query, ObjectType):
-    current_semester = graphene.String()
-
-    def resolve_hello(self, info, name):
-        return "FW2020"
+class Query(queries.Query, ObjectType):
+    pass
 
 
-schema = graphene.Schema(query=Query)
+class Mutation(mutations.Mutation, ObjectType):
+    pass
+
+
+schema = graphene.Schema(query=Query, mutation=Mutation)
 

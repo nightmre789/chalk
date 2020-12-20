@@ -106,6 +106,11 @@ class MarkedItemType(DjangoObjectType):
         return mark
 
 
+class SemesterType(DjangoObjectType):
+    class Meta:
+        model = models.Semester
+
+
 class Query(object):
 
     campuses = DjangoListField(CampusType)
@@ -119,12 +124,14 @@ class Query(object):
     students = DjangoListField(StudentType)
     student = graphene.Field(
         StudentType,
-        batch=graphene.Int(),
-        roll_number=graphene.Int(),
-        campus=graphene.String(),
+        id=graphene.Int(required=False),
+        roll_number=graphene.String(required=False),
     )
 
+    teacher = graphene.Field(TeacherType, id=graphene.Int(), username=graphene.String())
+
     class_q = graphene.Field(ClassType, id=graphene.Int())
+    classes = DjangoListField(ClassType)
 
     def resolve_campus(self, info, name="Karachi"):
         return models.Campus.objects.get(name=name) if name is not None else None
@@ -132,15 +139,42 @@ class Query(object):
     def resolve_course(self, info, code):
         return models.Course.objects.get(code=code) if code is not None else None
 
-    def resolve_student(self, info, batch, roll_number, campus="Karachi"):
+    def resolve_teacher(self, info, id, username):
+        name = username.split(".")
+        first_name = last_name = ""
+        if id is -1:
+            first_name = name[0].capitalize()
+            last_name = name[1].capitalize()
+
         return (
-            models.Student.objects.get(
-                batch=batch,
-                roll_number=roll_number,
+            models.Teacher.objects.get(id=id)
+            if id is not -1
+            else models.Teacher.objects.get(first_name=first_name, last_name=last_name)
+        )
+
+    def resolve_student(self, info, id, roll_number):
+        campus = ""
+        if id is -1:
+            c = roll_number[2]
+            campus = (
+                "Karachi"
+                if (c == "k" or c == "K")
+                else "Islamabad"
+                if (c == "I" or c == "i")
+                else "Faisalabad"
+                if (c == "F" or c == "f")
+                else "Peshawar"
+                if (c == "P" or c == "p")
+                else "Lahore"
+            )
+        return (
+            models.Student.objects.get(id=id)
+            if id is not -1
+            else models.Student.objects.get(
+                batch=2000 + int(roll_number[:2]),
+                roll_number=int(roll_number[3:]),
                 program_id__department_id__campus_id=campus,
             )
-            if batch is not None and roll_number is not None and campus is not None
-            else None
         )
 
     def resolve_class_q(self, info, id=1):

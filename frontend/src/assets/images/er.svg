@@ -1,0 +1,759 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Generator: Adobe Illustrator 23.0.3, SVG Export Plug-In . SVG Version: 6.00 Build 0)  -->
+<svg version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
+	 viewBox="0 0 1654 1028" style="enable-background:new 0 0 1654 1028;" xml:space="preserve">
+<style type="text/css">
+	.st0{fill:#FFFFFF;}
+	.st1{fill:#1B563F;}
+	.st2{font-family:'ArialMT';}
+	.st3{font-size:7.9984px;}
+	.st4{font-family:'Arial-BoldMT';}
+	.st5{font-size:9.9981px;}
+	.st6{fill:none;stroke:#000000;}
+	.st7{stroke:#000000;}
+	.st8{fill:#7B7B7B;}
+	.st9{fill:none;stroke:#000000;stroke-miterlimit:10;}
+	.st10{fill:#FFFFFF;stroke:#000000;stroke-miterlimit:10;}
+	.st11{enable-background:new    ;}
+	.st12{fill:none;}
+</style>
+<g id="graph0" transform="scale(1 1) rotate(0) translate(4 1024.2)">
+	<title>model_graph</title>
+	<line class="st0" x1="1151.8" y1="-1040.7" x2="1151.8" y2="-12.7"/>
+	<g id="node9">
+		<title>chalk_api_models_Campus</title>
+		<polygon class="st0" points="734.8,-20.7 734.8,-57.7 824.8,-57.7 824.8,-20.7 		"/>
+		<polygon class="st1" points="735.8,-34.2 735.8,-56.2 823.8,-56.2 823.8,-34.2 		"/>
+		<text transform="matrix(1 0 0 1 749.4413 -43.2036)" class="st2 st3">   </text>
+		<text transform="matrix(1 0 0 1 757.4393 -43.2036)" class="st0 st4 st5">   Campus    </text>
+		<text transform="matrix(1 0 0 1 737.6688 -26.0074)" class="st2 st3">   </text>
+		<text transform="matrix(1 0 0 1 745.6669 -26.0074)" class="st4 st3" style="text-decoration: underline;">name</text>
+		<text transform="matrix(1 0 0 1 762.9891 -26.0074)" class="st2 st3">   </text>
+		<text transform="matrix(1 0 0 1 774.7704 -26.0074)" class="st2 st3">   </text>
+		<text transform="matrix(1 0 0 1 782.7694 -26.0074)" class="st4 st3">TextField</text>
+		<text transform="matrix(1 0 0 1 813.87 -26.0074)" class="st2 st3">   </text>
+		<polygon class="st6" points="734.8,-20.7 734.8,-57.7 824.8,-57.7 824.8,-20.7 		"/>
+	</g>
+	<g id="node10">
+		<title>chalk_api_models_Course</title>
+		<polygon class="st0" points="330.8,-290.6 330.8,-379.6 494.8,-379.6 494.8,-290.6 		"/>
+		<polygon class="st1" points="331.8,-356.1 331.8,-378.1 493.8,-378.1 493.8,-356.1 		"/>
+		<text transform="matrix(1 0 0 1 384.6314 -365.1165)" class="st2 st3">   </text>
+		<text transform="matrix(1 0 0 1 392.6304 -365.1165)" class="st0 st4 st5">   Course    </text>
+		<text transform="matrix(1 0 0 1 333.8047 -347.9203)" class="st2 st3">   </text>
+		<text transform="matrix(1 0 0 1 341.8033 -347.9203)" class="st4 st3" style="text-decoration: underline;">id</text>
+		<text transform="matrix(1 0 0 1 348.025 -347.9203)" class="st2 st3">   </text>
+		<text transform="matrix(1 0 0 1 392.7935 -347.9203)" class="st2 st3">   </text>
+		<text transform="matrix(1 0 0 1 400.7916 -347.9203)" class="st4 st3">AutoField</text>
+		<text transform="matrix(1 0 0 1 433.2281 -347.9203)" class="st2 st3">   </text>
+		<text transform="matrix(1 0 0 1 333.8047 -334.9232)" class="st2 st3">   </text>
+		<text transform="matrix(1 0 0 1 341.8033 -334.9232)" class="st2 st3">code</text>
+		<text transform="matrix(1 0 0 1 356.9029 -334.9232)" class="st2 st3">   </text>
+		<text transform="matrix(1 0 0 1 392.7935 -334.9232)" class="st2 st3">   </text>
+		<text transform="matrix(1 0 0 1 400.7916 -334.9232)" class="st2 st3">CharField</text>
+		<text transform="matrix(1 0 0 1 432.7798 -334.9232)" class="st2 st3">   </text>
+		<text transform="matrix(1 0 0 1 333.3116 -321.9251)" class="st2 st3">   </text>
+		<text transform="matrix(1 0 0 1 341.3101 -321.9251)" class="st2 st3">credit_hours</text>
+		<text transform="matrix(1 0 0 1 381.2886 -321.9251)" class="st2 st3">   </text>
+		<text transform="matrix(1 0 0 1 392.5211 -321.9251)" class="st2 st3">   </text>
+		<text transform="matrix(1 0 0 1 400.5201 -321.9251)" class="st2 st3">PositiveSmallIntegerField</text>
+		<text transform="matrix(1 0 0 1 484.0474 -321.9251)" class="st2 st3">   </text>
+		<text transform="matrix(1 0 0 1 333.8047 -308.9281)" class="st2 st3">   </text>
+		<text transform="matrix(1 0 0 1 341.8033 -308.9281)" class="st2 st3">description</text>
+		<text transform="matrix(1 0 0 1 377.3423 -308.9281)" class="st2 st3">   </text>
+		<text transform="matrix(1 0 0 1 392.7935 -308.9281)" class="st2 st3">   </text>
+		<text transform="matrix(1 0 0 1 400.7916 -308.9281)" class="st2 st3">CharField</text>
+		<text transform="matrix(1 0 0 1 432.7798 -308.9281)" class="st2 st3">   </text>
+		<text transform="matrix(1 0 0 1 333.8047 -295.93)" class="st2 st3">   </text>
+		<text transform="matrix(1 0 0 1 341.8033 -295.93)" class="st2 st3">name</text>
+		<text transform="matrix(1 0 0 1 359.1255 -295.93)" class="st2 st3">   </text>
+		<text transform="matrix(1 0 0 1 392.7935 -295.93)" class="st2 st3">   </text>
+		<text transform="matrix(1 0 0 1 400.7916 -295.93)" class="st2 st3">CharField</text>
+		<text transform="matrix(1 0 0 1 432.7798 -295.93)" class="st2 st3">   </text>
+		<polygon class="st6" points="330.8,-290.6 330.8,-379.6 494.8,-379.6 494.8,-290.6 		"/>
+	</g>
+	<g id="node11">
+		<title>chalk_api_models_Department</title>
+		<polygon class="st0" points="709,-142.9 709,-205.9 847,-205.9 847,-142.9 		"/>
+		<polygon class="st1" points="710,-182.4 710,-204.4 846,-204.4 846,-182.4 		"/>
+		<text transform="matrix(1 0 0 1 740.395 -191.4241)" class="st2 st3">   </text>
+		<text transform="matrix(1 0 0 1 748.3931 -191.4241)" class="st0 st4 st5">   Department    </text>
+		<text transform="matrix(1 0 0 1 712.0015 -174.2278)" class="st2 st3">   </text>
+		<text transform="matrix(1 0 0 1 720.0005 -174.2278)" class="st4 st3" style="text-decoration: underline;">id</text>
+		<text transform="matrix(1 0 0 1 726.2222 -174.2278)" class="st2 st3">   </text>
+		<text transform="matrix(1 0 0 1 765.9907 -174.2278)" class="st2 st3">   </text>
+		<text transform="matrix(1 0 0 1 773.9897 -174.2278)" class="st4 st3">AutoField</text>
+		<text transform="matrix(1 0 0 1 806.4263 -174.2278)" class="st2 st3">   </text>
+		<text transform="matrix(1 0 0 1 711.6714 -161.2298)" class="st2 st3">   </text>
+		<text transform="matrix(1 0 0 1 719.6704 -161.2298)" class="st4 st3">campus_id</text>
+		<text transform="matrix(1 0 0 1 754.3237 -161.2298)" class="st2 st3">   </text>
+		<text transform="matrix(1 0 0 1 765.5591 -161.2298)" class="st2 st3">   </text>
+		<text transform="matrix(1 0 0 1 773.5581 -161.2298)" class="st4 st3">ForeignKey (name)</text>
+		<text transform="matrix(1 0 0 1 836.4087 -161.2298)" class="st2 st3">   </text>
+		<text transform="matrix(1 0 0 1 712.0015 -148.2327)" class="st2 st3">   </text>
+		<text transform="matrix(1 0 0 1 720.0005 -148.2327)" class="st2 st3">name</text>
+		<text transform="matrix(1 0 0 1 737.3228 -148.2327)" class="st2 st3">   </text>
+		<text transform="matrix(1 0 0 1 765.9907 -148.2327)" class="st2 st3">   </text>
+		<text transform="matrix(1 0 0 1 773.9897 -148.2327)" class="st2 st3">CharField</text>
+		<text transform="matrix(1 0 0 1 805.978 -148.2327)" class="st2 st3">   </text>
+		<polygon class="st6" points="709,-142.9 709,-205.9 847,-205.9 847,-142.9 		"/>
+	</g>
+	<g id="edge11">
+		<title>chalk_api_models_Department-&gt;chalk_api_models_Campus</title>
+		<path class="st6" d="M780.3-79.6c0,7.6-0.5,14.4-0.5,17.7"/>
+		<path class="st6" d="M779.8-131.5c0,2.9,0.2,8.4,0.2,13.9"/>
+		<ellipse class="st7" cx="779.8" cy="-135.7" rx="4" ry="4"/>
+	</g>
+	<g id="node12">
+		<title>chalk_api_models_Semester</title>
+		<polygon class="st0" points="543.9,-200.3 543.9,-263.3 681.8,-263.3 681.8,-200.3 		"/>
+		<polygon class="st1" points="544.9,-239.8 544.9,-261.8 680.8,-261.8 680.8,-239.8 		"/>
+		<text transform="matrix(1 0 0 1 580.536 -248.7632)" class="st2 st3">   </text>
+		<text transform="matrix(1 0 0 1 588.5341 -248.7632)" class="st0 st4 st5">   Semester    </text>
+		<text transform="matrix(1 0 0 1 546.868 -231.5669)" class="st2 st3">   </text>
+		<text transform="matrix(1 0 0 1 554.8671 -231.5669)" class="st4 st3" style="text-decoration: underline;">id</text>
+		<text transform="matrix(1 0 0 1 561.0887 -231.5669)" class="st2 st3">   </text>
+		<text transform="matrix(1 0 0 1 600.8583 -231.5669)" class="st2 st3">   </text>
+		<text transform="matrix(1 0 0 1 608.8563 -231.5669)" class="st4 st3">AutoField</text>
+		<text transform="matrix(1 0 0 1 641.2938 -231.5669)" class="st2 st3">   </text>
+		<text transform="matrix(1 0 0 1 546.5389 -218.5699)" class="st2 st3">   </text>
+		<text transform="matrix(1 0 0 1 554.537 -218.5699)" class="st4 st3">campus_id</text>
+		<text transform="matrix(1 0 0 1 589.1903 -218.5699)" class="st2 st3">   </text>
+		<text transform="matrix(1 0 0 1 600.4266 -218.5699)" class="st2 st3">   </text>
+		<text transform="matrix(1 0 0 1 608.4247 -218.5699)" class="st4 st3">ForeignKey (name)</text>
+		<text transform="matrix(1 0 0 1 671.2762 -218.5699)" class="st2 st3">   </text>
+		<text transform="matrix(1 0 0 1 546.868 -205.5718)" class="st2 st3">   </text>
+		<text transform="matrix(1 0 0 1 554.8671 -205.5718)" class="st2 st3">name</text>
+		<text transform="matrix(1 0 0 1 572.1893 -205.5718)" class="st2 st3">   </text>
+		<text transform="matrix(1 0 0 1 600.8583 -205.5718)" class="st2 st3">   </text>
+		<text transform="matrix(1 0 0 1 608.8563 -205.5718)" class="st2 st3">CharField</text>
+		<text transform="matrix(1 0 0 1 640.8446 -205.5718)" class="st2 st3">   </text>
+		<polygon class="st6" points="543.9,-200.3 543.9,-263.3 681.8,-263.3 681.8,-200.3 		"/>
+	</g>
+	<g id="edge12">
+		<title>chalk_api_models_Semester-&gt;chalk_api_models_Campus</title>
+		<ellipse class="st7" cx="605.8" cy="-192" rx="4" ry="4"/>
+		<text transform="matrix(1 0 0 1 618.8137 -106.448)" class="st2 st3">has</text>
+	</g>
+	<g id="node13">
+		<title>chalk_api_models_Admin</title>
+		<polygon class="st0" points="882.8,-111.3 882.8,-174.3 1020.8,-174.3 1020.8,-111.3 		"/>
+		<polygon class="st1" points="883.8,-150.8 883.8,-172.8 1019.8,-172.8 1019.8,-150.8 		"/>
+		<text transform="matrix(1 0 0 1 923.9061 -159.7808)" class="st2 st3">   </text>
+		<text transform="matrix(1 0 0 1 931.9052 -159.7808)" class="st0 st4 st5">   Admin    </text>
+		<text transform="matrix(1 0 0 1 885.8026 -142.5845)" class="st2 st3">   </text>
+		<text transform="matrix(1 0 0 1 893.8007 -142.5845)" class="st4 st3" style="text-decoration: underline;">id</text>
+		<text transform="matrix(1 0 0 1 900.0223 -142.5845)" class="st2 st3">   </text>
+		<text transform="matrix(1 0 0 1 939.7919 -142.5845)" class="st2 st3">   </text>
+		<text transform="matrix(1 0 0 1 947.7899 -142.5845)" class="st4 st3">AutoField</text>
+		<text transform="matrix(1 0 0 1 980.2274 -142.5845)" class="st2 st3">   </text>
+		<text transform="matrix(1 0 0 1 885.4725 -129.5865)" class="st2 st3">   </text>
+		<text transform="matrix(1 0 0 1 893.4716 -129.5865)" class="st4 st3">campus_id</text>
+		<text transform="matrix(1 0 0 1 928.1239 -129.5865)" class="st2 st3">   </text>
+		<text transform="matrix(1 0 0 1 939.3602 -129.5865)" class="st2 st3">   </text>
+		<text transform="matrix(1 0 0 1 947.3593 -129.5865)" class="st4 st3">ForeignKey (name)</text>
+		<text transform="matrix(1 0 0 1 1010.2098 -129.5865)" class="st2 st3">   </text>
+		<text transform="matrix(1 0 0 1 885.8026 -116.5894)" class="st2 st3">   </text>
+		<text transform="matrix(1 0 0 1 893.8007 -116.5894)" class="st2 st3">name</text>
+		<text transform="matrix(1 0 0 1 911.1229 -116.5894)" class="st2 st3">   </text>
+		<text transform="matrix(1 0 0 1 939.7919 -116.5894)" class="st2 st3">   </text>
+		<text transform="matrix(1 0 0 1 947.7899 -116.5894)" class="st2 st3">CharField</text>
+		<text transform="matrix(1 0 0 1 979.7782 -116.5894)" class="st2 st3">   </text>
+		<polygon class="st6" points="882.8,-111.3 882.8,-174.3 1020.8,-174.3 1020.8,-111.3 		"/>
+	</g>
+	<g id="edge13">
+		<title>chalk_api_models_Admin-&gt;chalk_api_models_Campus</title>
+		<ellipse class="st7" cx="902.1" cy="-104.9" rx="4" ry="4"/>
+	</g>
+	<g id="node14">
+		<title>chalk_api_models_Program</title>
+		<polygon class="st0" points="822.3,-295.8 822.3,-371.7 961.3,-371.7 961.3,-295.8 		"/>
+		<polygon class="st1" points="823.8,-348.7 823.8,-370.7 960.8,-370.7 960.8,-348.7 		"/>
+		<text transform="matrix(1 0 0 1 861.0897 -357.7427)" class="st2 st3">   </text>
+		<text transform="matrix(1 0 0 1 869.0887 -357.7427)" class="st0 st4 st5">   Program    </text>
+		<text transform="matrix(1 0 0 1 825.8143 -340.5454)" class="st2 st3">   </text>
+		<text transform="matrix(1 0 0 1 833.8124 -340.5454)" class="st4 st3" style="text-decoration: underline;">id</text>
+		<text transform="matrix(1 0 0 1 840.0341 -340.5454)" class="st2 st3">   </text>
+		<text transform="matrix(1 0 0 1 891.8016 -340.5454)" class="st2 st3">   </text>
+		<text transform="matrix(1 0 0 1 899.7997 -340.5454)" class="st4 st3">AutoField</text>
+		<text transform="matrix(1 0 0 1 932.2372 -340.5454)" class="st2 st3">   </text>
+		<text transform="matrix(1 0 0 1 825.7098 -327.5484)" class="st2 st3">   </text>
+		<text transform="matrix(1 0 0 1 833.7079 -327.5484)" class="st4 st3">department_id</text>
+		<text transform="matrix(1 0 0 1 879.9081 -327.5484)" class="st2 st3">   </text>
+		<text transform="matrix(1 0 0 1 891.4208 -327.5484)" class="st2 st3">   </text>
+		<text transform="matrix(1 0 0 1 899.4198 -327.5484)" class="st4 st3">ForeignKey (id)</text>
+		<text transform="matrix(1 0 0 1 951.1698 -327.5484)" class="st2 st3">   </text>
+		<text transform="matrix(1 0 0 1 825.8143 -314.5503)" class="st2 st3">   </text>
+		<text transform="matrix(1 0 0 1 833.8124 -314.5503)" class="st2 st3">abbr</text>
+		<text transform="matrix(1 0 0 1 848.0243 -314.5503)" class="st2 st3">   </text>
+		<text transform="matrix(1 0 0 1 891.8016 -314.5503)" class="st2 st3">   </text>
+		<text transform="matrix(1 0 0 1 899.7997 -314.5503)" class="st2 st3">CharField</text>
+		<text transform="matrix(1 0 0 1 931.788 -314.5503)" class="st2 st3">   </text>
+		<text transform="matrix(1 0 0 1 825.8143 -301.5533)" class="st2 st3">   </text>
+		<text transform="matrix(1 0 0 1 833.8124 -301.5533)" class="st2 st3">name</text>
+		<text transform="matrix(1 0 0 1 851.1346 -301.5533)" class="st2 st3">   </text>
+		<text transform="matrix(1 0 0 1 891.8016 -301.5533)" class="st2 st3">   </text>
+		<text transform="matrix(1 0 0 1 899.7997 -301.5533)" class="st2 st3">CharField</text>
+		<text transform="matrix(1 0 0 1 931.788 -301.5533)" class="st2 st3">   </text>
+		<polygon class="st6" points="822.3,-295.8 822.3,-371.7 961.3,-371.7 961.3,-295.8 		"/>
+	</g>
+	<g id="edge14">
+		<title>chalk_api_models_Program-&gt;chalk_api_models_Department</title>
+		<ellipse class="st7" cx="878" cy="-287.8" rx="4" ry="4"/>
+	</g>
+	<g id="node15">
+		<title>chalk_api_models_Teacher</title>
+		<polygon class="st0" points="649.3,-295.8 649.3,-371.7 788.3,-371.7 788.3,-295.8 		"/>
+		<polygon class="st1" points="650.8,-348.7 650.8,-370.7 787.8,-370.7 787.8,-348.7 		"/>
+		<text transform="matrix(1 0 0 1 689.244 -357.7427)" class="st2 st3">   </text>
+		<text transform="matrix(1 0 0 1 697.2421 -357.7427)" class="st0 st4 st5">   Teacher    </text>
+		<text transform="matrix(1 0 0 1 652.8475 -340.5454)" class="st2 st3">   </text>
+		<text transform="matrix(1 0 0 1 660.8466 -340.5454)" class="st4 st3">id</text>
+		<text transform="matrix(1 0 0 1 667.0682 -340.5454)" class="st2 st3" style="text-decoration: underline;">   </text>
+		<text transform="matrix(1 0 0 1 718.8348 -340.5454)" class="st2 st3">   </text>
+		<text transform="matrix(1 0 0 1 726.8329 -340.5454)" class="st4 st3">AutoField</text>
+		<text transform="matrix(1 0 0 1 759.2704 -340.5454)" class="st2 st3">   </text>
+		<text transform="matrix(1 0 0 1 652.743 -327.5484)" class="st2 st3">   </text>
+		<text transform="matrix(1 0 0 1 660.7411 -327.5484)" class="st4 st3">department_id</text>
+		<text transform="matrix(1 0 0 1 706.9423 -327.5484)" class="st2 st3">   </text>
+		<text transform="matrix(1 0 0 1 718.455 -327.5484)" class="st2 st3">   </text>
+		<text transform="matrix(1 0 0 1 726.453 -327.5484)" class="st4 st3">ForeignKey (id)</text>
+		<text transform="matrix(1 0 0 1 778.204 -327.5484)" class="st2 st3">   </text>
+		<text transform="matrix(1 0 0 1 652.8475 -314.5503)" class="st2 st3">   </text>
+		<text transform="matrix(1 0 0 1 660.8466 -314.5503)" class="st2 st3">first_name</text>
+		<text transform="matrix(1 0 0 1 695.0497 -314.5503)" class="st2 st3">   </text>
+		<text transform="matrix(1 0 0 1 718.8348 -314.5503)" class="st2 st3">   </text>
+		<text transform="matrix(1 0 0 1 726.8329 -314.5503)" class="st2 st3">CharField</text>
+		<text transform="matrix(1 0 0 1 758.8212 -314.5503)" class="st2 st3">   </text>
+		<text transform="matrix(1 0 0 1 652.8475 -301.5533)" class="st2 st3">   </text>
+		<text transform="matrix(1 0 0 1 660.8466 -301.5533)" class="st2 st3">last_name</text>
+		<text transform="matrix(1 0 0 1 693.2743 -301.5533)" class="st2 st3">   </text>
+		<text transform="matrix(1 0 0 1 718.8348 -301.5533)" class="st2 st3">   </text>
+		<text transform="matrix(1 0 0 1 726.8329 -301.5533)" class="st2 st3">CharField</text>
+		<text transform="matrix(1 0 0 1 758.8212 -301.5533)" class="st2 st3">   </text>
+		<polygon class="st6" points="649.3,-295.8 649.3,-371.7 788.3,-371.7 788.3,-295.8 		"/>
+	</g>
+	<g id="edge15">
+		<title>chalk_api_models_Teacher-&gt;chalk_api_models_Department</title>
+		<ellipse class="st7" cx="729.5" cy="-287.9" rx="4" ry="4"/>
+	</g>
+	<g id="node16">
+		<title>chalk_api_models_Student</title>
+		<polygon class="st0" points="809.8,-464.9 809.8,-579.9 973.8,-579.9 973.8,-464.9 		"/>
+		<polygon class="st1" points="810.8,-556.4 810.8,-578.4 972.8,-578.4 972.8,-556.4 		"/>
+		<text transform="matrix(1 0 0 1 862.5292 -565.4019)" class="st2 st3">   </text>
+		<text transform="matrix(1 0 0 1 870.5272 -565.4019)" class="st0 st4 st5">   Student    </text>
+		<text transform="matrix(1 0 0 1 812.8163 -548.2051)" class="st2 st3">   </text>
+		<text transform="matrix(1 0 0 1 820.8153 -548.2051)" class="st4 st3" style="text-decoration: underline;">id</text>
+		<text transform="matrix(1 0 0 1 827.037 -548.2051)" class="st2 st3">   </text>
+		<text transform="matrix(1 0 0 1 871.8055 -548.2051)" class="st2 st3">   </text>
+		<text transform="matrix(1 0 0 1 879.8036 -548.2051)" class="st4 st3">AutoField</text>
+		<text transform="matrix(1 0 0 1 912.2411 -548.2051)" class="st2 st3">   </text>
+		<text transform="matrix(1 0 0 1 812.8163 -535.2076)" class="st2 st3">   </text>
+		<text transform="matrix(1 0 0 1 820.8153 -535.2076)" class="st4 st3">program_id</text>
+		<text transform="matrix(1 0 0 1 858.1317 -535.2076)" class="st2 st3">   </text>
+		<text transform="matrix(1 0 0 1 871.8055 -535.2076)" class="st2 st3">   </text>
+		<text transform="matrix(1 0 0 1 879.8036 -535.2076)" class="st4 st3">ForeignKey (id)</text>
+		<text transform="matrix(1 0 0 1 931.5546 -535.2076)" class="st2 st3">   </text>
+		<text transform="matrix(1 0 0 1 812.8163 -522.2105)" class="st2 st3">   </text>
+		<text transform="matrix(1 0 0 1 820.8153 -522.2105)" class="st2 st3">batch</text>
+		<text transform="matrix(1 0 0 1 838.1376 -522.2105)" class="st2 st3">   </text>
+		<text transform="matrix(1 0 0 1 871.5331 -522.2105)" class="st2 st3">   </text>
+		<text transform="matrix(1 0 0 1 879.5321 -522.2105)" class="st2 st3">PositiveSmallIntegerField</text>
+		<text transform="matrix(1 0 0 1 963.0594 -522.2105)" class="st2 st3">   </text>
+		<text transform="matrix(1 0 0 1 812.8163 -509.2129)" class="st2 st3">   </text>
+		<text transform="matrix(1 0 0 1 820.8153 -509.2129)" class="st2 st3">first_name</text>
+		<text transform="matrix(1 0 0 1 855.0184 -509.2129)" class="st2 st3">   </text>
+		<text transform="matrix(1 0 0 1 871.8055 -509.2129)" class="st2 st3">   </text>
+		<text transform="matrix(1 0 0 1 879.8036 -509.2129)" class="st2 st3">CharField</text>
+		<text transform="matrix(1 0 0 1 911.7919 -509.2129)" class="st2 st3">   </text>
+		<text transform="matrix(1 0 0 1 812.8163 -496.2154)" class="st2 st3">   </text>
+		<text transform="matrix(1 0 0 1 820.8153 -496.2154)" class="st2 st3">last_name</text>
+		<text transform="matrix(1 0 0 1 853.243 -496.2154)" class="st2 st3">   </text>
+		<text transform="matrix(1 0 0 1 871.8055 -496.2154)" class="st2 st3">   </text>
+		<text transform="matrix(1 0 0 1 879.8036 -496.2154)" class="st2 st3">CharField</text>
+		<text transform="matrix(1 0 0 1 911.7919 -496.2154)" class="st2 st3">   </text>
+		<text transform="matrix(1 0 0 1 812.5428 -483.2183)" class="st2 st3">   </text>
+		<text transform="matrix(1 0 0 1 820.5419 -483.2183)" class="st2 st3">roll_number</text>
+		<text transform="matrix(1 0 0 1 860.0809 -483.2183)" class="st2 st3">   </text>
+		<text transform="matrix(1 0 0 1 871.5331 -483.2183)" class="st2 st3">   </text>
+		<text transform="matrix(1 0 0 1 879.5321 -483.2183)" class="st2 st3">PositiveSmallIntegerField</text>
+		<text transform="matrix(1 0 0 1 963.0594 -483.2183)" class="st2 st3">   </text>
+		<text transform="matrix(1 0 0 1 812.8163 -470.2202)" class="st2 st3">   </text>
+		<text transform="matrix(1 0 0 1 820.8153 -470.2202)" class="st2 st3">section</text>
+		<text transform="matrix(1 0 0 1 843.4706 -470.2202)" class="st2 st3">   </text>
+		<text transform="matrix(1 0 0 1 871.8055 -470.2202)" class="st2 st3">   </text>
+		<text transform="matrix(1 0 0 1 879.8036 -470.2202)" class="st2 st3">CharField</text>
+		<text transform="matrix(1 0 0 1 911.7919 -470.2202)" class="st2 st3">   </text>
+		<polygon class="st6" points="809.8,-464.9 809.8,-579.9 973.8,-579.9 973.8,-464.9 		"/>
+	</g>
+	<g id="edge16">
+		<title>chalk_api_models_Student-&gt;chalk_api_models_Program</title>
+		<path class="st6" d="M891.8-452.6c0,25.8,0,54.2,0,76.8"/>
+		<ellipse class="st7" cx="891.8" cy="-456.9" rx="4" ry="4"/>
+	</g>
+	<g id="node17">
+		<title>chalk_api_models_Class</title>
+		<polygon class="st0" points="528.9,-471.4 528.9,-573.4 696.8,-573.4 696.8,-471.4 		"/>
+		<polygon class="st1" points="529.9,-550.4 529.9,-572.4 695.8,-572.4 695.8,-550.4 		"/>
+		<text transform="matrix(1 0 0 1 588.0282 -559.4029)" class="st2 st3">   </text>
+		<text transform="matrix(1 0 0 1 596.0262 -559.4029)" class="st0 st4 st5">   Class    </text>
+		<text transform="matrix(1 0 0 1 531.871 -542.2066)" class="st2 st3">   </text>
+		<text transform="matrix(1 0 0 1 539.87 -542.2066)" class="st4 st3" style="text-decoration: underline;">id</text>
+		<text transform="matrix(1 0 0 1 546.0917 -542.2066)" class="st2 st3">   </text>
+		<text transform="matrix(1 0 0 1 594.8593 -542.2066)" class="st2 st3">   </text>
+		<text transform="matrix(1 0 0 1 602.8573 -542.2066)" class="st4 st3">AutoField</text>
+		<text transform="matrix(1 0 0 1 635.2948 -542.2066)" class="st2 st3">   </text>
+		<text transform="matrix(1 0 0 1 531.871 -529.209)" class="st2 st3">   </text>
+		<text transform="matrix(1 0 0 1 539.87 -529.209)" class="st4 st3">course_id</text>
+		<text transform="matrix(1 0 0 1 570.9637 -529.209)" class="st2 st3">   </text>
+		<text transform="matrix(1 0 0 1 594.8593 -529.209)" class="st2 st3">   </text>
+		<text transform="matrix(1 0 0 1 602.8573 -529.209)" class="st4 st3">ForeignKey (id)</text>
+		<text transform="matrix(1 0 0 1 654.6083 -529.209)" class="st2 st3">   </text>
+		<text transform="matrix(1 0 0 1 531.871 -516.2115)" class="st2 st3">   </text>
+		<text transform="matrix(1 0 0 1 539.87 -516.2115)" class="st4 st3">semester_id</text>
+		<text transform="matrix(1 0 0 1 578.0712 -516.2115)" class="st2 st3">   </text>
+		<text transform="matrix(1 0 0 1 594.8593 -516.2115)" class="st2 st3">   </text>
+		<text transform="matrix(1 0 0 1 602.8573 -516.2115)" class="st4 st3">ForeignKey (id)</text>
+		<text transform="matrix(1 0 0 1 654.6083 -516.2115)" class="st2 st3">   </text>
+		<text transform="matrix(1 0 0 1 531.871 -503.2139)" class="st2 st3">   </text>
+		<text transform="matrix(1 0 0 1 539.87 -503.2139)" class="st4 st3">teacher_id</text>
+		<text transform="matrix(1 0 0 1 573.1776 -503.2139)" class="st2 st3">   </text>
+		<text transform="matrix(1 0 0 1 594.8593 -503.2139)" class="st2 st3">   </text>
+		<text transform="matrix(1 0 0 1 602.8573 -503.2139)" class="st4 st3">ForeignKey (id)</text>
+		<text transform="matrix(1 0 0 1 654.6083 -503.2139)" class="st2 st3">   </text>
+		<text transform="matrix(1 0 0 1 531.3788 -490.2163)" class="st2 st3">   </text>
+		<text transform="matrix(1 0 0 1 539.3768 -490.2163)" class="st2 st3">section_name</text>
+		<text transform="matrix(1 0 0 1 583.3544 -490.2163)" class="st2 st3">   </text>
+		<text transform="matrix(1 0 0 1 594.8593 -490.2163)" class="st2 st3">   </text>
+		<text transform="matrix(1 0 0 1 602.8573 -490.2163)" class="st2 st3">CharField</text>
+		<text transform="matrix(1 0 0 1 634.8456 -490.2163)" class="st2 st3">   </text>
+		<text transform="matrix(1 0 0 1 531.871 -477.2193)" class="st2 st3">   </text>
+		<text transform="matrix(1 0 0 1 539.87 -477.2193)" class="st2 st3">sessions</text>
+		<text transform="matrix(1 0 0 1 566.0839 -477.2193)" class="st2 st3">   </text>
+		<text transform="matrix(1 0 0 1 594.5868 -477.2193)" class="st2 st3">   </text>
+		<text transform="matrix(1 0 0 1 602.5858 -477.2193)" class="st2 st3">PositiveSmallIntegerField</text>
+		<text transform="matrix(1 0 0 1 686.1132 -477.2193)" class="st2 st3">   </text>
+		<polygon class="st6" points="528.9,-471.4 528.9,-573.4 696.8,-573.4 696.8,-471.4 		"/>
+	</g>
+	<g id="edge18">
+		<title>chalk_api_models_Class-&gt;chalk_api_models_Course</title>
+		<g>
+			<path class="st6" d="M512.6-341c24.6,2.1,50.5,3.4,74.8,3.2c20.4-0.2,42.5-1.9,63-4.1"/>
+			
+				<ellipse transform="matrix(0.8634 -0.5046 0.5046 0.8634 241.5535 208.9342)" class="st7" cx="506.5" cy="-341.5" rx="6.1" ry="5.8"/>
+		</g>
+	</g>
+	<g id="edge19">
+		<title>chalk_api_models_Class-&gt;chalk_api_models_Semester</title>
+		<ellipse transform="matrix(0.7071 -0.7071 0.7071 0.7071 503.9278 221.4148)" class="st7" cx="519.2" cy="-497.6" rx="4" ry="4"/>
+	</g>
+	<g id="edge17">
+		<title>chalk_api_models_Class-&gt;chalk_api_models_Teacher</title>
+	</g>
+	<g id="node18">
+		<title>chalk_api_models_Section</title>
+		<polygon class="st0" points="553.9,-722.6 553.9,-785.6 671.8,-785.6 671.8,-722.6 		"/>
+		<polygon class="st1" points="554.9,-762.1 554.9,-784.1 670.8,-784.1 670.8,-762.1 		"/>
+		<text transform="matrix(1 0 0 1 583.8641 -771.0621)" class="st2 st3">   </text>
+		<text transform="matrix(1 0 0 1 591.8622 -771.0621)" class="st0 st4 st5">   Section    </text>
+		<text transform="matrix(1 0 0 1 556.8661 -753.8653)" class="st2 st3">   </text>
+		<text transform="matrix(1 0 0 1 564.8651 -753.8653)" class="st4 st3" style="text-decoration: underline;">id</text>
+		<text transform="matrix(1 0 0 1 571.0868 -753.8653)" class="st2 st3">   </text>
+		<text transform="matrix(1 0 0 1 601.8583 -753.8653)" class="st2 st3">   </text>
+		<text transform="matrix(1 0 0 1 609.8563 -753.8653)" class="st4 st3">AutoField</text>
+		<text transform="matrix(1 0 0 1 642.2928 -753.8653)" class="st2 st3">   </text>
+		<text transform="matrix(1 0 0 1 556.4813 -740.8677)" class="st2 st3">   </text>
+		<text transform="matrix(1 0 0 1 564.4794 -740.8677)" class="st4 st3">class_id</text>
+		<text transform="matrix(1 0 0 1 590.246 -740.8677)" class="st2 st3">   </text>
+		<text transform="matrix(1 0 0 1 601.4774 -740.8677)" class="st2 st3">   </text>
+		<text transform="matrix(1 0 0 1 609.4755 -740.8677)" class="st4 st3">ForeignKey (id)</text>
+		<text transform="matrix(1 0 0 1 661.2264 -740.8677)" class="st2 st3">   </text>
+		<text transform="matrix(1 0 0 1 556.8661 -727.8702)" class="st2 st3">   </text>
+		<text transform="matrix(1 0 0 1 564.8651 -727.8702)" class="st2 st3">section</text>
+		<text transform="matrix(1 0 0 1 587.5204 -727.8702)" class="st2 st3">   </text>
+		<text transform="matrix(1 0 0 1 601.8583 -727.8702)" class="st2 st3">   </text>
+		<text transform="matrix(1 0 0 1 609.8563 -727.8702)" class="st2 st3">CharField</text>
+		<text transform="matrix(1 0 0 1 641.8446 -727.8702)" class="st2 st3">   </text>
+		<polygon class="st6" points="553.9,-722.6 553.9,-785.6 671.8,-785.6 671.8,-722.6 		"/>
+	</g>
+	<g id="edge20">
+		<title>chalk_api_models_Section-&gt;chalk_api_models_Class</title>
+		<path class="st6" d="M612.9-710.1c0,37.6,0,92,0,132.6"/>
+		<ellipse class="st7" cx="612.9" cy="-714.4" rx="4" ry="4"/>
+	</g>
+	<g id="node19">
+		<title>chalk_api_models_Registration</title>
+		<polygon class="st0" points="705.8,-709.6 705.8,-798.6 863.8,-798.6 863.8,-709.6 		"/>
+		<polygon class="st1" points="706.8,-775.1 706.8,-797.1 862.8,-797.1 862.8,-775.1 		"/>
+		<text transform="matrix(1 0 0 1 746.3895 -784.0596)" class="st2 st3">   </text>
+		<text transform="matrix(1 0 0 1 754.3876 -784.0596)" class="st0 st4 st5">   Registration    </text>
+		<text transform="matrix(1 0 0 1 708.8368 -766.8629)" class="st2 st3">   </text>
+		<text transform="matrix(1 0 0 1 716.8348 -766.8629)" class="st4 st3" style="text-decoration: underline;">id</text>
+		<text transform="matrix(1 0 0 1 723.0575 -766.8629)" class="st2 st3">   </text>
+		<text transform="matrix(1 0 0 1 761.827 -766.8629)" class="st2 st3">   </text>
+		<text transform="matrix(1 0 0 1 769.8251 -766.8629)" class="st4 st3">AutoField</text>
+		<text transform="matrix(1 0 0 1 802.2616 -766.8629)" class="st2 st3">   </text>
+		<text transform="matrix(1 0 0 1 708.8368 -753.8653)" class="st2 st3">   </text>
+		<text transform="matrix(1 0 0 1 716.8348 -753.8653)" class="st4 st3">class_id</text>
+		<text transform="matrix(1 0 0 1 742.6014 -753.8653)" class="st2 st3">   </text>
+		<text transform="matrix(1 0 0 1 761.827 -753.8653)" class="st2 st3">   </text>
+		<text transform="matrix(1 0 0 1 769.8251 -753.8653)" class="st4 st3">ForeignKey (id)</text>
+		<text transform="matrix(1 0 0 1 821.576 -753.8653)" class="st2 st3">   </text>
+		<text transform="matrix(1 0 0 1 708.6708 -740.8677)" class="st2 st3">   </text>
+		<text transform="matrix(1 0 0 1 716.6698 -740.8677)" class="st4 st3">student_id</text>
+		<text transform="matrix(1 0 0 1 749.995 -740.8677)" class="st2 st3">   </text>
+		<text transform="matrix(1 0 0 1 761.827 -740.8677)" class="st2 st3">   </text>
+		<text transform="matrix(1 0 0 1 769.8251 -740.8677)" class="st4 st3">ForeignKey (id)</text>
+		<text transform="matrix(1 0 0 1 821.576 -740.8677)" class="st2 st3">   </text>
+		<text transform="matrix(1 0 0 1 708.8368 -727.8702)" class="st2 st3">   </text>
+		<text transform="matrix(1 0 0 1 716.8348 -727.8702)" class="st8 st2 st3">feedback</text>
+		<text transform="matrix(1 0 0 1 745.6981 -727.8702)" class="st2 st3">   </text>
+		<text transform="matrix(1 0 0 1 761.827 -727.8702)" class="st2 st3">   </text>
+		<text transform="matrix(1 0 0 1 769.8251 -727.8702)" class="st8 st2 st3">TextField</text>
+		<text transform="matrix(1 0 0 1 800.9257 -727.8702)" class="st2 st3">   </text>
+		<text transform="matrix(1 0 0 1 708.8368 -714.8731)" class="st2 st3">   </text>
+		<text transform="matrix(1 0 0 1 716.8348 -714.8731)" class="st2 st3">marks</text>
+		<text transform="matrix(1 0 0 1 736.3807 -714.8731)" class="st2 st3">   </text>
+		<text transform="matrix(1 0 0 1 761.5546 -714.8731)" class="st2 st3">   </text>
+		<text transform="matrix(1 0 0 1 769.5536 -714.8731)" class="st2 st3">PositiveSmallIntegerField</text>
+		<text transform="matrix(1 0 0 1 853.0809 -714.8731)" class="st2 st3">   </text>
+		<polygon class="st6" points="705.8,-709.6 705.8,-798.6 863.8,-798.6 863.8,-709.6 		"/>
+	</g>
+	<g id="node20">
+		<title>chalk_api_models_Message</title>
+		<polygon class="st0" points="245.9,-709.6 245.9,-798.6 363.9,-798.6 363.9,-709.6 		"/>
+		<polygon class="st1" points="246.9,-775.1 246.9,-797.1 362.9,-797.1 362.9,-775.1 		"/>
+		<text transform="matrix(1 0 0 1 273.4296 -784.0596)" class="st2 st3">   </text>
+		<text transform="matrix(1 0 0 1 281.4281 -784.0596)" class="st0 st4 st5">   Message    </text>
+		<text transform="matrix(1 0 0 1 248.9266 -766.8629)" class="st2 st3">   </text>
+		<text transform="matrix(1 0 0 1 256.9247 -766.8629)" class="st4 st3">id</text>
+		<text transform="matrix(1 0 0 1 263.1469 -766.8629)" class="st2 st3">   </text>
+		<text transform="matrix(1 0 0 1 293.9178 -766.8629)" class="st2 st3">   </text>
+		<text transform="matrix(1 0 0 1 301.9159 -766.8629)" class="st4 st3">AutoField</text>
+		<text transform="matrix(1 0 0 1 334.3529 -766.8629)" class="st2 st3">   </text>
+		<text transform="matrix(1 0 0 1 248.5409 -753.8653)" class="st2 st3">   </text>
+		<text transform="matrix(1 0 0 1 256.5394 -753.8653)" class="st4 st3">class_id</text>
+		<text transform="matrix(1 0 0 1 282.3055 -753.8653)" class="st2 st3">   </text>
+		<text transform="matrix(1 0 0 1 293.5375 -753.8653)" class="st2 st3">   </text>
+		<text transform="matrix(1 0 0 1 301.536 -753.8653)" class="st4 st3">ForeignKey (id)</text>
+		<text transform="matrix(1 0 0 1 353.2865 -753.8653)" class="st2 st3">   </text>
+		<text transform="matrix(1 0 0 1 248.9266 -740.8677)" class="st2 st3">   </text>
+		<text transform="matrix(1 0 0 1 256.9247 -740.8677)" class="st2 st3">content</text>
+		<text transform="matrix(1 0 0 1 280.4691 -740.8677)" class="st2 st3">   </text>
+		<text transform="matrix(1 0 0 1 293.9178 -740.8677)" class="st2 st3">   </text>
+		<text transform="matrix(1 0 0 1 301.9159 -740.8677)" class="st2 st3">TextField</text>
+		<text transform="matrix(1 0 0 1 333.0165 -740.8677)" class="st2 st3">   </text>
+		<text transform="matrix(1 0 0 1 248.9266 -727.8702)" class="st2 st3">   </text>
+		<text transform="matrix(1 0 0 1 256.9247 -727.8702)" class="st8 st2 st3">sent</text>
+		<text transform="matrix(1 0 0 1 269.808 -727.8702)" class="st2 st3">   </text>
+		<text transform="matrix(1 0 0 1 293.9178 -727.8702)" class="st2 st3">   </text>
+		<text transform="matrix(1 0 0 1 301.9159 -727.8702)" class="st8 st2 st3">DateTimeField</text>
+		<text transform="matrix(1 0 0 1 350.3373 -727.8702)" class="st2 st3">   </text>
+		<text transform="matrix(1 0 0 1 248.9266 -714.8731)" class="st2 st3">   </text>
+		<text transform="matrix(1 0 0 1 256.9247 -714.8731)" class="st2 st3">title</text>
+		<text transform="matrix(1 0 0 1 269.3666 -714.8731)" class="st2 st3">   </text>
+		<text transform="matrix(1 0 0 1 293.9178 -714.8731)" class="st2 st3">   </text>
+		<text transform="matrix(1 0 0 1 301.9159 -714.8731)" class="st2 st3">CharField</text>
+		<text transform="matrix(1 0 0 1 333.9042 -714.8731)" class="st2 st3">   </text>
+		<polygon class="st6" points="245.9,-709.6 245.9,-798.6 363.9,-798.6 363.9,-709.6 		"/>
+	</g>
+	<g id="edge23">
+		<title>chalk_api_models_Message-&gt;chalk_api_models_Class</title>
+		<path class="st6" d="M345.6-699c10.7,12.7,22.8,25.7,35.3,36.5c42.3,36.4,95.3,69.2,139.9,93.9"/>
+		<ellipse class="st7" cx="343" cy="-702.2" rx="4" ry="4"/>
+	</g>
+	<g id="node21">
+		<title>chalk_api_models_Resource</title>
+		<polygon class="st0" points="397.9,-709.6 397.9,-798.6 519.9,-798.6 519.9,-709.6 		"/>
+		<polygon class="st1" points="398.9,-775.1 398.9,-797.1 518.9,-797.1 518.9,-775.1 		"/>
+		<text transform="matrix(1 0 0 1 426.2899 -784.0596)" class="st2 st3">   </text>
+		<text transform="matrix(1 0 0 1 434.2885 -784.0596)" class="st0 st4 st5">   Resource    </text>
+		<text transform="matrix(1 0 0 1 400.8969 -766.8629)" class="st2 st3">   </text>
+		<text transform="matrix(1 0 0 1 408.8954 -766.8629)" class="st4 st3" style="text-decoration: underline;">id</text>
+		<text transform="matrix(1 0 0 1 415.1171 -766.8629)" class="st2 st3" style="text-decoration: underline;">   </text>
+		<text transform="matrix(1 0 0 1 449.8871 -766.8629)" class="st2 st3">   </text>
+		<text transform="matrix(1 0 0 1 457.8856 -766.8629)" class="st4 st3">AutoField</text>
+		<text transform="matrix(1 0 0 1 490.3221 -766.8629)" class="st2 st3">   </text>
+		<text transform="matrix(1 0 0 1 400.8969 -753.8653)" class="st2 st3">   </text>
+		<text transform="matrix(1 0 0 1 408.8954 -753.8653)" class="st4 st3">class_id</text>
+		<text transform="matrix(1 0 0 1 434.6615 -753.8653)" class="st2 st3">   </text>
+		<text transform="matrix(1 0 0 1 449.5072 -753.8653)" class="st2 st3">   </text>
+		<text transform="matrix(1 0 0 1 457.5052 -753.8653)" class="st4 st3">ForeignKey (id)</text>
+		<text transform="matrix(1 0 0 1 509.2557 -753.8653)" class="st2 st3">   </text>
+		<text transform="matrix(1 0 0 1 400.8969 -740.8677)" class="st2 st3">   </text>
+		<text transform="matrix(1 0 0 1 408.8954 -740.8677)" class="st2 st3">content</text>
+		<text transform="matrix(1 0 0 1 432.4393 -740.8677)" class="st2 st3">   </text>
+		<text transform="matrix(1 0 0 1 449.8871 -740.8677)" class="st2 st3">   </text>
+		<text transform="matrix(1 0 0 1 457.8856 -740.8677)" class="st2 st3">FileField</text>
+		<text transform="matrix(1 0 0 1 486.7694 -740.8677)" class="st2 st3">   </text>
+		<text transform="matrix(1 0 0 1 400.8969 -727.8702)" class="st2 st3">   </text>
+		<text transform="matrix(1 0 0 1 408.8954 -727.8702)" class="st2 st3">title</text>
+		<text transform="matrix(1 0 0 1 421.3368 -727.8702)" class="st2 st3">   </text>
+		<text transform="matrix(1 0 0 1 449.8871 -727.8702)" class="st2 st3">   </text>
+		<text transform="matrix(1 0 0 1 457.8856 -727.8702)" class="st2 st3">CharField</text>
+		<text transform="matrix(1 0 0 1 489.8739 -727.8702)" class="st2 st3">   </text>
+		<text transform="matrix(1 0 0 1 400.7343 -714.8731)" class="st2 st3">   </text>
+		<text transform="matrix(1 0 0 1 408.7323 -714.8731)" class="st8 st2 st3">uploaded</text>
+		<text transform="matrix(1 0 0 1 438.0526 -714.8731)" class="st2 st3">   </text>
+		<text transform="matrix(1 0 0 1 449.8871 -714.8731)" class="st2 st3">   </text>
+		<text transform="matrix(1 0 0 1 457.8856 -714.8731)" class="st8 st2 st3">DateTimeField</text>
+		<text transform="matrix(1 0 0 1 506.3065 -714.8731)" class="st2 st3">   </text>
+		<polygon class="st6" points="397.9,-709.6 397.9,-798.6 519.9,-798.6 519.9,-709.6 		"/>
+	</g>
+	<g id="edge24">
+		<title>chalk_api_models_Resource-&gt;chalk_api_models_Class</title>
+		<path class="st6" d="M495.6-698.8c24.4,36.7,56.3,84.7,80.7,121.4"/>
+		<ellipse class="st7" cx="493.4" cy="-702.2" rx="4" ry="4"/>
+	</g>
+	<g id="node22">
+		<title>chalk_api_models_Attendance</title>
+		<polygon class="st0" points="715.3,-930.7 715.3,-1006.7 854.3,-1006.7 854.3,-930.7 		"/>
+		<polygon class="st1" points="716.8,-983.7 716.8,-1005.7 853.8,-1005.7 853.8,-983.7 		"/>
+		<text transform="matrix(1 0 0 1 748.5624 -992.7188)" class="st2 st3">   </text>
+		<text transform="matrix(1 0 0 1 756.5614 -992.7188)" class="st0 st4 st5">   Attendance    </text>
+		<text transform="matrix(1 0 0 1 718.8348 -975.522)" class="st2 st3">   </text>
+		<text transform="matrix(1 0 0 1 726.8329 -975.522)" class="st4 st3" style="text-decoration: underline;">id</text>
+		<text transform="matrix(1 0 0 1 733.0555 -975.522)" class="st2 st3">   </text>
+		<text transform="matrix(1 0 0 1 784.8221 -975.522)" class="st2 st3">   </text>
+		<text transform="matrix(1 0 0 1 792.8202 -975.522)" class="st4 st3">AutoField</text>
+		<text transform="matrix(1 0 0 1 825.2577 -975.522)" class="st2 st3">   </text>
+		<text transform="matrix(1 0 0 1 718.5067 -962.525)" class="st2 st3">   </text>
+		<text transform="matrix(1 0 0 1 726.5057 -962.525)" class="st4 st3">registration_id</text>
+		<text transform="matrix(1 0 0 1 773.1522 -962.525)" class="st2 st3">   </text>
+		<text transform="matrix(1 0 0 1 784.4423 -962.525)" class="st2 st3">   </text>
+		<text transform="matrix(1 0 0 1 792.4403 -962.525)" class="st4 st3">ForeignKey (id)</text>
+		<text transform="matrix(1 0 0 1 844.1913 -962.525)" class="st2 st3">   </text>
+		<text transform="matrix(1 0 0 1 718.8348 -949.5274)" class="st2 st3">   </text>
+		<text transform="matrix(1 0 0 1 726.8329 -949.5274)" class="st2 st3">attended</text>
+		<text transform="matrix(1 0 0 1 753.9286 -949.5274)" class="st2 st3">   </text>
+		<text transform="matrix(1 0 0 1 784.8221 -949.5274)" class="st2 st3">   </text>
+		<text transform="matrix(1 0 0 1 792.8202 -949.5274)" class="st2 st3">BooleanField</text>
+		<text transform="matrix(1 0 0 1 835.9178 -949.5274)" class="st2 st3">   </text>
+		<text transform="matrix(1 0 0 1 718.8348 -936.5298)" class="st2 st3">   </text>
+		<text transform="matrix(1 0 0 1 726.8329 -936.5298)" class="st2 st3">date</text>
+		<text transform="matrix(1 0 0 1 740.1561 -936.5298)" class="st2 st3">   </text>
+		<text transform="matrix(1 0 0 1 784.8221 -936.5298)" class="st2 st3">   </text>
+		<text transform="matrix(1 0 0 1 792.8202 -936.5298)" class="st2 st3">DateField</text>
+		<text transform="matrix(1 0 0 1 824.3602 -936.5298)" class="st2 st3">   </text>
+		<polygon class="st6" points="715.3,-930.7 715.3,-1006.7 854.3,-1006.7 854.3,-930.7 		"/>
+	</g>
+	<g id="edge25">
+		<title>chalk_api_models_Attendance-&gt;chalk_api_models_Registration</title>
+		<path class="st6" d="M784.8-918.4c0,34.9,0,81,0,115.5"/>
+		<ellipse class="st7" cx="784.8" cy="-922.6" rx="4" ry="4"/>
+	</g>
+	<g id="node23">
+		<title>chalk_api_models_MarkedItem</title>
+		<polygon class="st0" points="898.3,-709.6 898.3,-798.6 1023.3,-798.6 1023.3,-709.6 		"/>
+		<polygon class="st1" points="899.8,-775.1 899.8,-797.1 1022.8,-797.1 1022.8,-775.1 		"/>
+		<text transform="matrix(1 0 0 1 922.5839 -784.0596)" class="st2 st3">   </text>
+		<text transform="matrix(1 0 0 1 930.5829 -784.0596)" class="st0 st4 st5">   MarkedItem    </text>
+		<text transform="matrix(1 0 0 1 901.7997 -766.8629)" class="st2 st3">   </text>
+		<text transform="matrix(1 0 0 1 909.7977 -766.8629)" class="st4 st3" style="text-decoration: underline;">id</text>
+		<text transform="matrix(1 0 0 1 916.0194 -766.8629)" class="st2 st3">   </text>
+		<text transform="matrix(1 0 0 1 953.7889 -766.8629)" class="st2 st3">   </text>
+		<text transform="matrix(1 0 0 1 961.788 -766.8629)" class="st4 st3">AutoField</text>
+		<text transform="matrix(1 0 0 1 994.2245 -766.8629)" class="st2 st3">   </text>
+		<text transform="matrix(1 0 0 1 901.7997 -753.8653)" class="st2 st3">   </text>
+		<text transform="matrix(1 0 0 1 909.7977 -753.8653)" class="st4 st3">class_id</text>
+		<text transform="matrix(1 0 0 1 935.5643 -753.8653)" class="st2 st3">   </text>
+		<text transform="matrix(1 0 0 1 953.4091 -753.8653)" class="st2 st3">   </text>
+		<text transform="matrix(1 0 0 1 961.4071 -753.8653)" class="st4 st3">ForeignKey (id)</text>
+		<text transform="matrix(1 0 0 1 1013.1581 -753.8653)" class="st2 st3">   </text>
+		<text transform="matrix(1 0 0 1 901.7997 -740.8677)" class="st2 st3">   </text>
+		<text transform="matrix(1 0 0 1 909.7977 -740.8677)" class="st2 st3">name</text>
+		<text transform="matrix(1 0 0 1 927.12 -740.8677)" class="st2 st3">   </text>
+		<text transform="matrix(1 0 0 1 953.7889 -740.8677)" class="st2 st3">   </text>
+		<text transform="matrix(1 0 0 1 961.788 -740.8677)" class="st2 st3">CharField</text>
+		<text transform="matrix(1 0 0 1 993.7762 -740.8677)" class="st2 st3">   </text>
+		<text transform="matrix(1 0 0 1 901.7997 -727.8702)" class="st2 st3">   </text>
+		<text transform="matrix(1 0 0 1 909.7977 -727.8702)" class="st2 st3">total</text>
+		<text transform="matrix(1 0 0 1 924.0155 -727.8702)" class="st2 st3">   </text>
+		<text transform="matrix(1 0 0 1 953.7889 -727.8702)" class="st2 st3">   </text>
+		<text transform="matrix(1 0 0 1 961.788 -727.8702)" class="st2 st3">FloatField</text>
+		<text transform="matrix(1 0 0 1 994.6708 -727.8702)" class="st2 st3">   </text>
+		<text transform="matrix(1 0 0 1 901.3622 -714.8731)" class="st2 st3">   </text>
+		<text transform="matrix(1 0 0 1 909.3602 -714.8731)" class="st2 st3">weightage</text>
+		<text transform="matrix(1 0 0 1 942.2294 -714.8731)" class="st2 st3">   </text>
+		<text transform="matrix(1 0 0 1 953.7889 -714.8731)" class="st2 st3">   </text>
+		<text transform="matrix(1 0 0 1 961.788 -714.8731)" class="st2 st3">FloatField</text>
+		<text transform="matrix(1 0 0 1 994.6708 -714.8731)" class="st2 st3">   </text>
+		<polygon class="st6" points="898.3,-709.6 898.3,-798.6 1023.3,-798.6 1023.3,-709.6 		"/>
+	</g>
+	<g id="edge26">
+		<title>chalk_api_models_MarkedItem-&gt;chalk_api_models_Class</title>
+		<path class="st6" d="M958.1-697.1c-4.3,25.6-13.8,53.9-34.3,71.7c-22.2,19.2-102.8,9.6-131,18c-29.5,8.8-60.2,21.7-87.8,34.9"/>
+		<ellipse class="st7" cx="958.7" cy="-701.3" rx="4" ry="4"/>
+	</g>
+	<g id="node24">
+		<title>chalk_api_models_Mark</title>
+		<polygon class="st0" points="1088.4,-479.5 1088.4,-555.5 1214.3,-555.5 1214.3,-479.5 		"/>
+		<polygon class="st1" points="1089.4,-532.5 1089.4,-554.5 1213.3,-554.5 1213.3,-532.5 		"/>
+		<text transform="matrix(1 0 0 1 1126.5336 -541.4576)" class="st2 st3">   </text>
+		<text transform="matrix(1 0 0 1 1134.5316 -541.4576)" class="st0 st4 st5">   Mark    </text>
+		<text transform="matrix(1 0 0 1 1091.3685 -524.2609)" class="st2 st3">   </text>
+		<text transform="matrix(1 0 0 1 1099.3676 -524.2609)" class="st4 st3" style="text-decoration: underline;">id</text>
+		<text transform="matrix(1 0 0 1 1105.5892 -524.2609)" class="st2 st3">   </text>
+		<text transform="matrix(1 0 0 1 1144.3588 -524.2609)" class="st2 st3">   </text>
+		<text transform="matrix(1 0 0 1 1152.3568 -524.2609)" class="st4 st3">AutoField</text>
+		<text transform="matrix(1 0 0 1 1184.7943 -524.2609)" class="st2 st3">   </text>
+		<text transform="matrix(1 0 0 1 1091.3685 -511.2638)" class="st2 st3">   </text>
+		<text transform="matrix(1 0 0 1 1099.3676 -511.2638)" class="st4 st3">item_id</text>
+		<text transform="matrix(1 0 0 1 1123.807 -511.2638)" class="st2 st3">   </text>
+		<text transform="matrix(1 0 0 1 1143.9779 -511.2638)" class="st2 st3">   </text>
+		<text transform="matrix(1 0 0 1 1151.9769 -511.2638)" class="st4 st3">ForeignKey (id)</text>
+		<text transform="matrix(1 0 0 1 1203.7269 -511.2638)" class="st2 st3">   </text>
+		<text transform="matrix(1 0 0 1 1091.2025 -498.2662)" class="st2 st3">   </text>
+		<text transform="matrix(1 0 0 1 1099.2015 -498.2662)" class="st4 st3">student_id</text>
+		<text transform="matrix(1 0 0 1 1132.5267 -498.2662)" class="st2 st3">   </text>
+		<text transform="matrix(1 0 0 1 1143.9779 -498.2662)" class="st2 st3">   </text>
+		<text transform="matrix(1 0 0 1 1151.9769 -498.2662)" class="st4 st3">ForeignKey (id)</text>
+		<text transform="matrix(1 0 0 1 1203.7269 -498.2662)" class="st2 st3">   </text>
+		<text transform="matrix(1 0 0 1 1091.3685 -485.2687)" class="st2 st3">   </text>
+		<text transform="matrix(1 0 0 1 1099.3676 -485.2687)" class="st2 st3">mark</text>
+		<text transform="matrix(1 0 0 1 1115.8021 -485.2687)" class="st2 st3">   </text>
+		<text transform="matrix(1 0 0 1 1144.3588 -485.2687)" class="st2 st3">   </text>
+		<text transform="matrix(1 0 0 1 1152.3568 -485.2687)" class="st2 st3">FloatField</text>
+		<text transform="matrix(1 0 0 1 1185.2406 -485.2687)" class="st2 st3">   </text>
+		<polygon class="st6" points="1088.4,-479.5 1088.4,-555.5 1214.3,-555.5 1214.3,-479.5 		"/>
+	</g>
+	<g id="edge27">
+		<title>chalk_api_models_Mark-&gt;chalk_api_models_Student</title>
+		<ellipse class="st7" cx="1035.7" cy="-763.9" rx="4" ry="4"/>
+	</g>
+</g>
+<g>
+	<path class="st9" d="M609.4,836.3c-1.5,19.4-0.7,42.2,6.8,62.1l12.5-7l43.1,24.1l-31.6,17.6c25.1,23.4,60.7,36.4,90.2,43.5"/>
+	<path class="st9" d="M616.2,898.4l-30.7,17.1l43.1,24.1l11.5-6.4"/>
+	<path class="st9" d="M625.9,916.9"/>
+</g>
+<text transform="matrix(1 0 0 1 653.5653 934.6755)" class="st2 st3">(1..1)</text>
+<text transform="matrix(1 0 0 1 620.5908 886.4462)" class="st2 st3">(0..N)</text>
+<g>
+	<polygon class="st9" points="809.4,925.5 784.5,944.8 759.7,925.5 784.5,906.3 	"/>
+	<text transform="matrix(1 0 0 1 778.0494 928.115)" class="st2 st3">has</text>
+</g>
+<text transform="matrix(1 0 0 1 792.922 947.6055)" class="st2 st3">(1..1)</text>
+<text transform="matrix(1 0 0 1 790.7246 908.8539)" class="st2 st3">(1..N)</text>
+<g>
+	<g>
+		<path class="st9" d="M902.8,921.7l-21,12.5l-9-7l-24.9,19.3l5.7,4.4l-19.3,11.5c6.8-3.3,13.7-6.9,20.5-10.5l17.9,13.9l24.9-19.3
+			l-14.7-11.4C889.6,930.7,896.3,926.2,902.8,921.7z"/>
+		<text transform="matrix(1 0 0 1 866.2532 949.0577)" class="st2 st3">has</text>
+	</g>
+	<text transform="matrix(1 0 0 1 849.4507 968.9366)" class="st2 st3">(1..1)</text>
+	<text transform="matrix(1 0 0 1 889.6099 938.6118)" class="st2 st3">(1..N)</text>
+</g>
+<g>
+	<g>
+		<g>
+			<path class="st9" d="M840.1,791.9l4.1-5.2C842.8,788.3,841.5,790,840.1,791.9z"/>
+			<path class="st9" d="M837,796.3c1.1-1.5,2.1-3,3.1-4.4l-17.5,22.3C827.8,808.5,832.8,802.5,837,796.3z"/>
+			<path class="st9" d="M860.3,793l21.1-23.3l-16-7.7c5-5.6,9.6-13.4,15.2-21.4l-15.3,21.1l-11.8-6.5l-21.1,23.3l13,6.8l-1.2,1.5
+				c0.4-0.5,0.8-1,1.2-1.4L860.3,793z"/>
+		</g>
+		<text transform="matrix(0.9845 -0.1755 0.1755 0.9845 850.9428 777.732)" class="st2 st3">has</text>
+	</g>
+	<text transform="matrix(0.9845 -0.1755 0.1755 0.9845 837.8904 800.2516)" class="st2 st3">(1..1)</text>
+	<text transform="matrix(0.9845 -0.1755 0.1755 0.9845 872.1033 763.3486)" class="st2 st3">(1..N)</text>
+</g>
+<g>
+	<g>
+		<path class="st9" d="M758.4,796.3c-1.1-3.2-2.2-6-3.3-8.6l18.1-10.1l-21.7-22.8l-8.9,5l-8.1-19.4c2.2,8.9,5.7,14.2,8.1,19.4
+			L724,770.1l21.7,22.8l8.7-4.9l10.9,26.1C762.9,808.2,760.4,802.1,758.4,796.3z"/>
+		<text transform="matrix(0.9885 0.1514 -0.1514 0.9885 741.8019 775.4119)" class="st2 st3">has</text>
+	</g>
+	<text transform="matrix(0.9885 0.1514 -0.1514 0.9885 722.183 792.5174)" class="st2 st3">(1..1)</text>
+	<text transform="matrix(0.9885 0.1514 -0.1514 0.9885 766.471 768.6234)" class="st2 st3">(1..N)</text>
+</g>
+<g>
+	<g>
+		<polygon class="st10" points="600.2,684.9 575.4,704.2 550.5,684.9 575.4,665.6 		"/>
+		<text transform="matrix(1 0 0 1 561.0749 687.9366)" class="st2 st3">teaches</text>
+	</g>
+	<text transform="matrix(1 0 0 1 552.0685 707.3571)" class="st2 st3">(1..N)</text>
+	<text transform="matrix(1 0 0 1 592.2278 677.0322)" class="st2 st3">(0..N)</text>
+</g>
+<line class="st9" x1="575.4" y1="665.6" x2="604.6" y2="554.4"/>
+<path class="st6" d="M713.9,505.3c24.6,2.1,26.3,3.2,50.6,3c20.4-0.2,28.5,1.7,49-0.6"/>
+<ellipse transform="matrix(0.8634 -0.5046 0.5046 0.8634 -157.9785 426.1458)" class="st7" cx="707.8" cy="504.8" rx="6.1" ry="5.8"/>
+<g>
+	<g>
+		<polygon class="st10" points="784.9,505.4 760,524.7 735.2,505.4 760,486.1 		"/>
+		<text transform="matrix(1 0 0 1 745.0621 504.7519)" class="st11"><tspan x="0" y="0" class="st2 st3">registers</tspan><tspan x="0" y="9.6" class="st0 st2 st3">    </tspan><tspan x="8.9" y="9.6" class="st2 st3">in</tspan></text>
+	</g>
+	<text transform="matrix(1 0 0 1 736.7437 527.8411)" class="st2 st3">(0..N)</text>
+	<text transform="matrix(1 0 0 1 776.9029 497.5163)" class="st2 st3">(0..N)</text>
+</g>
+<line class="st9" x1="760" y1="486.1" x2="793.9" y2="316.4"/>
+<g>
+	<g>
+		<path class="st6" d="M521.4,527.6c0,13.2-91.8,37.1-114.2,41.3c-16.6,6.7-31.3,13.6-44.2,20.5l11.7,9.1l-24.9,19.3l-14.7-11.4
+			C206.3,696,350,792.4,542.7,787.6"/>
+		<text transform="matrix(1 0 0 1 345.3552 601.1978)" class="st2 st3">has</text>
+	</g>
+	<text transform="matrix(1 0 0 1 326.5653 620.924)" class="st2 st3">(1..1)</text>
+	<text transform="matrix(1 0 0 1 369.1323 593.236)" class="st2 st3">(1..N)</text>
+</g>
+<g>
+	<g>
+		<polygon class="st10" points="920.9,604.2 896,623.5 871.1,604.2 896,584.9 		"/>
+		<text transform="matrix(1 0 0 1 883.2469 607.1405)" class="st2 st3">enrolls</text>
+	</g>
+	<text transform="matrix(1 0 0 1 872.7118 626.6373)" class="st2 st3">(1..1)</text>
+	<text transform="matrix(1 0 0 1 912.8711 596.3124)" class="st2 st3">(1..N)</text>
+</g>
+<g>
+	<g>
+		<polygon class="st10" points="472.9,406.8 448.1,426.1 423.2,406.8 448.1,387.6 		"/>
+		<text transform="matrix(1 0 0 1 443.5845 409.5545)" class="st2 st3">has</text>
+	</g>
+	<text transform="matrix(1 0 0 1 424.7946 429.2806)" class="st2 st3">(1..1)</text>
+	<text transform="matrix(1 0 0 1 464.9539 398.9557)" class="st2 st3">(1..N)</text>
+</g>
+<g>
+	<g>
+		<polygon class="st10" points="563.3,387.5 538.4,406.7 513.6,387.5 538.4,368.2 		"/>
+		<text transform="matrix(1 0 0 1 533.9285 390.1787)" class="st2 st3">has</text>
+	</g>
+	<text transform="matrix(1 0 0 1 515.1385 409.9048)" class="st2 st3">(1..1)</text>
+	<text transform="matrix(1 0 0 1 555.2979 379.58)" class="st2 st3">(1..N)</text>
+</g>
+<g>
+	<g>
+		<polygon class="st10" points="641.7,376.1 616.9,395.3 592,376.1 616.9,356.8 		"/>
+		<text transform="matrix(1 0 0 1 612.3807 378.7965)" class="st2 st3">has</text>
+	</g>
+	<text transform="matrix(1 0 0 1 593.5908 398.5226)" class="st2 st3">(1..1)</text>
+	<text transform="matrix(1 0 0 1 633.7501 368.1978)" class="st2 st3">(1..8)</text>
+</g>
+<g>
+	<g>
+		<polygon class="st10" points="909.9,405.1 887.6,427.3 860.6,411.2 882.9,389 		"/>
+		<text transform="matrix(0.9925 -0.1219 0.1219 0.9925 881.1394 411.4171)" class="st2 st3">has</text>
+	</g>
+	<text transform="matrix(0.9925 -0.1219 0.1219 0.9925 864.8942 433.2865)" class="st2 st3">(1..1)</text>
+	<text transform="matrix(0.9925 -0.1219 0.1219 0.9925 896.6654 390.7461)" class="st2 st3">(1..N)</text>
+</g>
+<g>
+	<g>
+		<polygon class="st10" points="812.3,158.8 787.4,178.1 762.5,158.8 787.4,139.6 		"/>
+		<text transform="matrix(1 0 0 1 782.9094 161.5545)" class="st2 st3">has</text>
+	</g>
+	<text transform="matrix(1 0 0 1 764.1195 181.2806)" class="st2 st3">(1..1)</text>
+	<text transform="matrix(1 0 0 1 800.8392 142.9302)" class="st2 st3">(1..N)</text>
+</g>
+<path class="st6" d="M991.7,496.1c91.7-83.5,177-92.6,127.5-170.6c-49.5-78-78-65.1-78-65.1"/>
+<g>
+	<g>
+		<polygon class="st10" points="1111.9,424.1 1087,443.3 1062.2,424.1 1087,404.8 		"/>
+		<text transform="matrix(1 0 0 1 1071.0751 424.943)" class="st11"><tspan x="0" y="0" class="st2 st3">is marked</tspan><tspan x="0" y="9.6" class="st2 st3">    on</tspan></text>
+	</g>
+	<text transform="matrix(1 0 0 1 1063.7501 446.5035)" class="st2 st3">(1..1)</text>
+	<text transform="matrix(1 0 0 1 1089.9221 399.8983)" class="st2 st3">(1..N)</text>
+</g>
+<line class="st12" x1="1101.3" y1="432.9" x2="1149.9" y2="467.7"/>
+<line class="st9" x1="1097.1" y1="435.6" x2="1149.4" y2="469.1"/>
+<polyline class="st9" points="363.2,590.3 353.3,583.4 328.8,601 336.8,607.6 "/>
+</svg>
