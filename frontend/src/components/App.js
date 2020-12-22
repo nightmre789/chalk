@@ -3,18 +3,18 @@ import { TweenMax } from "gsap";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import { ApolloClient, ApolloProvider, InMemoryCache } from "@apollo/client";
 import { store } from "./Store";
+import SVG from "react-inlinesvg";
 
 import Nav from "./Nav";
 import Dashboard from "./Dashboard";
 import Courses from "./Courses";
 import Messages from "./Messages";
 import Registration from "./Registration";
+import Fees from "./Fees";
 import Login from "./Login";
 
 import TeacherNavItem from "./teacher/TeacherNavItem";
 import TeacherCourses from "./teacher/TeacherCourses";
-
-import bg from "../assets/images/bg.jpg";
 
 const client = new ApolloClient({
    uri: "http://localhost:8000/graphql",
@@ -23,7 +23,7 @@ const client = new ApolloClient({
 
 export default _ => {
    const [navOpen, setNavOpen] = useState(false);
-   const [activePage, setActivePage] = useState(0);
+   const [activePage, setActivePage] = useState(1);
    const [navItems] = useState([
       { label: "Dashboard", icon: "dashboard", path: "/" },
       { label: "My Courses", icon: "courses", path: "/courses" },
@@ -37,12 +37,7 @@ export default _ => {
    if (state.id === -1)
       return (
          <ApolloProvider client={client}>
-            <div className="h-screen pt-10 bg-gray-800">
-               <img
-                  src={bg}
-                  alt="bg"
-                  className="fixed top-0 h-screen md:h-auto"
-               />
+            <div className="h-screen pt-10 bg-gray-050">
                <div className="fixed bottom-0 right-0 mb-2 mr-2 text-xl text-white font-ff">
                   Copyright Team Mirzey 2020
                </div>
@@ -60,9 +55,7 @@ export default _ => {
                      state.accountType ? "" : "md:flex"
                   }`}
                >
-                  {state.accountType ? (
-                     ""
-                  ) : (
+                  {!state.accountType && (
                      <Nav
                         open={navOpen}
                         setOpen={setNavOpen}
@@ -121,10 +114,21 @@ export default _ => {
                                  <Courses setActivePage={setActivePage} />
                               }
                            />
-                           <Route path="/messages" element={<Messages />} />
+                           <Route
+                              path="/messages"
+                              element={
+                                 <Messages setActivePage={setActivePage} />
+                              }
+                           />
                            <Route
                               path="/registration"
-                              element={<Registration />}
+                              element={
+                                 <Registration setActivePage={setActivePage} />
+                              }
+                           />
+                           <Route
+                              path="/fees"
+                              element={<Fees setActivePage={setActivePage} />}
                            />
                         </Routes>
                      )}

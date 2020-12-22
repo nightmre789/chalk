@@ -30,9 +30,12 @@ const classesQuery = gql`
 
 export default props => {
    const { state } = useContext(store);
-   useEffect(_ => {
-      props.setActivePage(1);
-   }, []);
+   useEffect(
+      _ => {
+         props.setActivePage(1);
+      },
+      [props]
+   );
 
    const studentId = state.id;
 

@@ -76,7 +76,7 @@ export default props => {
          <h3 className="mt-1 ml-1 text-lg font-bold tracking-wide text-center text-gray-700 md:text-left font-ff">
             {c.courseId.name}
             <span className="font-medium text-gray-500">
-               {`- ${c.teacherId.firstName} ${c.teacherId.lastName}| Section ${c.sectionName}`}
+               {`- ${c.teacherId.firstName} ${c.teacherId.lastName} | Section ${c.sectionName}`}
             </span>
          </h3>
          <CourseNav

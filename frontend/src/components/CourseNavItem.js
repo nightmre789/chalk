@@ -7,7 +7,7 @@ export default forwardRef((props, ref) => {
       <Link to={`/courses/${props.path}`}>
          <div
             className={
-               "flex relative pl-0 xl:pl-12 items-center justify-center h-full px-2 sm:px-4 lg:px-6 tracking-wide cursor-pointer gap-x-3 z-10 " +
+               "flex relative course-nav-item pl-0 xl:pl-12 items-center justify-center h-full px-2 sm:px-4 lg:px-6 tracking-wide cursor-pointer gap-x-3 z-10 " +
                (props.active
                   ? "text-indigo-500"
                   : "hover:text-gray-500 text-gray-300")

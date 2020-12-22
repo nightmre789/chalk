@@ -3,6 +3,7 @@ import { TweenMax, Power3 } from "gsap";
 import SVG from "react-inlinesvg";
 import useWindowSize from "../hooks/useWindowSize";
 import { store } from "./Store";
+import { Link } from "react-router-dom";
 
 import NavItem from "./NavItem";
 
@@ -14,6 +15,7 @@ export default props => {
 
    const logOut = _ => {
       dispatch({ type: "SET_ID", id: { id: -1, accountType: -1 } });
+      props.setActivePage(1);
    };
 
    useEffect(
@@ -58,16 +60,18 @@ export default props => {
                ))}
             </ul>
          </nav>
-         <button
-            className="absolute bottom-0 flex flex-col items-center justify-center py-4 pl-6 pr-4 mb-10 text-xl font-semibold text-center text-gray-700 duration-200 cursor-pointer lg:flex-row lg:text-left lg:gap-x-3 hover:text-indigo-600"
-            onClick={logOut}
-         >
-            <SVG
-               src={require("../assets/icons/door.svg")}
-               className="fill-current"
-            />
-            <p className="flex-1 w-full">Sign Out</p>
-         </button>
+         <Link to="/courses">
+            <button
+               className="fixed bottom-0 flex flex-col items-center justify-center py-4 pl-6 pr-4 mb-10 text-xl font-semibold text-center text-gray-700 duration-200 cursor-pointer lg:flex-row lg:text-left lg:gap-x-3 hover:text-indigo-600"
+               onClick={logOut}
+            >
+               <SVG
+                  src={require("../assets/icons/door.svg")}
+                  className="fill-current"
+               />
+               <p className="flex-1 w-full">Sign Out</p>
+            </button>
+         </Link>
       </React.Fragment>
    );
 };

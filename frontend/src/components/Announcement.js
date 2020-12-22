@@ -2,7 +2,7 @@ import React from "react";
 
 export default props => {
    return (
-      <div className="px-8 py-6 bg-white hover:shadow-lg hover:z-10">
+      <div className="px-8 py-6 bg-white hover:shadow-lg hover:z-10 announcement-item">
          <div className="flex h-12">
             <img
                className="w-12 rounded-full"

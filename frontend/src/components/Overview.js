@@ -1,6 +1,7 @@
-import React from "react";
+import React, { useEffect } from "react";
 import { PieChart, Pie, Cell, Tooltip, Label } from "recharts";
 import moment from "moment";
+import { TimelineMax } from "gsap";
 
 import PieLabel from "./PieLabel";
 import Announcement from "./Announcement";
@@ -41,8 +42,19 @@ export default props => {
 
    const messages = props.classQ.messageSet;
 
+   useEffect(_ => {
+      let t1 = new TimelineMax();
+      t1.staggerFrom(".announcement-item", 0.25, {
+         delay: 0.05,
+         scale: 0.975,
+         opacity: 0,
+         stagger: 0.04,
+         ease: "sine.in",
+      });
+   }, []);
+
    return (
-      <div className="flex-row-reverse mt-2 lg:flex gap-x-6">
+      <div className="flex-row-reverse mt-4 lg:flex gap-x-6">
          <div className="relative">
             <div className="flex items-center justify-center max-w-full pt-8 bg-white rounded-sm lg:block lg:w-64">
                <div>

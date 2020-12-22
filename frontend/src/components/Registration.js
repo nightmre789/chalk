@@ -1,7 +1,8 @@
-import React, { useState, useEffect, useContext } from "react";
+import React, { useState, useEffect, useRef, useContext } from "react";
 import { gql, useQuery, useMutation } from "@apollo/client";
 import { store } from "./Store";
 import SVG from "react-inlinesvg";
+import { gsap, TimelineMax, Sine } from "gsap";
 
 const registrationQuery = gql`
    query Class($studentId: Int!) {
@@ -54,6 +55,9 @@ export default props => {
    const [addCourse] = useMutation(ADD_COURSE);
 
    const [classes, setClasses] = useState([]);
+
+   let titleRef = useRef(null);
+
    useEffect(
       _ => {
          if (loading === false && data) {
@@ -72,18 +76,35 @@ export default props => {
       [loading, data]
    );
 
+   useEffect(_ => {
+      if (titleRef && !loading) {
+         let t1 = new TimelineMax();
+
+         t1.staggerFrom(".registration-item", 0.25, {
+            delay: 0.1,
+            y: 10,
+            opacity: 0,
+            stagger: 0.025,
+            ease: Sine.easeOut,
+         });
+      }
+   });
+
    if (loading) return "Loading...";
    if (error) return `Error! ${error.message}`;
 
    return (
       <div className="flex flex-col flex-1">
-         <h1 className="mt-10 text-6xl font-bold tracking-tight text-center font-ff md:text-left">
+         <h1
+            ref={e => (titleRef = e)}
+            className="mt-10 text-6xl font-bold tracking-tight text-center font-ff md:text-left"
+         >
             Available Courses
          </h1>
          <div className="mt-4 font-ff">
             <div className="grid grid-cols-1 gap-2 mt-4 md:gap-4 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4">
                {classes.map(c => (
-                  <div className="flex flex-col h-64 p-6 bg-white rounded-md hover:shadow-md">
+                  <div className="flex flex-col h-64 p-6 bg-white rounded-md hover:shadow-md registration-item registration-item-hover">
                      <div className="flex flex-row-reverse items-center">
                         <button
                            className="flex items-center justify-center w-12 h-12 p-2 text-indigo-500 duration-100 bg-white rounded-full hover:text-white hover:shadow-md hover:bg-indigo-400"

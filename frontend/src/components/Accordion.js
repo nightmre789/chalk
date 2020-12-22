@@ -25,7 +25,7 @@ export default props => {
    );
 
    return (
-      <div className="rounded-sm bg-gray-040">
+      <div className="rounded-sm bg-gray-040 mark-item">
          <button
             className={
                "flex items-center w-full p-4 focus:outline-none bg-white hover:shadow-md " +

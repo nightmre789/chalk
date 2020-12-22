@@ -1,7 +1,8 @@
-import React, { useContext } from "react";
+import React, { useContext, useEffect, useRef } from "react";
 import Message from "./Message";
 import { gql, useQuery } from "@apollo/client";
 import { store } from "./Store";
+import { gsap, TimelineMax, Sine } from "gsap";
 
 const messageQuery = gql`
    query Messages($studentId: Int!) {
@@ -28,6 +29,31 @@ export default props => {
       variables: { studentId },
    });
 
+   let titleRef = useRef(null);
+   let bodyRef = useRef(null);
+   useEffect(_ => {
+      if (titleRef && bodyRef && !loading) {
+         let t2 = new TimelineMax();
+         gsap.from(bodyRef, {
+            autoAlpha: 0,
+            duration: 0.1,
+         });
+         gsap.from(titleRef.current, {
+            duration: 0.25,
+            y: 15,
+            opacity: 0,
+            ease: "sine.inout",
+         });
+         t2.staggerFrom(".message-item", 0.25, {
+            delay: 0.1,
+            y: 10,
+            opacity: 0,
+            stagger: 0.05,
+            ease: Sine.easeOut,
+         });
+      }
+   });
+
    if (loading) return "Loading...";
    if (error) return `Error! ${error.message}`;
 
@@ -38,13 +64,18 @@ export default props => {
       });
    });
 
-   messages.reverse();
-   console.log(messages);
+   messages.sort((a, b) => new Date(b.message.sent) - new Date(a.message.sent));
    return (
-      <div className="flex flex-col flex-1">
-         <h1 className="mt-10 text-6xl font-bold tracking-tight text-center font-ff md:text-left">
+      <div
+         className="flex flex-col flex-1 md:pr-16 lg:pr-32 xl:pr-64 gap-y-2"
+         ref={e => (bodyRef = e)}
+      >
+         <div
+            ref={titleRef}
+            className="mt-10 text-6xl font-bold tracking-tight text-center font-ff md:text-left"
+         >
             Messages
-         </h1>
+         </div>
          {messages.map(m => (
             <Message
                content={m.message.content}

@@ -3,7 +3,7 @@ import SVG from "react-inlinesvg";
 
 export default props => {
    return (
-      <div className="flex flex-col h-64 px-10 py-8 bg-white hover:shadow-md gap-y-3 group">
+      <div className="flex flex-col h-64 px-10 py-8 bg-white resource-item hover:shadow-md gap-y-3 group">
          <div className="flex justify-end">
             <SVG
                className="transform rotate-90"
