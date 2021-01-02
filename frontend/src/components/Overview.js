@@ -123,7 +123,7 @@ export default props => {
             </div>
          </div>
 
-         <div className="flex flex-col-reverse flex-1 rounded-sm gap-y-3 lg:mt-0">
+         <div className="flex flex-col flex-1 rounded-sm gap-y-3 lg:mt-0">
             {messages.map(m => (
                <Announcement
                   senderImage="https://images.unsplash.com/photo-1584999734482-0361aecad844?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=800&q=80"

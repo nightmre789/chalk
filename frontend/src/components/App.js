@@ -1,5 +1,4 @@
-import React, { useState, useRef, useEffect, useContext } from "react";
-import { TweenMax } from "gsap";
+import React, { useState, useContext } from "react";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import { ApolloClient, ApolloProvider, InMemoryCache } from "@apollo/client";
 import { store } from "./Store";
@@ -13,7 +12,6 @@ import Registration from "./Registration";
 import Fees from "./Fees";
 import Login from "./Login";
 
-import TeacherNavItem from "./teacher/TeacherNavItem";
 import TeacherCourses from "./teacher/TeacherCourses";
 
 const client = new ApolloClient({
@@ -51,7 +49,7 @@ export default _ => {
          <Router>
             <div className="fixed w-full h-screen overflow-y-hidden bg-gray-cool-100 md:p-4">
                <div
-                  className={`h-screen overflow-y-auto shadow-lg md:p-6 bg-gray-cool-040 md:h-padded ${
+                  className={`relative h-screen overflow-y-auto shadow-lg md:p-6 bg-gray-cool-040 md:h-padded ${
                      state.accountType ? "" : "md:flex"
                   }`}
                >

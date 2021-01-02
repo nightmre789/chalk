@@ -31,7 +31,7 @@ export default props => {
       <div ref={e => (bodyRef = e)} style={{ visibility: "hidden" }}>
          <h1
             ref={e => (titleRef = e)}
-            className="mt-10 -mb-4 text-6xl font-bold tracking-tight text-center md:text-left"
+            className="mt-6 text-6xl font-bold tracking-tight text-center md:text-left"
          >
             My Courses
          </h1>

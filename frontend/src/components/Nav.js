@@ -1,5 +1,5 @@
 import React, { useRef, useEffect, useContext } from "react";
-import { TweenMax, Power3 } from "gsap";
+import { TweenMax, Sine } from "gsap";
 import SVG from "react-inlinesvg";
 import useWindowSize from "../hooks/useWindowSize";
 import { store } from "./Store";
@@ -15,19 +15,19 @@ export default props => {
 
    const logOut = _ => {
       dispatch({ type: "SET_ID", id: { id: -1, accountType: -1 } });
-      props.setActivePage(1);
+      props.setActivePage(0);
    };
 
    useEffect(
       _ => {
          const rect = refs[props.activePage].current.getBoundingClientRect();
-         TweenMax.to(navSlider, 0.5, {
+         TweenMax.to(navSlider, 0.4, {
             css: {
                top: rect.top - 35,
-               height: rect.height - 12,
+               height: rect.height - 8,
                width: rect.width,
             },
-            ease: Power3.easeOut,
+            ease: Sine.easeOut,
          });
       },
       [props.activePage, refs, size.width]
@@ -35,7 +35,7 @@ export default props => {
 
    return (
       <React.Fragment>
-         <nav className="fixed flex-col hidden w-1/6 md:flex">
+         <nav className="fixed flex-col hidden w-1/6 h-full md:flex">
             <div className="flex items-center justify-center w-full h-logo">
                <SVG
                   className="w-full p-3 cursor-pointer fill-current text-gray-cool-900"
@@ -59,19 +59,19 @@ export default props => {
                   />
                ))}
             </ul>
+            <Link to="/">
+               <button
+                  className="flex flex-col items-center justify-center py-4 pb-24 pl-6 pr-4 text-xl font-semibold text-center text-gray-700 duration-200 cursor-pointer lg:flex-row lg:text-left lg:gap-x-3 hover:text-indigo-600"
+                  onClick={logOut}
+               >
+                  <SVG
+                     src={require("../assets/icons/door.svg")}
+                     className="fill-current"
+                  />
+                  <p className="flex-1 w-full">Sign Out</p>
+               </button>
+            </Link>
          </nav>
-         <Link to="/courses">
-            <button
-               className="fixed bottom-0 flex flex-col items-center justify-center py-4 pl-6 pr-4 mb-10 text-xl font-semibold text-center text-gray-700 duration-200 cursor-pointer lg:flex-row lg:text-left lg:gap-x-3 hover:text-indigo-600"
-               onClick={logOut}
-            >
-               <SVG
-                  src={require("../assets/icons/door.svg")}
-                  className="fill-current"
-               />
-               <p className="flex-1 w-full">Sign Out</p>
-            </button>
-         </Link>
       </React.Fragment>
    );
 };

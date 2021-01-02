@@ -6,6 +6,7 @@ from django.db.models import Avg, Max, Min
 from . import models
 
 
+
 class CampusType(DjangoObjectType):
     class Meta:
         model = models.Campus
@@ -84,6 +85,7 @@ class MarkedItemType(DjangoObjectType):
     min = graphene.Float()
     max = graphene.Float()
     mark = graphene.Field(MarkType, student_id=graphene.Int())
+
 
     class Meta:
         model = models.MarkedItem

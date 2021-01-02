@@ -97,7 +97,7 @@ export default props => {
       <div className="flex flex-col flex-1">
          <h1
             ref={e => (titleRef = e)}
-            className="mt-10 text-6xl font-bold tracking-tight text-center font-ff md:text-left"
+            className="mt-6 text-6xl font-bold tracking-tight text-center font-ff md:text-left"
          >
             Available Courses
          </h1>
