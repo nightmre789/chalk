@@ -1,6 +1,6 @@
 import React, { createContext, useReducer } from "react";
 
-const initialState = { id: -1, accountType: -1 };
+const initialState = { id: 2198, accountType: 0 };
 const store = createContext(initialState);
 const { Provider } = store;
 
