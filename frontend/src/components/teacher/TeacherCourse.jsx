@@ -1,7 +1,7 @@
 import React, { useState, useContext } from "react";
 import { Route, Routes, useParams } from "react-router-dom";
 import { gql, useQuery } from "@apollo/client";
-import { store } from "../Store";
+import { store } from ".@components/Store";
 
 import TeacherCourseNav from "./TeacherCourseNav";
 import TeacherResources from "./TeacherResources";

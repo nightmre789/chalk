@@ -2,7 +2,7 @@ import React, { useRef, useState, useEffect } from "react";
 import { TweenMax, Power3, gsap, TimelineMax } from "gsap";
 
 import TeacherCourseNavItem from "./TeacherCourseNavItem";
-import useWindowSize from "../../hooks/useWindowSize";
+import useWindowSize from "@hooks/useWindowSize";
 
 export default props => {
    const [courseNavItems] = useState([

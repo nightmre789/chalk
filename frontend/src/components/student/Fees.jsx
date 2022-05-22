@@ -1,6 +1,6 @@
 import React, { useRef, useEffect, useContext } from "react";
 import { gql, useQuery } from "@apollo/client";
-import { store } from "./Store";
+import { store } from "@components/Store";
 
 import { gsap, TimelineMax } from "gsap";
 

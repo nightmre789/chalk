@@ -41,7 +41,7 @@ export default props => {
                   "ml-auto fill-current transform duration-200 " +
                   (open ? "rotate-90" : "")
                }
-               src={require("../assets/icons/chevron.svg")}
+               src="src/assets/icons/chevron.svg"
             />
          </button>
          <div ref={ref} className="h-0 overflow-hidden bg-white">

@@ -1,7 +1,7 @@
 import React, { useContext, useEffect, useRef } from "react";
 import Message from "./Message";
 import { gql, useQuery } from "@apollo/client";
-import { store } from "./Store";
+import { store } from "@components/Store";
 import { gsap, TimelineMax, Sine } from "gsap";
 
 const messageQuery = gql`

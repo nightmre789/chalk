@@ -3,7 +3,7 @@ import moment from "moment";
 
 export default props => {
    return (
-      <div className="px-5 py-3 bg-white border-b cursor-pointer message-item hover:shadow-lg hover:border-t-0 border-gray-cool-100 hover:border hover:z-10">
+      <div className="px-5 py-3 bg-white border-b cursor-pointer message-item hover:shadow-lg hover:border-t-0 border-slate-100 hover:border hover:z-10">
          <div className="flex items-center gap-x-2">
             <h1 className="text-2xl font-ff">
                {props.title}

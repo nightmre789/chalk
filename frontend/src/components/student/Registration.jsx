@@ -1,6 +1,6 @@
 import React, { useState, useEffect, useRef, useContext } from "react";
 import { gql, useQuery, useMutation } from "@apollo/client";
-import { store } from "./Store";
+import { store } from "@components/Store";
 import SVG from "react-inlinesvg";
 import { gsap, TimelineMax, Sine } from "gsap";
 
@@ -119,7 +119,7 @@ export default props => {
                            }}
                         >
                            <SVG
-                              src={require("../assets/icons/add.svg")}
+                              src="src/assets/icons/add.svg"
                               className="fill-current"
                            />
                         </button>

@@ -17,9 +17,11 @@ export default forwardRef((props, ref) => {
          >
             <SVG
                className="absolute left-0 hidden ml-5 transform scale-75 fill-current xl:flex"
-               src={require("../assets/icons/" +
+               src={
+                  "src/assets/icons/" +
                   (props.icon ? props.icon : "dashboard") +
-                  ".svg")}
+                  ".svg"
+               }
             />
             {props.label.toUpperCase()}
          </div>

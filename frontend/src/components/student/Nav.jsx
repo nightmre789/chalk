@@ -1,8 +1,8 @@
 import React, { useRef, useEffect, useContext } from "react";
-import { TweenMax, Sine } from "gsap";
+import { gsap, Sine } from "gsap";
 import SVG from "react-inlinesvg";
-import useWindowSize from "../hooks/useWindowSize";
-import { store } from "./Store";
+import useWindowSize from "@hooks/useWindowSize";
+import { store } from "@components/Store";
 import { Link } from "react-router-dom";
 
 import NavItem from "./NavItem";
@@ -21,7 +21,8 @@ export default props => {
    useEffect(
       _ => {
          const rect = refs[props.activePage].current.getBoundingClientRect();
-         TweenMax.to(navSlider, 0.4, {
+         gsap.to(navSlider, {
+            duration: 0.4,
             css: {
                top: rect.top - 35,
                height: rect.height - 8,
@@ -36,10 +37,10 @@ export default props => {
    return (
       <React.Fragment>
          <nav className="fixed flex-col hidden w-1/6 h-full md:flex">
-            <div className="flex items-center justify-center w-full h-logo">
+            <div className="flex items-center justify-center w-full h-[15vh]">
                <SVG
-                  className="w-full p-3 cursor-pointer fill-current text-gray-cool-900"
-                  src={require("../assets/images/logo.svg")}
+                  className="w-full p-3 cursor-pointer fill-current text-slate-900"
+                  src="src/assets/images/logo.svg"
                />
             </div>
             <ul className="flex-1 pr-4 gap-y-1 md:pt-2 lg:pt-4">
@@ -65,7 +66,7 @@ export default props => {
                   onClick={logOut}
                >
                   <SVG
-                     src={require("../assets/icons/door.svg")}
+                     src="src/assets/icons/door.svg"
                      className="fill-current"
                   />
                   <p className="flex-1 w-full">Sign Out</p>

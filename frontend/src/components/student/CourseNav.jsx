@@ -1,8 +1,8 @@
 import React, { useRef, useState, useEffect } from "react";
-import { TweenMax, Power3, gsap, TimelineMax } from "gsap";
+import { Power3, gsap, TimelineMax } from "gsap";
 
 import CourseNavItem from "./CourseNavItem";
-import useWindowSize from "../hooks/useWindowSize";
+import useWindowSize from "@hooks/useWindowSize";
 
 export default props => {
    const [courseNavItems] = useState([
@@ -19,7 +19,8 @@ export default props => {
 
    useEffect(_ => {
       let t1 = new TimelineMax();
-      t1.staggerFrom(".course-nav-item", 0.4, {
+      gsap.from(".course-nav-item", {
+         duration: 0.4,
          y: 25,
          opacity: 0,
          stagger: 0.025,
@@ -30,7 +31,7 @@ export default props => {
    useEffect(
       _ => {
          const rect = refs[props.activePage].current.getBoundingClientRect();
-         TweenMax.to(courseNavSlider, 0.75, {
+         gsap.to(courseNavSlider, 0.75, {
             css: {
                left:
                   rect.left -

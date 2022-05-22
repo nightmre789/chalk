@@ -7,15 +7,15 @@ export default forwardRef((props, ref) => (
       <li
          className={
             "duration-500 text-lg  group flex flex-col lg:flex-row pr-4 pl-6 justify-center items-center text-center py-4 rounded-r-xl font-semibold cursor-pointer lg:text-left lg:gap-x-3" +
-            (props.active ? " text-gray-cool-900" : " text-gray-cool-500")
+            (props.active ? " text-slate-900" : " text-slate-500")
          }
          onClick={props.click}
          ref={ref}
       >
          <SVG
-            src={require("../assets/icons/" +
-               (props.icon ? props.icon : "dashboard") +
-               ".svg")}
+            src={`../src/assets/icons/${
+               props.icon ? props.icon : "dashboard"
+            }.svg`}
             className={
                "fill-current z-10 " +
                (props.active ? "" : " group-hover:text-indigo-500")

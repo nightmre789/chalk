@@ -1,10 +1,10 @@
 import React, { useState, useContext, useEffect, useRef } from "react";
 import FormField from "./FormField";
-import { store } from "./Store";
+import { store } from "@components/Store";
 import { gql, useLazyQuery } from "@apollo/client";
 import { gsap } from "gsap";
 
-import bg from "../assets/images/bg.jpg";
+import bg from "@assets/images/bg.jpg";
 
 const loginQuery = gql`
    query Student($rollNumber: String!) {

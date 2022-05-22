@@ -1,7 +1,7 @@
 import React, { useEffect, useContext } from "react";
 import { Routes, Route } from "react-router-dom";
 import { gql, useQuery } from "@apollo/client";
-import { store } from "./Store";
+import { store } from "@components/Store";
 
 import CoursesList from "./CoursesList";
 import Course from "./Course";

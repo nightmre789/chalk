@@ -1,5 +1,5 @@
 import React, { useContext } from "react";
-import { store } from "./Store";
+import { store } from "@components/Store";
 
 export default props => {
    const { state, dispatch } = useContext(store);

@@ -1,8 +1,7 @@
 import React, { useState, useContext } from "react";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import { ApolloClient, ApolloProvider, InMemoryCache } from "@apollo/client";
-import { store } from "./Store";
-import SVG from "react-inlinesvg";
+import { store } from "@components/Store";
 
 import Nav from "./Nav";
 import Dashboard from "./Dashboard";
@@ -12,7 +11,7 @@ import Registration from "./Registration";
 import Fees from "./Fees";
 import Login from "./Login";
 
-import TeacherCourses from "./teacher/TeacherCourses";
+// import TeacherCourses from "./teacher/TeacherCourses";
 
 const client = new ApolloClient({
    uri: "http://localhost:8000/graphql",
@@ -47,9 +46,9 @@ export default _ => {
    return (
       <ApolloProvider client={client}>
          <Router>
-            <div className="fixed w-full h-screen overflow-y-hidden bg-gray-cool-100 md:p-4">
+            <div className="fixed w-full h-screen overflow-y-hidden bg-slate-100 md:p-4">
                <div
-                  className={`relative h-screen overflow-y-auto shadow-lg md:p-6 bg-gray-cool-040 md:h-padded ${
+                  className={`relative h-screen overflow-y-auto shadow-lg md:p-6 bg-slate-040 md:h-[97vh] ${
                      state.accountType ? "" : "md:flex"
                   }`}
                >
@@ -70,7 +69,7 @@ export default _ => {
                      {/* <div className="absolute z-20 flex items-center w-full pr-5 gap-x-6">
                         <div
                            className={
-                              "p-2 duration-75 nav-button text-gray-cool-400 hover:text-indigo-vivid-500  " +
+                              "p-2 duration-75 nav-button text-slate-400 hover:text-indigo-vivid-500  " +
                               (navOpen ? "opened" : "")
                            }
                            onClick={_ => {
@@ -85,7 +84,7 @@ export default _ => {
                         </div>
 
                         <div className="flex self-end justify-self-end gap-x-6">
-                           <div className="p-3 md:p-4 nav-button text-gray-cool-400 hover:text-indigo-vivid-500 md:w-16 md:h-16">
+                           <div className="p-3 md:p-4 nav-button text-slate-400 hover:text-indigo-vivid-500 md:w-16 md:h-16">
                               <SVG
                                  className="h-full fill-current"
                                  src={require("../assets/icons/bell.svg")}
@@ -101,7 +100,7 @@ export default _ => {
                         </div>
                      </div> */}
                      {state.accountType ? (
-                        <TeacherCourses />
+                        <div>test</div>
                      ) : (
                         <Routes>
                            <Route path="/" element={<Dashboard />} />
