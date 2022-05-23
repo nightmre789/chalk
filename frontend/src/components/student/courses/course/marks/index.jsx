@@ -1,29 +1,17 @@
 import React, { useEffect } from "react";
-import { TimelineMax } from "gsap";
+import { useOutletContext } from "react-router-dom";
+import Accordion from "./components/Accordion";
+import Mark from "./components/Mark";
 
-import Accordion from "./Accordion";
-import Mark from "./Mark";
-
-export default props => {
-   useEffect(
-      _ => {
-         props.setActivePage(1);
-      },
-      [props]
-   );
+export default _ => {
+   const [c, setActivePage] = useOutletContext();
    useEffect(_ => {
-      let t1 = new TimelineMax();
-      t1.staggerFrom(".mark-item", 0.25, {
-         delay: 0.05,
-         scale: 0.975,
-         opacity: 0,
-         stagger: 0.04,
-         ease: "sine.in",
-      });
+      setActivePage(1);
    }, []);
+
    return (
       <div className="grid grid-cols-1 gap-2 mt-4 md:gap-4 lg:grid-cols-2 xl:pr-64">
-         {props.items.map(item => (
+         {c.markeditemSet.map(item => (
             <Accordion title={item.name}>
                <Mark
                   mark={item.mark ? item.mark.mark : "-"}

@@ -3,8 +3,13 @@ import { Routes, Route } from "react-router-dom";
 import { gql, useQuery } from "@apollo/client";
 import { store } from "@components/Store";
 
-import CoursesList from "./CoursesList";
-import Course from "./Course";
+import CoursesList from "./coursesList";
+import Course from "./course";
+
+import Overview from "./course/overview";
+import Marks from "./course/marks";
+import Resources from "./course/resources";
+import Attendance from "./course/attendance";
 
 const classesQuery = gql`
    query Messages($studentId: Int!) {
@@ -30,12 +35,9 @@ const classesQuery = gql`
 
 export default props => {
    const { state } = useContext(store);
-   useEffect(
-      _ => {
-         props.setActivePage(1);
-      },
-      [props]
-   );
+   useEffect(_ => {
+      props.setActivePage(1);
+   }, []);
 
    const studentId = state.id;
 
@@ -49,7 +51,12 @@ export default props => {
    return (
       <Routes>
          <Route path="/" element={<CoursesList data={data} />} />
-         <Route path=":id/*" element={<Course />} />
+         <Route path=":id" element={<Course />}>
+            <Route path="" element={<Overview />} />
+            <Route path="marks" element={<Marks />} />
+            <Route path="attendance" element={<Attendance />} />
+            <Route path="resources" element={<Resources />} />
+         </Route>
       </Routes>
    );
 };

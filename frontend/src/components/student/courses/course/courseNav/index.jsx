@@ -6,27 +6,16 @@ import useWindowSize from "@hooks/useWindowSize";
 
 export default props => {
    const [courseNavItems] = useState([
-      { label: "Overview", icon: "overview", path: "/" },
-      { label: "Marks", icon: "marks", path: "/marks" },
-      { label: "Attendance", icon: "attendance", path: "/attendance" },
-      { label: "Resources", icon: "resources", path: "/resources" },
-      { label: "Assignments", icon: "assignments" },
+      { label: "Overview", icon: "overview", path: "" },
+      { label: "Marks", icon: "marks", path: "marks" },
+      { label: "Attendance", icon: "attendance", path: "attendance" },
+      { label: "Resources", icon: "resources", path: "resources" },
+      // { label: "Assignments", icon: "assignments" },
    ]);
    const size = useWindowSize();
 
    const refs = courseNavItems.map(_ => useRef(null));
    let courseNavSlider = useRef(null);
-
-   useEffect(_ => {
-      let t1 = new TimelineMax();
-      gsap.from(".course-nav-item", {
-         duration: 0.4,
-         y: 25,
-         opacity: 0,
-         stagger: 0.025,
-         ease: "sine.out",
-      });
-   }, []);
 
    useEffect(
       _ => {
@@ -62,7 +51,7 @@ export default props => {
                   click={_ => props.setActivePage(index)}
                   ref={refs[index]}
                   code={props.code}
-                  path={`${props.id}/${item.path}`}
+                  path={`${item.path}`}
                />
             ))}
          </div>

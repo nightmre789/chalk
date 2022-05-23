@@ -13,7 +13,7 @@ export default forwardRef((props, ref) => (
          ref={ref}
       >
          <SVG
-            src={`../src/assets/icons/${
+            src={`/src/assets/icons/${
                props.icon ? props.icon : "dashboard"
             }.svg`}
             className={

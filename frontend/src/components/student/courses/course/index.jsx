@@ -1,13 +1,9 @@
 import React, { useState, useContext } from "react";
-import { Route, Routes, useParams } from "react-router-dom";
+import { Route, Routes, Outlet, useParams } from "react-router-dom";
 import { gql, useQuery } from "@apollo/client";
 import { store } from "@components/Store";
 
-import CourseNav from "./CourseNav";
-import Overview from "./Overview";
-import Marks from "./Marks";
-import Resources from "./Resources";
-import Attendance from "./Attendance";
+import CourseNav from "./courseNav";
 
 const classQuery = gql`
    query Class($id: Int!, $studentId: Int!) {
@@ -84,8 +80,9 @@ export default props => {
             activePage={activePage}
             setActivePage={setActivePage}
          />
+         <Outlet context={[c, setActivePage]} />
          <Routes>
-            <Route
+            {/* <Route
                path="/"
                element={
                   <Overview
@@ -95,8 +92,8 @@ export default props => {
                      attendance={c.attendanceStats}
                   />
                }
-            />
-            <Route
+            /> */}
+            {/* <Route
                path="marks"
                element={
                   <Marks
@@ -104,8 +101,8 @@ export default props => {
                      setActivePage={setActivePage}
                   />
                }
-            />
-            <Route path="resources" element={<Resources />} />
+            /> */}
+            {/* <Route path="resources" element={<Resources />} />
             <Route
                path="attendance"
                element={
@@ -114,7 +111,7 @@ export default props => {
                      attendance={c.attendance}
                   />
                }
-            />
+            /> */}
          </Routes>
       </div>
    );

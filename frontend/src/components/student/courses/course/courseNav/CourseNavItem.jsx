@@ -4,7 +4,7 @@ import SVG from "react-inlinesvg";
 
 export default forwardRef((props, ref) => {
    return (
-      <Link to={`/courses/${props.path}`}>
+      <Link to={props.path}>
          <div
             className={
                "flex relative course-nav-item pl-0 xl:pl-12 items-center justify-center h-full px-2 sm:px-4 lg:px-6 tracking-wide cursor-pointer gap-x-3 z-10 " +
@@ -17,11 +17,9 @@ export default forwardRef((props, ref) => {
          >
             <SVG
                className="absolute left-0 hidden ml-5 transform scale-75 fill-current xl:flex"
-               src={
-                  "src/assets/icons/" +
-                  (props.icon ? props.icon : "dashboard") +
-                  ".svg"
-               }
+               src={`/src/assets/icons/${
+                  props.icon ? props.icon : "dashboard"
+               }.svg`}
             />
             {props.label.toUpperCase()}
          </div>

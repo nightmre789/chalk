@@ -54,7 +54,7 @@ export default props => {
                className="fixed top-0 right-0 flex flex-col items-center justify-center py-4 pl-6 pr-4 mt-8 mr-8 text-xl font-semibold text-center text-gray-700 duration-200 cursor-pointer lg:flex-row lg:text-left lg:gap-x-3 hover:text-indigo-600"
                onClick={logOut}
             >
-               <SVG src="src/assets/icons/door.svg" className="fill-current" />
+               <SVG src="/src/assets/icons/door.svg" className="fill-current" />
                <p className="flex-1 w-full">Sign Out</p>
             </button>
          </Link>

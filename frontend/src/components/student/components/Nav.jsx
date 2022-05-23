@@ -40,7 +40,7 @@ export default props => {
             <div className="flex items-center justify-center w-full h-[15vh]">
                <SVG
                   className="w-full p-3 cursor-pointer fill-current text-slate-900"
-                  src="src/assets/images/logo.svg"
+                  src="/src/assets/images/logo.svg"
                />
             </div>
             <ul className="flex-1 pr-4 gap-y-1 md:pt-2 lg:pt-4">
@@ -66,7 +66,7 @@ export default props => {
                   onClick={logOut}
                >
                   <SVG
-                     src="src/assets/icons/door.svg"
+                     src="/src/assets/icons/door.svg"
                      className="fill-current"
                   />
                   <p className="flex-1 w-full">Sign Out</p>

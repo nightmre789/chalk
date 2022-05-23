@@ -23,12 +23,11 @@ export default props => {
       },
       [open]
    );
-
    return (
       <div className="rounded-sm bg-gray-040 mark-item">
          <button
             className={
-               "flex items-center w-full p-4 focus:outline-none bg-white hover:shadow-md " +
+               "flex items-center w-full p-4 focus:outline-none bg-white drop-shadow-md hover:drop-shadow-lg " +
                (open
                   ? "text-white bg-indigo-500 hover:bg-indigo-600"
                   : "hover:text-indigo-500 focus:text-indigo-500 ")
@@ -41,10 +40,10 @@ export default props => {
                   "ml-auto fill-current transform duration-200 " +
                   (open ? "rotate-90" : "")
                }
-               src="src/assets/icons/chevron.svg"
+               src="/src/assets/icons/chevron.svg"
             />
          </button>
-         <div ref={ref} className="h-0 overflow-hidden bg-white">
+         <div ref={ref} className="h-0 overflow-hidden bg-white drop-shadow-md">
             {props.children}
          </div>
       </div>

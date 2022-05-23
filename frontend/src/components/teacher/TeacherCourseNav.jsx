@@ -61,7 +61,7 @@ export default props => {
                   click={_ => props.setActivePage(index)}
                   ref={refs[index]}
                   code={props.code}
-                  path={`1/${item.path}`}
+                  path={`${item.path}`}
                />
             ))}
          </div>

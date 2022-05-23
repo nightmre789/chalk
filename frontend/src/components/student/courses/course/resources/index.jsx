@@ -1,19 +1,13 @@
 import React, { useEffect } from "react";
-import { TimelineMax } from "gsap";
-
-import Resource from "./Resource";
+import { useOutletContext } from "react-router-dom";
+import Resource from "./components/Resource";
 
 export default _ => {
+   const [c, setActivePage] = useOutletContext();
    useEffect(_ => {
-      let t1 = new TimelineMax();
-      t1.staggerFrom(".resource-item", 0.25, {
-         delay: 0.05,
-         scale: 0.975,
-         opacity: 0,
-         stagger: 0.04,
-         ease: "sine.in",
-      });
+      setActivePage(3);
    }, []);
+
    return (
       <div className="grid grid-cols-4 mt-4 gap-x-12 gap-y-8">
          <Resource time="4 minutes" type="PDF" title="Course Syllabus" />

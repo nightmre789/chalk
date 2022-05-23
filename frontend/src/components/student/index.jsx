@@ -1,26 +1,18 @@
-import React, { useState, useContext } from "react";
+import React, { useState } from "react";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
-import { ApolloClient, ApolloProvider, InMemoryCache } from "@apollo/client";
-import { store } from "@components/Store";
 
-import Nav from "./Nav";
-import Dashboard from "./Dashboard";
-import Courses from "./Courses";
-import Messages from "./Messages";
-import Registration from "./Registration";
-import Fees from "./Fees";
-import Login from "./Login";
+import Nav from "./components/Nav";
+import Dashboard from "./dashboard";
+import Courses from "./courses";
+import Messages from "./messages";
+import Registration from "./registration";
+import Fees from "./fees";
 
 // import TeacherCourses from "./teacher/TeacherCourses";
 
-const client = new ApolloClient({
-   uri: "http://localhost:8000/graphql",
-   cache: new InMemoryCache(),
-});
-
 export default _ => {
    const [navOpen, setNavOpen] = useState(false);
-   const [activePage, setActivePage] = useState(1);
+   const [activePage, setActivePage] = useState(0);
    const [navItems] = useState([
       { label: "Dashboard", icon: "dashboard", path: "/" },
       { label: "My Courses", icon: "courses", path: "/courses" },
@@ -29,110 +21,77 @@ export default _ => {
       { label: "Fees", icon: "fees", path: "/fees" },
    ]);
 
-   const { state, dispatch } = useContext(store);
-
-   if (state.id === -1)
-      return (
-         <ApolloProvider client={client}>
-            <div className="h-screen pt-10 bg-gray-050">
-               <div className="fixed bottom-0 right-0 mb-2 mr-2 text-xl text-white font-ff">
-                  Copyright Team Mirzey 2020
-               </div>
-               <Login />
-            </div>
-         </ApolloProvider>
-      );
-
    return (
-      <ApolloProvider client={client}>
-         <Router>
-            <div className="fixed w-full h-screen overflow-y-hidden bg-slate-100 md:p-4">
-               <div
-                  className={`relative h-screen overflow-y-auto shadow-lg md:p-6 bg-slate-040 md:h-[97vh] ${
-                     state.accountType ? "" : "md:flex"
-                  }`}
-               >
-                  {!state.accountType && (
-                     <Nav
-                        open={navOpen}
-                        setOpen={setNavOpen}
-                        items={navItems}
-                        activePage={activePage}
-                        setActivePage={setActivePage}
-                     />
-                  )}
-                  <div
-                     className={`relative px-5 ml-auto md:pl-16 ${
-                        state.accountType ? "" : "md:w-5/6"
-                     }`}
-                  >
-                     {/* <div className="absolute z-20 flex items-center w-full pr-5 gap-x-6">
-                        <div
-                           className={
-                              "p-2 duration-75 nav-button text-slate-400 hover:text-indigo-vivid-500  " +
-                              (navOpen ? "opened" : "")
-                           }
-                           onClick={_ => {
-                              setNavOpen(!navOpen);
-                              console.log(navOpen);
-                           }}
-                        >
+      <Router>
+         <div className="fixed w-full h-screen overflow-y-hidden bg-slate-200 md:p-4">
+            <div
+               className={`relative h-screen overflow-y-auto shadow-lg md:p-6 bg-slate-50 md:h-[97vh] md:flex`}
+            >
+               <Nav
+                  open={navOpen}
+                  setOpen={setNavOpen}
+                  items={navItems}
+                  activePage={activePage}
+                  setActivePage={setActivePage}
+               />
+
+               <div className={`relative px-5 ml-auto md:pl-16 md:w-5/6`}>
+                  {/* <div className="absolute z-20 flex items-center w-full pr-5 gap-x-6">
+                     <div
+                        className={
+                           "p-2 duration-75 nav-button text-slate-400 hover:text-indigo-vivid-500  " +
+                           (navOpen ? "opened" : "")
+                        }
+                        onClick={_ => {
+                           setNavOpen(!navOpen);
+                           console.log(navOpen);
+                        }}
+                     >
+                        <SVG
+                           className="fill-current"
+                           src="/src/assets/icons/menu.svg"
+                        />
+                     </div>
+
+                     <div className="flex self-end justify-self-end gap-x-6">
+                        <div className="p-3 md:p-4 nav-button text-slate-400 hover:text-indigo-vivid-500 md:w-16 md:h-16">
                            <SVG
-                              className="fill-current"
-                              src={require("../assets/icons/menu.svg")}
+                              className="h-full fill-current"
+                              src="/src/assets/icons/bell.svg"
                            />
                         </div>
-
-                        <div className="flex self-end justify-self-end gap-x-6">
-                           <div className="p-3 md:p-4 nav-button text-slate-400 hover:text-indigo-vivid-500 md:w-16 md:h-16">
-                              <SVG
-                                 className="h-full fill-current"
-                                 src={require("../assets/icons/bell.svg")}
-                              />
-                           </div>
-                           <div className="nav-button md:w-16 md:h-16">
-                              <img
-                                 className="rounded-full"
-                                 src="https://images.unsplash.com/photo-1584999734482-0361aecad844?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=800&q=80"
-                                 alt="profile"
-                              />
-                           </div>
+                        <div className="nav-button md:w-16 md:h-16">
+                           <img
+                              className="rounded-full"
+                              src="https://images.unsplash.com/photo-1584999734482-0361aecad844?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=800&q=80"
+                              alt="profile"
+                           />
                         </div>
-                     </div> */}
-                     {state.accountType ? (
-                        <div>test</div>
-                     ) : (
-                        <Routes>
-                           <Route path="/" element={<Dashboard />} />
+                     </div>
+                  </div> */}
 
-                           <Route
-                              path="courses/*"
-                              element={
-                                 <Courses setActivePage={setActivePage} />
-                              }
-                           />
-                           <Route
-                              path="/messages"
-                              element={
-                                 <Messages setActivePage={setActivePage} />
-                              }
-                           />
-                           <Route
-                              path="/registration"
-                              element={
-                                 <Registration setActivePage={setActivePage} />
-                              }
-                           />
-                           <Route
-                              path="/fees"
-                              element={<Fees setActivePage={setActivePage} />}
-                           />
-                        </Routes>
-                     )}
-                  </div>
+                  <Routes>
+                     <Route path="/" element={<Dashboard />} />
+                     <Route
+                        path="courses/*"
+                        element={<Courses setActivePage={setActivePage} />}
+                     />
+                     <Route
+                        path="messages"
+                        element={<Messages setActivePage={setActivePage} />}
+                     />
+                     <Route
+                        path="registration"
+                        element={<Registration setActivePage={setActivePage} />}
+                     />
+                     <Route
+                        path="fees"
+                        element={<Fees setActivePage={setActivePage} />}
+                     />
+                  </Routes>
                </div>
             </div>
-         </Router>
-      </ApolloProvider>
+         </div>
+      </Router>
    );
 };

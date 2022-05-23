@@ -2,7 +2,7 @@ import React, { useState, useEffect, useRef, useContext } from "react";
 import { gql, useQuery, useMutation } from "@apollo/client";
 import { store } from "@components/Store";
 import SVG from "react-inlinesvg";
-import { gsap, TimelineMax, Sine } from "gsap";
+// import { gsap, TimelineMax, Sine } from "gsap";
 
 const registrationQuery = gql`
    query Class($studentId: Int!) {
@@ -76,19 +76,19 @@ export default props => {
       [loading, data]
    );
 
-   useEffect(_ => {
-      if (titleRef && !loading) {
-         let t1 = new TimelineMax();
+   // useEffect(_ => {
+   //    if (titleRef && !loading) {
+   //       let t1 = new TimelineMax();
 
-         t1.staggerFrom(".registration-item", 0.25, {
-            delay: 0.1,
-            y: 10,
-            opacity: 0,
-            stagger: 0.025,
-            ease: Sine.easeOut,
-         });
-      }
-   });
+   //       t1.staggerFrom(".registration-item", 0.25, {
+   //          delay: 0.1,
+   //          y: 10,
+   //          opacity: 0,
+   //          stagger: 0.025,
+   //          ease: Sine.easeOut,
+   //       });
+   //    }
+   // });
 
    if (loading) return "Loading...";
    if (error) return `Error! ${error.message}`;
@@ -104,7 +104,10 @@ export default props => {
          <div className="mt-4 font-ff">
             <div className="grid grid-cols-1 gap-2 mt-4 md:gap-4 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4">
                {classes.map(c => (
-                  <div className="flex flex-col h-64 p-6 bg-white rounded-md hover:shadow-md registration-item registration-item-hover">
+                  <div
+                     className="flex flex-col h-64 p-6 bg-white rounded-md hover:shadow-md registration-item registration-item-hover"
+                     key={c.id}
+                  >
                      <div className="flex flex-row-reverse items-center">
                         <button
                            className="flex items-center justify-center w-12 h-12 p-2 text-indigo-500 duration-100 bg-white rounded-full hover:text-white hover:shadow-md hover:bg-indigo-400"
@@ -119,7 +122,7 @@ export default props => {
                            }}
                         >
                            <SVG
-                              src="src/assets/icons/add.svg"
+                              src="/src/assets/icons/add.svg"
                               className="fill-current"
                            />
                         </button>

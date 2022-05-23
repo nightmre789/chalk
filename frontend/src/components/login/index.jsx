@@ -87,20 +87,20 @@ export default props => {
    let imgRef = useRef(null);
    let formRef = useRef(null);
 
-   useEffect(_ => {
-      gsap.from(imgRef, {
-         duration: 0.5,
-         opacity: 0,
-         ease: "power3.out",
-      });
-      gsap.from(formRef, {
-         delay: 0.2,
-         duration: 1,
-         y: 35,
-         opacity: 0,
-         ease: "power3.out",
-      });
-   }, []);
+   // useEffect(_ => {
+   //    gsap.from(imgRef, {
+   //       duration: 0.5,
+   //       opacity: 0,
+   //       ease: "power3.out",
+   //    });
+   //    gsap.from(formRef, {
+   //       delay: 0.2,
+   //       duration: 1,
+   //       y: 35,
+   //       opacity: 0,
+   //       ease: "power3.out",
+   //    });
+   // }, []);
 
    return (
       <>

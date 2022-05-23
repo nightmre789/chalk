@@ -1,14 +1,16 @@
 import React, { useEffect } from "react";
 import { PieChart, Pie, Cell, Tooltip, Label } from "recharts";
 import moment from "moment";
-import { TimelineMax } from "gsap";
 
-import PieLabel from "./PieLabel";
-import Announcement from "./Announcement";
+import { useOutletContext } from "react-router-dom";
 
-export default props => {
+import PieLabel from "./components/PieLabel";
+import Announcement from "./components/Announcement";
+
+export default _ => {
    let total = 0;
-   const progressData = props.items.map(item => {
+   const [c, setActivePage] = useOutletContext();
+   const progressData = c.markeditemSet.map(item => {
       total += item.weightage;
       return {
          name: item.name,
@@ -30,28 +32,17 @@ export default props => {
    const attendanceData = [
       {
          name: "Attended",
-         value: props.attendance.attended,
+         value: c.attendanceStats.attended,
          color: "#00C49F",
       },
       {
          name: "Missed",
-         value: props.attendance.total - props.attendance.attended,
+         value: c.attendanceStats.total - c.attendanceStats.attended,
          color: "#e9695f",
       },
    ];
 
-   const messages = props.classQ.messageSet;
-
-   useEffect(_ => {
-      let t1 = new TimelineMax();
-      t1.staggerFrom(".announcement-item", 0.25, {
-         delay: 0.05,
-         scale: 0.975,
-         opacity: 0,
-         stagger: 0.04,
-         ease: "sine.in",
-      });
-   }, []);
+   const messages = c.messageSet;
 
    return (
       <div className="flex-row-reverse mt-4 lg:flex gap-x-6">
@@ -127,7 +118,7 @@ export default props => {
             {messages.map(m => (
                <Announcement
                   senderImage="https://images.unsplash.com/photo-1584999734482-0361aecad844?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=800&q=80"
-                  senderName={props.name}
+                  senderName={`${c.teacherId.firstName} ${c.teacherId.lastName}`}
                   time={moment(m.sent).fromNow()}
                   title={m.title}
                   content={m.content}
