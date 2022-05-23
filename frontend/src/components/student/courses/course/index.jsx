@@ -84,38 +84,6 @@ export default props => {
             setActivePage={setActivePage}
          />
          <Outlet context={[c, setActivePage]} />
-         <Routes>
-            {/* <Route
-               path="/"
-               element={
-                  <Overview
-                     classQ={c}
-                     name={`${c.teacherId.firstName} ${c.teacherId.lastName}`}
-                     items={c.markeditemSet}
-                     attendance={c.attendanceStats}
-                  />
-               }
-            /> */}
-            {/* <Route
-               path="marks"
-               element={
-                  <Marks
-                     items={c.markeditemSet}
-                     setActivePage={setActivePage}
-                  />
-               }
-            /> */}
-            {/* <Route path="resources" element={<Resources />} />
-            <Route
-               path="attendance"
-               element={
-                  <Attendance
-                     setActivePage={setActivePage}
-                     attendance={c.attendance}
-                  />
-               }
-            /> */}
-         </Routes>
       </div>
    );
 };

@@ -68,7 +68,7 @@ export default props => {
    messages.sort((a, b) => new Date(b.message.sent) - new Date(a.message.sent));
    return (
       <div
-         className="flex flex-col flex-1 md:pr-16 lg:pr-32 xl:pr-64 gap-y-2"
+         className="flex flex-col flex-1 md:pr-16 lg:pr-32 xl:pr-64 "
          ref={e => (bodyRef = e)}
       >
          <div
@@ -77,16 +77,18 @@ export default props => {
          >
             Messages
          </div>
-         {messages.map(m => (
-            <Message
-               key={m.message.id}
-               id={m.message.id}
-               content={m.message.content}
-               title={m.message.title}
-               sent={m.message.sent}
-               teacher={m.teacher}
-            />
-         ))}
+         <div className="flex flex-col mt-10 gap-y-2">
+            {messages.map(m => (
+               <Message
+                  key={m.message.id}
+                  id={m.message.id}
+                  content={m.message.content}
+                  title={m.message.title}
+                  sent={m.message.sent}
+                  teacher={m.teacher}
+               />
+            ))}
+         </div>
       </div>
    );
 };

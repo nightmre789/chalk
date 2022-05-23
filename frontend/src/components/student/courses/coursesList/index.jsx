@@ -9,7 +9,7 @@ export default props => {
       <div ref={e => (bodyRef = e)}>
          <h1
             ref={e => (titleRef = e)}
-            className="mt-6 text-6xl font-bold tracking-tight text-center md:text-left"
+            className="mt-10 text-6xl font-bold tracking-tight text-center font-ff md:text-left"
          >
             My Courses
          </h1>

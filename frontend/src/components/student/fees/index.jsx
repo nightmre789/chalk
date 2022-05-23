@@ -87,7 +87,7 @@ export default props => {
             {classes.map(c => (
                <div
                   key={c.id}
-                  className="flex items-center p-4 text-lg bg-white rounded-sm hover:shadow-md fee-item gap-x-2"
+                  className="flex items-center p-4 text-lg bg-white rounded-sm hover:drop-shadow-lg drop-shadow-md fee-item gap-x-2"
                >
                   <div className="mt-1 font-ff">{c.courseId.code}</div>
                   <div>{c.courseId.name}</div>
@@ -98,11 +98,11 @@ export default props => {
                   </div>
                </div>
             ))}
-            <div className="flex items-center p-4 text-lg bg-white rounded-sm hover:shadow-md fee-item gap-x-2">
+            <div className="flex items-center p-4 text-lg bg-white rounded-sm hover:drop-shadow-lg drop-shadow-md fee-item gap-x-2">
                <div className="mt-1 font-ff">Sports Fee</div>
                <div className="flex justify-end flex-1">2000</div>
             </div>
-            <div className="flex items-center p-4 text-lg bg-white rounded-sm hover:shadow-md fee-item gap-x-2">
+            <div className="flex items-center p-4 text-lg bg-white rounded-sm hover:drop-shadow-lg drop-shadow-md fee-item gap-x-2">
                <div className="mt-1 font-ff">Total</div>
                <div className="flex justify-end flex-1">{total}</div>
             </div>

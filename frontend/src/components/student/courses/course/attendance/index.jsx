@@ -13,7 +13,7 @@ export default _ => {
             {c.attendance.map(a => (
                <div
                   key={a.id}
-                  className={`attendance-item p-4 tracking-wider ${
+                  className={`attendance-item p-4 drop-shadow-md tracking-wider ${
                      a.attended ? "bg-white" : "bg-red-50"
                   }`}
                >

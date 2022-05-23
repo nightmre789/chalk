@@ -99,18 +99,18 @@ export default props => {
       <div className="flex flex-col flex-1">
          <h1
             ref={e => (titleRef = e)}
-            className="mt-6 text-6xl font-bold tracking-tight text-center font-ff md:text-left"
+            className="mt-10 text-6xl font-bold tracking-tight text-center font-ff md:text-left"
          >
             Available Courses
          </h1>
-         <div className="mt-4 font-ff">
-            <div className="grid grid-cols-1 gap-2 mt-4 md:gap-4 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4">
+         <div className="mt-10 font-ff">
+            <div className="grid grid-cols-1 gap-2 md:gap-4 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4">
                {classes.map(c => (
                   <div
-                     className="flex flex-col h-64 p-6 bg-white rounded-md hover:shadow-md registration-item registration-item-hover"
+                     className="flex flex-col h-64 p-6 bg-white rounded-md hover:drop-shadow-lg drop-shadow-md registration-item registration-item-hover"
                      key={c.id}
                   >
-                     <div className="flex flex-row-reverse items-center">
+                     <div className="flex flex-row-reverse items-center -mt-2">
                         <button
                            className="flex items-center justify-center w-12 h-12 p-2 text-indigo-500 duration-100 bg-white rounded-full hover:text-white hover:shadow-md hover:bg-indigo-400"
                            onClick={_ => {
@@ -132,7 +132,7 @@ export default props => {
                            {c.courseId.code + "-" + c.sectionName}
                         </h1>
                      </div>
-                     <div className="-mt-1 tracking-wider text-gray-500">
+                     <div className="-mt-2 tracking-wider text-gray-500">
                         {`${c.teacherId.firstName} ${c.teacherId.lastName}`}
                      </div>
                      <div className="flex items-end flex-1 text-2xl">
