@@ -19,11 +19,13 @@ const classQuery = gql`
             name
          }
          messageSet {
+            id
             title
             content
             sent
          }
          markeditemSet {
+            id
             name
             avg
             min
@@ -35,6 +37,7 @@ const classQuery = gql`
             weightage
          }
          attendance(studentId: $studentId) {
+            id
             date
             attended
          }

@@ -51,7 +51,7 @@ export default props => {
    return (
       <Routes>
          <Route path="/" element={<CoursesList data={data} />} />
-         <Route path=":id" element={<Course />}>
+         <Route path=":id/*" element={<Course />}>
             <Route path="" element={<Overview />} />
             <Route path="marks" element={<Marks />} />
             <Route path="attendance" element={<Attendance />} />

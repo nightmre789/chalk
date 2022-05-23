@@ -14,6 +14,7 @@ const registrationQuery = gql`
             lastName
          }
          courseId {
+            id
             code
             name
             creditHours
@@ -26,6 +27,7 @@ const registrationQuery = gql`
          classSet {
             id
             courseId {
+               id
                code
                name
                creditHours

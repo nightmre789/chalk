@@ -7,7 +7,7 @@ export default props => {
          <div className="flex justify-end">
             <SVG
                className="transform rotate-90"
-               src="src/assets/icons/download.svg"
+               src="/src/assets/icons/download.svg"
             />
          </div>
          <div className="flex flex-col justify-end flex-1">

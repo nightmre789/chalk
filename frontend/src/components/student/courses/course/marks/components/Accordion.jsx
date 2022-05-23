@@ -24,7 +24,7 @@ export default props => {
       [open]
    );
    return (
-      <div className="rounded-sm bg-gray-040 mark-item">
+      <div className="bg-white rounded-sm mark-item">
          <button
             className={
                "flex items-center w-full p-4 focus:outline-none bg-white drop-shadow-md hover:drop-shadow-lg " +
@@ -34,7 +34,7 @@ export default props => {
             }
             onClick={_ => setOpen(!open)}
          >
-            <h1 className="px-4 text-2xl">{props.title}</h1>
+            <h1 className="px-3 text-2xl">{props.title}</h1>
             <SVG
                className={
                   "ml-auto fill-current transform duration-200 " +
@@ -43,7 +43,7 @@ export default props => {
                src="/src/assets/icons/chevron.svg"
             />
          </button>
-         <div ref={ref} className="h-0 overflow-hidden bg-white drop-shadow-md">
+         <div ref={ref} className="h-0 overflow-hidden drop-shadow-md">
             {props.children}
          </div>
       </div>

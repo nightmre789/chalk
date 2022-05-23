@@ -54,6 +54,7 @@ export default _ => {
                   </h1>
                   <PieChart width={256} height={256}>
                      <Pie
+                        dataKey="value"
                         data={progressData}
                         cy={90}
                         innerRadius={60}
@@ -61,8 +62,8 @@ export default _ => {
                         fill="#8884d8"
                         paddingAngle={5}
                      >
-                        {progressData.map(item => (
-                           <Cell fill={item.color} />
+                        {progressData.map((item, i) => (
+                           <Cell key={i} fill={item.color} />
                         ))}
                         <Label
                            content={<PieLabel label={`${total}%`} />}
@@ -80,6 +81,7 @@ export default _ => {
                   </h1>
                   <PieChart width={256} height={256}>
                      <Pie
+                        dataKey="value"
                         data={attendanceData}
                         cy={90}
                         innerRadius={60}
@@ -87,8 +89,8 @@ export default _ => {
                         fill="#8884d8"
                         paddingAngle={5}
                      >
-                        {attendanceData.map((item, index) => (
-                           <Cell fill={item.color} />
+                        {attendanceData.map((item, i) => (
+                           <Cell key={i} fill={item.color} />
                         ))}
                         <Label
                            content={
@@ -117,6 +119,7 @@ export default _ => {
          <div className="flex flex-col flex-1 rounded-sm gap-y-3 lg:mt-0">
             {messages.map(m => (
                <Announcement
+                  key={m.id}
                   senderImage="https://images.unsplash.com/photo-1584999734482-0361aecad844?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=800&q=80"
                   senderName={`${c.teacherId.firstName} ${c.teacherId.lastName}`}
                   time={moment(m.sent).fromNow()}

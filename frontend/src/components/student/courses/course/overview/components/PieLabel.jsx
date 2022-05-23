@@ -6,7 +6,7 @@ export default props => {
          x="128"
          y="95"
          className="text-4xl font-bold text-gray-500 fill-current font-gilroy"
-         text-anchor="middle"
+         textAnchor="middle"
       >
          <tspan x="128" dy="0.355em">
             {props.label}

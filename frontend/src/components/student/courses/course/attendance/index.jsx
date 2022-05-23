@@ -12,6 +12,7 @@ export default _ => {
          <div className="flex flex-col rounded-md gap-y-2">
             {c.attendance.map(a => (
                <div
+                  key={a.id}
                   className={`attendance-item p-4 tracking-wider ${
                      a.attended ? "bg-white" : "bg-red-50"
                   }`}

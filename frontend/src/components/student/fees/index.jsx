@@ -9,6 +9,7 @@ const classesQuery = gql`
          classSet {
             id
             courseId {
+               id
                code
                name
                creditHours
