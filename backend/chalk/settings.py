@@ -11,6 +11,7 @@ https://docs.djangoproject.com/en/3.1/ref/settings/
 """
 
 from pathlib import Path
+from telnetlib import AUTHENTICATION
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
@@ -40,7 +41,9 @@ INSTALLED_APPS = [
     "graphene_django",
     "django_filters",
     "chalk.api",
+
     "corsheaders",
+    "graphql_jwt.refresh_token.apps.RefreshTokenConfig",
 ]
 
 MIDDLEWARE = [
@@ -98,6 +101,12 @@ AUTH_PASSWORD_VALIDATORS = [
     {"NAME": "django.contrib.auth.password_validation.NumericPasswordValidator",},
 ]
 
+AUTHENTICATION_BACKENDS = [
+    "graphql_jwt.backends.JSONWebTokenMiddleware",
+    "django.contrib.auth.backends.ModelBackend",
+    ]
+
+AUTH_USER_MODEL = "api.Student"
 
 # Internationalization
 # https://docs.djangoproject.com/en/3.1/topics/i18n/
@@ -119,8 +128,12 @@ USE_TZ = True
 STATIC_URL = "/static/"
 
 GRAPHENE = {
-    "MIDDLEWARE": ["graphene_django.debug.DjangoDebugMiddleware",],
+    "MIDDLEWARE": [
+        "graphene_django.debug.DjangoDebugMiddleware",
+        "graphql_jwt.middleware.JSONWebTokenMiddleware",
+    ],
     "SCHEMA": "chalk.api.schema.schema",
 }
 
 CORS_ORIGIN_WHITELIST = ["http://localhost:3000", "http://127.0.0.1:3000"]
+

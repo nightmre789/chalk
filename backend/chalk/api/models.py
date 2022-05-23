@@ -1,7 +1,8 @@
+from unittest.util import _MAX_LENGTH
 from django.db import models
 from django import forms
 from django.conf import settings
-
+from django.contrib.auth.models import AbstractUser
 
 class Campus(models.Model):
     name = models.TextField(max_length=20, primary_key=True)
@@ -74,14 +75,19 @@ class Teacher(models.Model):
         return f"{self.first_name} {self.last_name}"
 
 
-class Student(models.Model):
+class Student(AbstractUser):
     program_id = models.ForeignKey(Program, on_delete=models.CASCADE)
+    password = models.CharField(max_length=15)
+    last_login = []
+    is_superuser = False
+    username = models.CharField(max_length=20, unique=True)
     roll_number = models.PositiveSmallIntegerField()
     first_name = models.CharField(max_length=100)
     last_name = models.CharField(max_length=100)
     section = models.CharField(max_length=1)
     batch = models.PositiveSmallIntegerField()
 
+    USERNAME_FIELD = "username"
     class Meta:
         models.UniqueConstraint(
             fields=["batch", "roll_number", "program_id__department_id__campus_id"],
