@@ -32,6 +32,10 @@ export default props => {
 
    let titleRef = useRef(null);
    let bodyRef = useRef(null);
+
+   useEffect(_ => {
+      props.setActivePage(2);
+   }, []);
    // useEffect(_ => {
    //    if (titleRef && bodyRef && !loading) {
    //       let t2 = new TimelineMax();

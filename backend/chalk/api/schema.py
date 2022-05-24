@@ -1,20 +1,22 @@
 import graphene
+import graphql_jwt
 
 from graphene import ObjectType
-from graphene_django import DjangoObjectType
-from graphene_django.debug import DjangoDebug
+
 from . import models
 from . import queries
 from . import mutations
+from .users import schema as userSchema
 
 
-class Query(queries.Query, ObjectType):
+class Query(userSchema.Query, queries.Query, ObjectType):
     pass
 
 
-class Mutation(mutations.Mutation, ObjectType):
-    pass
+class Mutation(userSchema.Mutation, mutations.Mutation, ObjectType):
+    token_auth = graphql_jwt.ObtainJSONWebToken.Field()
+    verify_token = graphql_jwt.Verify.Field()
+    refresh_token = graphql_jwt.Refresh.Field()
 
 
 schema = graphene.Schema(query=Query, mutation=Mutation)
-

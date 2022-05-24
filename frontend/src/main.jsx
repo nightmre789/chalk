@@ -1,13 +1,14 @@
 import React, { useState, useContext } from "react";
 import ReactDOM from "react-dom/client";
 
-import StudentApp from "@components/student";
 import { StateProvider, store } from "@components/Store";
 import { ApolloClient, ApolloProvider, InMemoryCache } from "@apollo/client";
+import { BrowserRouter as Router } from "react-router-dom";
 
+import StudentApp from "@components/student";
 import Login from "@components/login";
+
 import "./index.css";
-import Student from "./components/student";
 
 const client = new ApolloClient({
    uri: "http://localhost:8000/graphql",
@@ -34,7 +35,9 @@ ReactDOM.createRoot(document.getElementById("root")).render(
    <React.StrictMode>
       <StateProvider>
          <ApolloProvider client={client}>
-            <App />
+            <Router>
+               <App />
+            </Router>
          </ApolloProvider>
       </StateProvider>
    </React.StrictMode>

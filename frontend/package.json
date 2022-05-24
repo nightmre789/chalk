@@ -9,6 +9,7 @@
   },
   "dependencies": {
     "@apollo/client": "^3.6.4",
+    "framer-motion": "^6.3.3",
     "graphql": "^16.5.0",
     "gsap": "^3.10.4",
     "moment": "^2.29.3",

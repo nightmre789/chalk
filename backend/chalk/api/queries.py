@@ -1,10 +1,10 @@
 import graphene
+
 from datetime import datetime
 from graphene_django import DjangoObjectType, DjangoListField
 from django.db.models import Avg, Max, Min
 
 from . import models
-
 
 
 class CampusType(DjangoObjectType):
@@ -86,7 +86,6 @@ class MarkedItemType(DjangoObjectType):
     max = graphene.Float()
     mark = graphene.Field(MarkType, student_id=graphene.Int())
 
-
     class Meta:
         model = models.MarkedItem
 
@@ -133,6 +132,7 @@ class Query(object):
     teacher = graphene.Field(TeacherType, id=graphene.Int(), username=graphene.String())
 
     class_q = graphene.Field(ClassType, id=graphene.Int())
+
     classes = DjangoListField(ClassType)
 
     def resolve_campus(self, info, name="Karachi"):
@@ -182,6 +182,8 @@ class Query(object):
     def resolve_class_q(self, info, id=1):
         return models.Class.objects.get(id=id) if id is not None else None
 
+    def resolve_classes(self, info):
+        return models.Class.objects.all()
+
     # def resolve_department(self, info, id):
     #     return models.Campus.objects.get(id=id) if id is not None else None
-

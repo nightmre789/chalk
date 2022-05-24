@@ -102,7 +102,7 @@ class Class(models.Model):
 
     class Meta:
         models.UniqueConstraint(
-            fields=["teacher_id", "course_id", "semester_id"],
+            fields=["course_id", "semester_id", "section_name"],
             name="unique class per teacher per semester",
         )
 

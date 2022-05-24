@@ -1,5 +1,6 @@
 import React, { useState } from "react";
-import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
+import { Routes, Route, useLocation } from "react-router-dom";
+import { AnimatePresence } from "framer-motion";
 
 import Nav from "./components/Nav";
 import Dashboard from "./dashboard";
@@ -13,6 +14,7 @@ import Fees from "./fees";
 export default _ => {
    const [navOpen, setNavOpen] = useState(false);
    const [activePage, setActivePage] = useState(0);
+   const location = useLocation();
    const [navItems] = useState([
       { label: "Dashboard", icon: "dashboard", path: "/" },
       { label: "My Courses", icon: "courses", path: "/courses" },
@@ -22,21 +24,20 @@ export default _ => {
    ]);
 
    return (
-      <Router>
-         <div className="fixed w-full h-screen overflow-y-hidden bg-slate-200 md:p-4">
-            <div
-               className={`relative h-screen overflow-y-auto shadow-lg md:p-6 bg-slate-50 md:h-[97vh] md:flex`}
-            >
-               <Nav
-                  open={navOpen}
-                  setOpen={setNavOpen}
-                  items={navItems}
-                  activePage={activePage}
-                  setActivePage={setActivePage}
-               />
+      <div className="fixed w-full h-screen overflow-y-hidden bg-slate-200 md:p-4">
+         <div
+            className={`relative h-screen overflow-y-auto shadow-lg md:p-6 bg-slate-50 md:h-[97vh] md:flex`}
+         >
+            <Nav
+               open={navOpen}
+               setOpen={setNavOpen}
+               items={navItems}
+               activePage={activePage}
+               setActivePage={setActivePage}
+            />
 
-               <div className={`relative px-5 ml-auto md:pl-16 md:w-5/6`}>
-                  {/* <div className="absolute z-20 flex items-center w-full pr-5 gap-x-6">
+            <div className={`relative px-5 ml-auto md:pl-16 md:w-5/6`}>
+               {/* <div className="absolute z-20 flex items-center w-full pr-5 gap-x-6">
                      <div
                         className={
                            "p-2 duration-75 nav-button text-slate-400 hover:text-indigo-vivid-500  " +
@@ -69,9 +70,12 @@ export default _ => {
                         </div>
                      </div>
                   </div> */}
-
-                  <Routes>
-                     <Route path="/" element={<Dashboard />} />
+               <AnimatePresence exitBeforeEnter>
+                  <Routes location={location} key={location.pathname}>
+                     <Route
+                        path="/"
+                        element={<Dashboard setActivePage={setActivePage} />}
+                     />
                      <Route
                         path="courses/*"
                         element={<Courses setActivePage={setActivePage} />}
@@ -89,9 +93,9 @@ export default _ => {
                         element={<Fees setActivePage={setActivePage} />}
                      />
                   </Routes>
-               </div>
+               </AnimatePresence>
             </div>
          </div>
-      </Router>
+      </div>
    );
 };

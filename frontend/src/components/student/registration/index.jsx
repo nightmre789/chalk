@@ -78,6 +78,10 @@ export default props => {
       [loading, data]
    );
 
+   useEffect(_ => {
+      props.setActivePage(3);
+   }, []);
+
    // useEffect(_ => {
    //    if (titleRef && !loading) {
    //       let t1 = new TimelineMax();

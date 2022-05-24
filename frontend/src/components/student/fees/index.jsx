@@ -1,6 +1,9 @@
 import React, { useRef, useEffect, useContext } from "react";
 import { gql, useQuery } from "@apollo/client";
 import { store } from "@components/Store";
+import { motion } from "framer-motion";
+
+import SplitText from "@components/SplitText.jsx";
 
 const classesQuery = gql`
    query Messages($studentId: Int!) {
@@ -21,12 +24,9 @@ const classesQuery = gql`
 
 export default props => {
    const { state } = useContext(store);
-   useEffect(
-      _ => {
-         props.setActivePage(4);
-      },
-      [props]
-   );
+   useEffect(_ => {
+      props.setActivePage(4);
+   }, []);
 
    const studentId = state.id;
 
@@ -72,13 +72,53 @@ export default props => {
    }
 
    return (
-      <div className="lg:w-2/3 xl:w-1/2" ref={e => (bodyRef = e)}>
-         <h1
-            ref={e => (titleRef = e)}
-            className="mt-10 text-6xl font-bold tracking-tight text-center font-ff md:text-left"
-         >
-            Fee Challan
-         </h1>
+      <div className="lg:w-2/3 xl:w-1/2">
+         <div className="mt-10 overflow-hidden ">
+            <h1 className="text-6xl font-bold tracking-tight text-center font-ff md:text-left">
+               {/* <SplitText
+                  WordElement={({ children }) => (
+                     <motion.span
+                        animate={{
+                           y: 0,
+                           transition: {
+                              type: "tween",
+                              delayChildren: 0.6,
+                              staggerChildren: 0.04,
+                           },
+                        }}
+                     >
+                        {children}
+                     </motion.span>
+                  )}
+                  CharElement={({ children }) => (
+                     <motion.span
+                        animate={{
+                           y: 0,
+                           opacity: 1,
+                           transition: { duration: 1 },
+                        }}
+                        initial={{ y: 50, opacity: 0 }}
+                        exit={{ opacity: 1 }}
+                     >
+                        {children}
+                     </motion.span>
+                  )}
+               >
+                  Fee Challan
+               </SplitText> */}
+               <motion.div
+                  initial={{ y: 50, opacity: 0 }}
+                  animate={{
+                     y: 0,
+                     opacity: 1,
+                  }}
+                  exit={{ y: -50, opacity: 0 }}
+                  transition={{ type: "tween" }}
+               >
+                  Fee Challan
+               </motion.div>
+            </h1>
+         </div>
 
          <div className="flex flex-col mt-4 gap-y-2">
             <h2 className="text-lg text-gray-500 fee-item">

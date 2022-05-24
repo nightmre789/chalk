@@ -1,5 +1,6 @@
 import graphene
 
+from django.contrib.auth import get_user_model
 from graphene_django import DjangoObjectType
 from . import models
 
@@ -12,6 +13,11 @@ class RegistrationType(DjangoObjectType):
 class MessageType(DjangoObjectType):
     class Meta:
         model = models.Message
+
+
+class UserType(DjangoObjectType):
+    class Meta:
+        model = get_user_model()
 
 
 class Mutation(graphene.ObjectType):
@@ -34,4 +40,3 @@ class Mutation(graphene.ObjectType):
     def resolve_create_message(self, info, class_id, title, content):
         c = models.Class.objects.get(id=class_id)
         return models.Message.objects.create(class_id=c, title=title, content=content)
-
