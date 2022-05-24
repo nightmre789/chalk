@@ -1,7 +1,7 @@
 import React, { useEffect, useContext } from "react";
 import { Routes, Route, Link } from "react-router-dom";
 import { gql, useQuery } from "@apollo/client";
-import { store } from ".@components/Store";
+import { Store } from ".@components/Store";
 import SVG from "react-inlinesvg";
 
 import TeacherCoursesList from "./TeacherCoursesList";
@@ -27,7 +27,7 @@ const classesQuery = gql`
 `;
 
 export default props => {
-   const { state } = useContext(store);
+   const { state } = useContext(Store);
 
    const teacherId = state.id;
 
@@ -35,7 +35,7 @@ export default props => {
       variables: { teacherId },
    });
 
-   const { _, dispatch } = useContext(store);
+   const { _, dispatch } = useContext(Store);
 
    const logOut = _ => {
       dispatch({ type: "SET_ID", id: { id: -1, accountType: -1 } });

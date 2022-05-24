@@ -1,6 +1,7 @@
 from django.db import models
 from django import forms
 from django.conf import settings
+from django.contrib.auth.models import AbstractUser
 
 
 class Campus(models.Model):
@@ -186,3 +187,14 @@ class Mark(models.Model):
     student_id = models.ForeignKey(Student, on_delete=models.CASCADE)
     item_id = models.ForeignKey(MarkedItem, on_delete=models.CASCADE)
     mark = models.FloatField()
+
+
+class CustomUser(AbstractUser):
+    is_student = models.BooleanField(default=False)
+    is_teacher = models.BooleanField(default=False)
+    student_id = models.ForeignKey(
+        Student, on_delete=models.CASCADE, blank=True, null=True
+    )
+    teacher_id = models.ForeignKey(
+        Teacher, on_delete=models.CASCADE, blank=True, null=True
+    )

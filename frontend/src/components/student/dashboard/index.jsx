@@ -1,9 +1,9 @@
 import React, { useContext, useEffect } from "react";
-import { store } from "@components/Store";
+import { Store } from "@components/Store";
 import { motion } from "framer-motion";
 
 export default props => {
-   const { state, dispatch } = useContext(store);
+   const { state, dispatch } = useContext(Store);
    useEffect(_ => {
       props.setActivePage(0);
    }, []);

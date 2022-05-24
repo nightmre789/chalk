@@ -1,7 +1,7 @@
 import React, { useState, useContext, useEffect, useRef } from "react";
 import FormField from "./FormField";
-import { store } from "@components/Store";
 import { gql, useLazyQuery } from "@apollo/client";
+import { Store } from "@components/Store";
 import { gsap } from "gsap";
 
 import bg from "@assets/images/bg.jpg";
@@ -10,6 +10,11 @@ const loginQuery = gql`
    query Student($rollNumber: String!) {
       student(id: -1, rollNumber: $rollNumber) {
          id
+      }
+   }
+   mutation Student($username: String!, $password: String!) {
+      tokenAuth(username: $username, password: $password) {
+         token
       }
    }
 `;
@@ -30,7 +35,7 @@ export default props => {
    });
    const [rememberMe, setRememberMe] = useState(false);
 
-   const { state, dispatch } = useContext(store);
+   const { state, dispatch } = useContext(Store);
 
    const inputHandler = (e, field) => {
       const current = { ...input };

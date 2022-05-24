@@ -1,7 +1,7 @@
 import React, { useState, useContext } from "react";
 import { Route, Routes, Outlet, useParams } from "react-router-dom";
 import { gql, useQuery } from "@apollo/client";
-import { store } from "@components/Store";
+import { Store } from "@components/Store";
 
 import CourseNav from "./courseNav";
 
@@ -50,7 +50,7 @@ const classQuery = gql`
 `;
 
 export default props => {
-   const { state } = useContext(store);
+   const { state } = useContext(Store);
    const { id } = useParams();
    const studentId = state.id;
    const { loading, error, data } = useQuery(classQuery, {

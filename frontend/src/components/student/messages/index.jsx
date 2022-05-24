@@ -1,7 +1,7 @@
 import React, { useContext, useEffect, useRef } from "react";
 import Message from "./components/Message";
 import { gql, useQuery } from "@apollo/client";
-import { store } from "@components/Store";
+import { Store } from "@components/Store";
 // import { gsap, TimelineMax, Sine } from "gsap";
 
 const messageQuery = gql`
@@ -24,7 +24,7 @@ const messageQuery = gql`
 `;
 
 export default props => {
-   const { state } = useContext(store);
+   const { state } = useContext(Store);
    const studentId = state.id;
    const { loading, error, data } = useQuery(messageQuery, {
       variables: { studentId },

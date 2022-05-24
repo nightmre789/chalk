@@ -2,7 +2,7 @@ import React, { useRef, useEffect, useContext } from "react";
 import { gsap, Sine } from "gsap";
 import SVG from "react-inlinesvg";
 import useWindowSize from "@hooks/useWindowSize";
-import { store } from "@components/Store";
+import { Store } from "@components/Store";
 import { Link } from "react-router-dom";
 
 import NavItem from "./NavItem";
@@ -11,7 +11,7 @@ export default props => {
    let navSlider = useRef(null);
    const refs = props.items.map(_ => useRef(null));
    const size = useWindowSize();
-   const { state, dispatch } = useContext(store);
+   const { state, dispatch } = useContext(Store);
 
    const logOut = _ => {
       dispatch({ type: "SET_ID", id: { id: -1, accountType: -1 } });

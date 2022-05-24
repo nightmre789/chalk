@@ -1,7 +1,7 @@
 import React, { useEffect, useContext } from "react";
 import { Routes, Route } from "react-router-dom";
 import { gql, useQuery } from "@apollo/client";
-import { store } from "@components/Store";
+import { Store } from "@components/Store";
 
 import CoursesList from "./coursesList";
 import Course from "./course";
@@ -34,7 +34,7 @@ const classesQuery = gql`
 `;
 
 export default props => {
-   const { state } = useContext(store);
+   const { state } = useContext(Store);
    useEffect(_ => {
       props.setActivePage(1);
    }, []);

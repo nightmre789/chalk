@@ -1,21 +1,55 @@
 import React, { createContext, useReducer } from "react";
+import jwtDecode from "jwt-decode";
 
-const initialState = { id: 2198, accountType: 0 };
-const store = createContext(initialState);
-const { Provider } = store;
+const initialState = { id: 2198, accountType: 0, user: null };
+
+if (localStorage.getItem("token")) {
+   const token = jwtDecode(localStorage.getItem("token"));
+   if (token.exp * 1000 < Date.now()) localStorage.removeItem("token");
+   else initialState.user = token;
+}
+
+const Store = createContext({
+   id: 2198,
+   accountType: 0,
+   user: null,
+   login: loginData => {},
+   logout: _ => {},
+});
 
 const StateProvider = ({ children }) => {
    const [state, dispatch] = useReducer((state, action) => {
       switch (action.type) {
-         case "SET_ID":
-            const newState = action.id;
-            return newState;
+         case "LOGIN":
+            return {
+               ...state,
+               user: action.payload,
+            };
+         case "LOGOUT":
+            return {
+               ...state,
+               user: null,
+            };
          default:
-            throw new Error();
+            return state;
       }
    }, initialState);
 
-   return <Provider value={{ state, dispatch }}>{children}</Provider>;
+   const login = loginData => {
+      localStorage.setItem("token", loginData.token);
+      dispatch({ type: "LOGIN", payload: loginData });
+   };
+
+   const logout = _ => {
+      localStorage.removeItem("token");
+      dispatch({ type: "LOGOUT" });
+   };
+
+   return (
+      <Store.Provider value={{ state, dispatch, login, logout }}>
+         {children}
+      </Store.Provider>
+   );
 };
 
-export { store, StateProvider };
+export { Store, StateProvider };
